@@ -54,8 +54,8 @@ export default function CafeteriaPremiumPage() {
 			</section>
 
 			{/* Features / Artefatos Funcionais */}
-			<section className="relative z-20 mx-auto -mt-10 max-w-[1400px] px-6">
-				<FadeUp delay={0.2} className="mt-32 mb-16 flex items-center justify-between md:mb-24">
+			<section className="relative z-20 mx-auto  max-w-[1400px] px-6">
+				<FadeUp delay={0.2} className="pt-32 mb-16 flex items-center justify-between md:mb-24">
 					<h2 className="font-dm-serif text-5xl md:text-7xl">
 						Artefatos <br />
 						<span className="text-[#C49A5C] italic">Sensoriais.</span>
@@ -67,7 +67,7 @@ export default function CafeteriaPremiumPage() {
 					</p>
 				</FadeUp>
 
-				<div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+				<div className="grid grid-cols-1 gap-6 pb-32 md:grid-cols-3">
 					<FadeUp delay={0.3} className="h-full">
 						<OriginShuffler />
 					</FadeUp>
@@ -101,7 +101,7 @@ export default function CafeteriaPremiumPage() {
 			</section>
 
 			{/* Footer */}
-			<footer className="relative z-20 mt-12 overflow-hidden rounded-t-[3rem] bg-[#1A1208] px-6 py-20 text-[#FAF7F3] md:rounded-t-[4rem] md:py-32">
+			<footer className="relative z-20 mt-24 overflow-hidden rounded-t-[3rem] bg-[#1A1208] px-6 py-20 text-[#FAF7F3] md:rounded-t-[4rem] md:py-32">
 				<div className="mx-auto max-w-[1400px]">
 					<div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-32">
 						<div>

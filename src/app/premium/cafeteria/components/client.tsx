@@ -439,20 +439,20 @@ function StickyCard({
 	const cardRef = useRef<HTMLDivElement>(null)
 	const { scrollYProgress } = useScroll({ target: cardRef, offset: ["start start", "end start"] })
 
-	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95])
-	const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.6])
-	const filter = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(6px)"])
+	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9])
+	const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.4])
+	const filter = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(10px)"])
 
 	const isLast = index === total - 1
 
 	return (
 		<div
 			ref={cardRef}
-			className={`group sticky top-0 flex h-screen items-center justify-center p-6 ${!isLast ? "mb-[40vh]" : ""}`}
+			className={`group sticky top-0 flex h-[100svh] items-center justify-center p-6 ${!isLast ? "mb-[60vh]" : ""}`}
 		>
 			<motion.div
 				style={{ scale, opacity, filter }}
-				className="relative flex h-[65vh] w-full max-w-6xl origin-top flex-col justify-end overflow-hidden rounded-[2rem] bg-[#1A1208] p-6 shadow-2xl ring-0 transition-[box-shadow] group-hover:ring-1 group-hover:ring-[#C49A5C]/20 md:h-[80vh] md:p-10 lg:p-20"
+				className="relative flex h-[80svh] w-full max-w-6xl origin-top flex-col justify-end overflow-hidden rounded-[2rem] bg-[#1A1208] p-6 shadow-2xl ring-0 transition-[box-shadow] group-hover:ring-1 group-hover:ring-[#C49A5C]/20 md:h-[80svh] md:p-10 lg:p-20"
 			>
 				<div className="absolute inset-0 z-0">
 					{protocol.type === "video" ? (
