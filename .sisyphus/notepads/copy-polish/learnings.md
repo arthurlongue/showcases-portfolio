@@ -1,0 +1,4 @@
+- Polished Portuguese copy for high-end cafeteria showcase using sensorial and evocative language.
+- Used terms like 'Arquitetura Sensorial', 'Alquimia da Torra', and 'Ritual de Frescor' to elevate perceived value.
+- Consistent use of 'Fase' instead of 'Estágio' for a more refined process description.
+- Verified changes with 'tsc --noEmit' as 'pnpm build' was failing on unrelated pre-existing theme errors in other routes.
