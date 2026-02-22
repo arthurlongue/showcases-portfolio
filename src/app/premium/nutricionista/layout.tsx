@@ -3,12 +3,13 @@ import "./theme.css"
 
 export const metadata: Metadata = {
 	title: "Nutricionista Premium | Showcase",
-	description: "Veja além. Desbloqueie sua saúde através da nutrição com precisão clínica.",
+	description:
+		"Transforme sua relação com a alimentação. Nutrição funcional e personalizada para uma vida plena.",
 }
 
 export default function NutricionistaLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="nutricionista-theme dark min-h-screen bg-background text-foreground selection:bg-primary/30">
+		<div className="nutricionista-theme min-h-screen bg-(--nutri-warm) text-(--nutri-text-main) antialiased selection:bg-(--nutri-forest)/20">
 			{children}
 		</div>
 	)

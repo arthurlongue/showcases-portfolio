@@ -1,14 +1,5 @@
 # P7. CutTheCode
 
-> **Source:** cutthecode.com
-> **Reference:** `P7-cutthecode.webp`
-> **Category:** Premium
-> **Best For:** Digital agencies, studios, creative services, no-code shops, Webflow agencies
-
-**Visual DNA:** Dark agency portfolio with pink/lavender accents, vibrant project showcase cards, scrolling marquee bands, client logos on light contrast sections, and a modern no-code/creative agency vibe.
-
----
-
 ## Design Tokens
 
 ```css

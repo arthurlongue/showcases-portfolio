@@ -1,14 +1,5 @@
 # P2. Klarna
 
-> **Source:** klarna.com
-> **Reference:** `P2-klarna.webp`
-> **Category:** Premium
-> **Best For:** Fintech, consumer apps, bold consumer brands, payments, lifestyle tech
-
-**Visual DNA:** Dark-mode fintech with bold oversized typography, mixed-media collages (photography + 3D renders + UI screenshots), playful inline emoji icons, and accent pops of pink and green on black.
-
----
-
 ## Design Tokens
 
 ```css

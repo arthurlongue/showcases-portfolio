@@ -1,14 +1,5 @@
 # P1. Cosmos Network
 
-> **Source:** cosmos.network
-> **Reference:** `P1-cosmos-network.webp`
-> **Category:** Premium
-> **Best For:** Web3, crypto, futuristic products, blockchain platforms, developer ecosystems
-
-**Visual DNA:** Deep-space dark theme with vibrant multi-color gradient orbs, floating 3D celestial objects, ethereal glowing backgrounds, and glassmorphism cards. A "digital cosmos" aesthetic that conveys frontier technology.
-
----
-
 ## Design Tokens
 
 ```css

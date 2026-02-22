@@ -1,14 +1,5 @@
 # P6. FutureGreenSteps
 
-> **Source:** futuregreensteps.com
-> **Reference:** `P6-futuregreensteps.webp`
-> **Category:** Premium
-> **Best For:** Sustainability, clean-tech, ESG platforms, green finance, climate startups
-
-**Visual DNA:** Dark sustainability theme with electric lime/neon-green accents on pure black. Geometric grid patterns, green icon badges on dark cards, and high-contrast CTA sections in vivid lime.
-
----
-
 ## Design Tokens
 
 ```css

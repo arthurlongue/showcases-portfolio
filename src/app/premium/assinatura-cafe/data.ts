@@ -5,24 +5,24 @@ export const auraData = {
 			"Curadoria mensal de microlotes exclusivos, torrados sob demanda. Receba em casa a expressão máxima de cada grão.",
 		cta: "Assinar Agora",
 		video: "/showcases/assinatura-cafe/hero.mp4",
-		poster: "/showcases/assinatura-cafe/hero-poster.jpeg",
+		poster: "/showcases/assinatura-cafe/hero-poster.webp",
 	},
 	features: {
 		origins: [
 			{
 				region: "Mantiqueira",
 				notes: "Chocolate // Avelã // Doce de Leite",
-				image: "/showcases/assinatura-cafe/mantiqueira.jpeg",
+				image: "/showcases/assinatura-cafe/mantiqueira.webp",
 			},
 			{
 				region: "Cerrado",
 				notes: "Caramelo // Frutas Amarelas // Mel",
-				image: "/showcases/assinatura-cafe/cerrado.jpeg",
+				image: "/showcases/assinatura-cafe/cerrado.webp",
 			},
 			{
 				region: "Caparaó",
 				notes: "Melaço // Rapadura // Frutas Vermelhas",
-				image: "/showcases/assinatura-cafe/caparao.jpeg",
+				image: "/showcases/assinatura-cafe/caparao.webp",
 			},
 		],
 		sensorial: [
@@ -36,7 +36,7 @@ export const auraData = {
 		prefix: "Fazer parte não é apenas beber.",
 		highlight: "É pertencer ao nosso",
 		serif: "clube.",
-		image: "/showcases/assinatura-cafe/filosofia.jpeg",
+		image: "/showcases/assinatura-cafe/filosofia.webp",
 	},
 	protocol: [
 		{
@@ -44,7 +44,7 @@ export const auraData = {
 			description:
 				"Acesso restrito a microlotes premiados. Rastreabilidade total e seleção rigorosa para garantir a exclusividade do seu plano.",
 			media: "/showcases/assinatura-cafe/protocolo-1.mp4",
-			poster: "/showcases/assinatura-cafe/protocolo-1-poster.jpeg",
+			poster: "/showcases/assinatura-cafe/protocolo-1-poster.webp",
 			type: "video" as const,
 		},
 		{
@@ -52,18 +52,18 @@ export const auraData = {
 			description:
 				"Não trabalhamos com estoques. Torramos o grão da sua assinatura apenas após o pedido, preservando cada nota sensorial.",
 			media: "/showcases/assinatura-cafe/protocolo-2.mp4",
-			poster: "/showcases/assinatura-cafe/protocolo-2-poster.jpeg",
+			poster: "/showcases/assinatura-cafe/protocolo-2-poster.webp",
 			type: "video" as const,
 		},
 		{
 			title: "Entrega em Casa.",
 			description:
 				"Conveniência e frescor absoluto. Receba seus grãos em casa, prontos para o seu ritual diário de café especial.",
-			media: "/showcases/assinatura-cafe/protocolo-3.jpeg",
+			media: "/showcases/assinatura-cafe/protocolo-3.webp",
 			type: "image" as const,
 		},
 	],
 	footer: {
-		image: "/showcases/assinatura-cafe/cerrado.jpeg",
+		image: "/showcases/assinatura-cafe/cerrado.webp",
 	},
 }

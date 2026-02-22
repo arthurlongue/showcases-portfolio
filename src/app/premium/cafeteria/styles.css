@@ -1,0 +1,61 @@
+.cafeteria-theme {
+	/* Background & Surface */
+	--color-brutal-bg: #050505;
+	--color-brutal-bg-light: #111111;
+	--color-brutal-surface: #0a0a0a;
+	--color-brutal-surface-dark: #1a1a1a;
+
+	/* Accent */
+	--color-brutal-accent: #ff3300;
+	--color-brutal-accent-dark: #cc2900;
+	--color-brutal-accent-light: #ff5c33;
+
+	/* Text */
+	--color-brutal-text: #f4f4f0;
+	--color-brutal-text-muted: #999999;
+	--color-brutal-text-light: #050505;
+
+	/* Borders & Shadows */
+	--color-brutal-border: #f4f4f0;
+	--brutal-border-width: 2px;
+	--brutal-shadow: 4px 4px 0px #f4f4f0;
+	--brutal-shadow-lg: 8px 8px 0px #f4f4f0;
+	--brutal-shadow-hover: 6px 6px 0px #f4f4f0;
+
+	/* Typography */
+	--font-heading: var(--font-anton);
+	--font-body: var(--font-inter);
+	--font-mono: var(--font-jetbrains);
+
+	/* Spacing */
+	--brutal-radius: 0px;
+}
+
+/* Hero Text */
+.hero-text {
+	font-family: var(--font-heading);
+	font-size: clamp(4rem, 18vw, 20rem);
+	line-height: 0.85;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+	margin: 0;
+}
+
+/* Cinematic Image */
+.cinematic-img {
+	filter: grayscale(40%) contrast(120%) brightness(0.8);
+	object-fit: cover;
+}
+
+/* Noise Overlay */
+.noise-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	z-index: 50;
+	opacity: 0.04;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}

@@ -1,14 +1,5 @@
 # P8. Humbleteam
 
-> **Source:** humbleteam.com
-> **Reference:** `P8-humbleteam.webp`
-> **Category:** Premium
-> **Best For:** Startup agencies, creative studios, product consultancies, playful B2B brands
-
-**Visual DNA:** Maximum personality — bold orange-red, black, and white with custom cartoon illustrations, quirky mascots, shipping-label sticker aesthetic, hand-drawn underlines, and irreverent copywriting baked into the design.
-
----
-
 ## Design Tokens
 
 ```css

@@ -1,14 +1,5 @@
 # P9. Gumroad
 
-> **Source:** gumroad.com
-> **Reference:** `P9-gumroad.webp`
-> **Category:** Premium
-> **Best For:** Creator economy, marketplaces, indie tools, community platforms, zine/DIY brands
-
-**Visual DNA:** Hot pink maximalism, hand-drawn doodle illustrations, bold sans-serif on bright color blocks, pop-art/zine energy with real photo cutouts and illustrated overlays. The internet's friendliest startup.
-
----
-
 ## Design Tokens
 
 ```css

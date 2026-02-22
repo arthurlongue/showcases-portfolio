@@ -1,14 +1,5 @@
 # S4. OlympusDAO
 
-> **Source:** olympusdao.finance
-> **Reference:** `S4-olympus-dao.webp`
-> **Category:** Standard
-> **Best For:** DeFi protocols, financial platforms, treasury dashboards, token/crypto projects
-
-**Visual DNA:** Refined beige/cream DeFi site with 3D rendered gold coins, soft warm shadows, neutral palette, clean data presentation, and a sophisticated "traditional finance meets Web3" aesthetic.
-
----
-
 ## Design Tokens
 
 ```css

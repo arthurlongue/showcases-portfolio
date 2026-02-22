@@ -1,14 +1,5 @@
 # S9. ClearBank
 
-> **Source:** clear.bank
-> **Reference:** `S9-clearbank.webp`
-> **Category:** Standard
-> **Best For:** B2B fintech, banking APIs, infrastructure platforms, enterprise SaaS
-
-**Visual DNA:** Ultra-clean fintech B2B — maximum whitespace, minimal color (only hot pink for CTAs), crisp lightweight typography, a single 3D abstract render as hero art, and confidence through extreme restraint.
-
----
-
 ## Design Tokens
 
 ```css

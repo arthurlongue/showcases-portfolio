@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+	--color-brand-dark: #0a192f;
+	--color-brand-light: #f0f4f8;
+	--color-brand-accent: #00a8cc;
+	--color-brand-white: #ffffff;
+	--color-text-main: #0a192f;
+	--color-text-muted: #4a5568;
+
+	--font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+	.dentista-theme {
+		@apply font-sans text-text-main bg-brand-light antialiased selection:bg-brand-dark selection:text-brand-white;
+	}
+}

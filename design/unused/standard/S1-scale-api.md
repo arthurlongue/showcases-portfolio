@@ -1,14 +1,5 @@
 # S1. Scale API
 
-> **Source:** scaleapi.com
-> **Reference:** `S1-scale-api.webp`
-> **Category:** Standard
-> **Best For:** API platforms, developer tools, data services, B2B SaaS, AI/ML products
-
-**Visual DNA:** SaaS gradient header (purple-to-pink), clean white content body, circular icon grids, code blocks, social proof enterprise logos, and a standard top-to-bottom conversion funnel layout.
-
----
-
 ## Design Tokens
 
 ```css

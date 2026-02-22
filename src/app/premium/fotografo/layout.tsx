@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import "./theme.css"
 
 export const metadata: Metadata = {
 	title: "Aurora Photography | Premium Showcase",
@@ -8,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function FotografoLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="fotografo-theme light min-h-screen overflow-hidden bg-background font-sans text-foreground antialiased selection:bg-[var(--foto-accent-pink)]/30">
+		<div className="min-h-screen bg-background font-sans text-foreground antialiased">
 			{children}
 		</div>
 	)

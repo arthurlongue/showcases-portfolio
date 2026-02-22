@@ -1,14 +1,5 @@
 # S5. Merchlink
 
-> **Source:** merchlink.io
-> **Reference:** `S5-merchlink.webp`
-> **Category:** Standard
-> **Best For:** E-commerce SaaS, partnership platforms, marketplace tools, brand collaboration tools
-
-**Visual DNA:** Purple-accent SaaS — white base, vibrant purple CTAs and gradient rings, phone mockups as hero visuals, colorful bento feature cards, and a standard SaaS conversion funnel layout.
-
----
-
 ## Design Tokens
 
 ```css

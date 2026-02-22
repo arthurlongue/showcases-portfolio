@@ -1,246 +1,671 @@
-import { ChevronRight, ScanFace } from "lucide-react"
+"use client"
+
 import {
-	AmbientOrbs,
-	FloatingElement,
-	GlassCard,
-	GlowingButton,
-	RevealSection,
-} from "./components/client"
-import { Icons } from "./components/icons"
-import { dentData } from "./data"
+	ArrowRight,
+	Clock,
+	FileText,
+	Instagram,
+	Menu,
+	Microscope,
+	Shield,
+	Sparkles,
+	User,
+} from "lucide-react"
+import { AnimatePresence, motion } from "motion/react"
+import Image from "next/image"
+import { useState } from "react"
 
-export default function DentistaPremiumPage() {
+const navLinkClass =
+	"cursor-pointer transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-light rounded-sm"
+
+const iconButtonClass =
+	"flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-brand-dark text-brand-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:bg-brand-dark/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-light active:scale-95"
+
+const primaryButtonClass =
+	"cursor-pointer rounded-full bg-brand-dark px-6 py-3 text-sm font-medium text-brand-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-brand-dark/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-light active:scale-95 active:translate-y-0"
+
+const footerLinkClass =
+	"cursor-pointer transition-colors hover:text-brand-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark rounded-sm"
+
+const heroImageUrl = "/showcases/dentista/consultorio-premium.jpeg"
+const estheticImageUrl = "/showcases/dentista/textura-agua.png"
+const treatmentsImageUrl = "/showcases/dentista/alinhador-transparente.png"
+const digitalImageUrl = "/showcases/dentista/scanner-digital.png"
+const galleryImageUrl = "/showcases/dentista/recepcao-clinica.jpeg"
+
+function Hero() {
 	return (
-		<main className="relative min-h-screen overflow-hidden bg-[var(--dent-bg-primary)] font-sans text-[var(--dent-text-primary)] selection:bg-[var(--dent-accent-blue)]/30 selection:text-white">
-			{/* Cosmic Background Orbs */}
-			<AmbientOrbs />
-
-			{/* Noise Overlay */}
-			<div
-				className="pointer-events-none fixed inset-0 z-0 opacity-[0.03] mix-blend-overlay"
-				style={{
-					backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-				}}
-			/>
-
-			{/* Navigation */}
-			<nav className="fixed top-0 z-50 flex w-full items-center justify-between border-white/5 border-b bg-[var(--dent-bg-primary)]/50 px-6 py-4 backdrop-blur-xl">
-				<div className="flex items-center gap-2">
-					<div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[var(--dent-accent-blue)] to-[var(--dent-accent-purple)] p-[1px]">
-						<div className="flex h-full w-full items-center justify-center rounded-full bg-[var(--dent-bg-primary)]">
-							<div className="h-3 w-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
-						</div>
+		<section className="relative flex min-h-screen flex-col px-6 pt-6 pb-6 overflow-hidden">
+			<div className="relative z-10 flex items-start justify-between">
+				<motion.h1
+					initial={{ opacity: 0, y: 50 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+					className="text-[clamp(80px,15vw,200px)] leading-[0.8] font-black tracking-tighter text-brand-dark"
+				>
+					Lumière<sup className="text-[clamp(20px,4vw,60px)] font-bold">®</sup>
+				</motion.h1>
+				<motion.div
+					initial={{ opacity: 0, y: -20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+					className="mt-4 flex items-start gap-8"
+				>
+					<div className="hidden items-center gap-6 text-sm font-medium md:flex">
+						<a href="#" className={navLinkClass}>
+							Tratamentos
+						</a>
+						<a href="#" className={navLinkClass}>
+							Sobre nós
+						</a>
+						<a href="#" className={navLinkClass}>
+							Contato
+						</a>
 					</div>
-					<span className="font-bold text-lg tracking-tight">CosmoDent</span>
+					<div className="flex items-center gap-2">
+						<button type="button" className={iconButtonClass}>
+							<User size={16} />
+						</button>
+						<button type="button" className={iconButtonClass}>
+							<Menu size={16} />
+						</button>
+					</div>
+				</motion.div>
+			</div>
+
+			<motion.div
+				initial={{ opacity: 0, x: 50 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+				className="absolute top-0 right-6 z-10 mt-32 hidden text-right lg:block"
+			>
+				<h2 className="text-4xl leading-none font-bold tracking-tight text-brand-dark">
+					Odontologia
+					<br />
+					Personalizada
+				</h2>
+			</motion.div>
+
+			<motion.div
+				initial={{ scale: 1.1, opacity: 0 }}
+				animate={{ scale: 1, opacity: 1 }}
+				transition={{ duration: 1.5, ease: "easeOut" }}
+				className="relative mt-8 flex-grow overflow-hidden rounded-2xl bg-brand-white"
+			>
+				<motion.div
+					animate={{ scale: 1.1 }}
+					transition={{
+						duration: 20,
+						repeat: Number.POSITIVE_INFINITY,
+						repeatType: "reverse",
+						ease: "linear",
+					}}
+					className="absolute inset-0"
+				>
+					<Image
+						src={heroImageUrl}
+						alt="Clínica Lumière"
+						fill
+						className="object-cover"
+						sizes="100vw"
+						priority
+					/>
+				</motion.div>
+				<div className="absolute inset-0 bg-gradient-to-b from-brand-light/40 to-transparent" />
+			</motion.div>
+
+			<motion.div
+				initial={{ opacity: 0, y: 30 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+				className="mt-6 flex flex-col items-center justify-between gap-4 md:flex-row"
+			>
+				<p className="text-lg font-medium text-brand-dark">Mais conforto, precisão e estética!</p>
+				<div className="flex gap-4">
+					<button type="button" className={primaryButtonClass}>
+						Agendar Avaliação
+					</button>
+					<button type="button" className={primaryButtonClass}>
+						Ver Tratamentos
+					</button>
 				</div>
-				<ul className="hidden gap-8 font-medium text-[var(--dent-text-secondary)] text-sm md:flex">
-					<li className="cursor-pointer transition-colors hover:text-white">Protocolo</li>
-					<li className="cursor-pointer transition-colors hover:text-white">Tecnologia</li>
-					<li className="cursor-pointer transition-colors hover:text-white">Pacientes</li>
-				</ul>
-				<GlowingButton className="px-5 py-2 text-xs">Avaliação 3D</GlowingButton>
-			</nav>
+			</motion.div>
+		</section>
+	)
+}
 
-			{/* Hero Section */}
-			<section className="relative z-10 mx-auto flex min-h-screen max-w-[1200px] items-center px-6 pt-32 pb-20">
-				<div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2">
-					{/* Left Content */}
-					<RevealSection className="pr-4">
-						<div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 backdrop-blur-md">
-							<div className="h-2 w-2 animate-pulse rounded-full bg-[var(--dent-accent-blue)] shadow-[0_0_10px_rgba(0,194,255,0.5)]" />
-							<span className="font-semibold text-[var(--dent-text-secondary)] text-xs uppercase tracking-wider">
-								Próxima Geração
-							</span>
-						</div>
+function Statement() {
+	const statementItems = [
+		{
+			title: "Soluções Flexíveis",
+			desc: "Pare de depender de tratamentos genéricos. Tenha um plano feito sob medida.",
+		},
+		{
+			title: "Orçamentos Claros",
+			desc: "Saiba exatamente o que está pagando. Sem taxas ocultas. Sem promessas irreais.",
+		},
+		{
+			title: "Totalmente Personalizável",
+			desc: "Controle todos os aspectos do seu tratamento. Adicione serviços complementares facilmente.",
+		},
+		{
+			title: "Cuidado Pessoal",
+			desc: "Receba suporte completo do nosso time de especialistas. Estamos com você em cada etapa.",
+		},
+	] as const
 
-						<h1 className="mb-6 font-extrabold text-[clamp(48px,6vw,72px)] leading-[1.05] tracking-[-0.02em]">
-							{dentData.hero.headline.split(".")[0]}
-							<span className="text-[var(--dent-accent-blue)]">.</span>
-						</h1>
+	return (
+		<section className="mx-auto max-w-7xl px-6 py-24">
+			<motion.h2
+				initial={{ opacity: 0, y: 30 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ duration: 0.8, ease: "easeOut" }}
+				className="mb-20 max-w-5xl text-[clamp(32px,5vw,64px)] leading-[1.1] font-bold tracking-tight text-brand-dark"
+			>
+				Acreditamos que em um mundo onde pacientes viraram números, uma abordagem pessoal é a chave
+				para garantir que você tenha a melhor experiência odontológica.
+			</motion.h2>
 
-						<p className="mb-10 max-w-lg text-[clamp(16px,1.2vw,18px)] text-[var(--dent-text-secondary)] leading-[1.6]">
-							{dentData.hero.subheadline}
-						</p>
+			<div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+				{statementItems.map((item, i) => (
+					<motion.div
+						key={item.title}
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, margin: "-100px" }}
+						transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+					>
+						<div className="mb-6 h-0.5 w-full bg-brand-dark" />
+						<h3 className="mb-3 text-lg font-bold text-brand-dark">{item.title}</h3>
+						<p className="text-sm leading-relaxed text-text-muted">{item.desc}</p>
+					</motion.div>
+				))}
+			</div>
+		</section>
+	)
+}
 
-						<div className="flex flex-wrap items-center gap-4">
-							<GlowingButton className="glow-blue px-8 py-4 text-base">
-								{dentData.hero.cta}
-							</GlowingButton>
-							<button
-								type="button"
-								className="group flex items-center gap-2 px-6 py-4 font-medium text-[var(--dent-text-secondary)] text-sm transition-colors hover:text-white"
-							>
-								Ver Tecnologia
-								<ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-							</button>
-						</div>
-					</RevealSection>
-
-					{/* Right 3D/Abstract Visual */}
-					<div className="perspective-[1000px] relative mx-auto h-[500px] w-full max-w-[600px] lg:mx-0">
-						<FloatingElement speed={0.8}>
-							<div className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-[40px] border border-white/10 bg-gradient-to-tr from-[var(--dent-accent-purple)]/20 to-[var(--dent-accent-blue)]/20 shadow-[0_0_100px_rgba(123,97,255,0.2)] backdrop-blur-3xl">
-								{/* Pseudo-3D Mesh/Scan Representation */}
-								<div
-									className="flex h-[80%] w-[80%] animate-spin-slow items-center justify-center rounded-full border-[0.5px] border-white/20"
-									style={{ animationDuration: "40s" }}
-								>
-									<div className="flex h-[80%] w-[80%] flex-col items-center justify-center gap-2 rounded-full border-[0.5px] border-[var(--dent-accent-blue)]/40">
-										<div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[var(--dent-accent-pink)]/50 to-transparent" />
-										<div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[var(--dent-accent-blue)]/80 to-transparent" />
-										<div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[var(--dent-accent-purple)]/50 to-transparent" />
-									</div>
-								</div>
-
-								{/* Floating Scanned Tooth abstract representation */}
-								<div className="glow-blue absolute top-1/2 left-1/2 flex h-40 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[40%] border border-white/30 bg-white/5 shadow-[0_0_50px_rgba(255,255,255,0.1)] backdrop-blur-md">
-									<ScanFace className="h-12 w-12 text-[var(--dent-accent-blue)] opacity-80" />
-								</div>
-							</div>
-						</FloatingElement>
-					</div>
-				</div>
-			</section>
-
-			{/* Metrics Section */}
-			<section className="relative z-10 mx-auto -mt-10 max-w-[1200px] px-6 sm:px-12 lg:-mt-20">
-				<GlassCard className="p-8 md:p-12">
-					<div className="grid grid-cols-1 gap-8 divide-y divide-white/10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-y-0">
-						{dentData.metrics.map((metric, i) => (
-							<RevealSection
-								key={i}
-								delay={i * 0.15}
-								className={`flex flex-col items-center justify-center ${i !== 0 ? "pt-8 md:pt-0 md:pl-8" : "pb-8 md:pr-8 md:pb-0"}`}
-							>
-								<div className="mb-2 bg-gradient-to-r from-white to-[var(--dent-text-secondary)] bg-clip-text font-extrabold text-4xl text-transparent tracking-tight md:text-[clamp(40px,4vw,56px)]">
-									{metric.value}
-								</div>
-								<div className="font-semibold text-[var(--dent-accent-blue)] text-xs uppercase tracking-[0.15em]">
-									{metric.label}
-								</div>
-							</RevealSection>
-						))}
-					</div>
-				</GlassCard>
-			</section>
-
-			{/* Technology Trio */}
-			<section className="relative z-10 mx-auto max-w-[1200px] px-6 py-32">
-				<RevealSection className="mb-16 text-center">
-					<h2 className="mb-4 font-bold text-[clamp(32px,4vw,48px)] tracking-tight">
-						O Software do Sorriso
+function SplitServices() {
+	return (
+		<section className="grid h-auto w-full grid-cols-1 lg:h-[600px] lg:grid-cols-3">
+			<div className="flex flex-col justify-between bg-brand-dark p-12 text-brand-white">
+				<motion.div
+					initial={{ opacity: 0, x: -30 }}
+					whileInView={{ opacity: 1, x: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.8 }}
+				>
+					<h2 className="mb-8 text-5xl font-bold tracking-tight">
+						Serviços
+						<br />
+						Especializados
 					</h2>
-					<p className="mx-auto max-w-2xl text-[var(--dent-text-secondary)]">
-						Hardware militar aplicado à odontologia estética. Cada etapa é matemática.
+				</motion.div>
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.8, delay: 0.2 }}
+				>
+					<p className="mb-8 text-brand-white/80">
+						Soluções inteligentes para todas as suas necessidades odontológicas
 					</p>
-				</RevealSection>
+					<button
+						type="button"
+						className="cursor-pointer rounded-full border border-brand-white/30 px-6 py-3 text-sm font-medium transition-colors hover:bg-brand-white hover:text-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
+					>
+						Todos os Serviços
+					</button>
+				</motion.div>
+			</div>
+			<div className="group overflow-hidden relative h-[400px] bg-gray-200 lg:h-auto">
+				<Image
+					src={estheticImageUrl}
+					alt="Estética"
+					fill
+					className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+					sizes="(min-width: 1024px) 33vw, 100vw"
+				/>
+				<div className="absolute inset-0 bg-brand-dark/10 transition-colors duration-500 group-hover:bg-transparent" />
+				<div className="absolute bottom-8 left-8 text-3xl font-bold text-brand-white">Estética</div>
+			</div>
+			<div className="group relative flex h-[400px] flex-col justify-end overflow-hidden bg-brand-accent p-12 text-brand-white lg:h-auto">
+				<svg
+					className="absolute top-12 right-12 h-32 w-32 opacity-50 transition-transform duration-500 group-hover:scale-110 group-hover:opacity-80"
+					viewBox="0 0 100 100"
+				>
+					<title>Trajetória de tratamento</title>
+					<path
+						d="M10,90 Q50,10 90,90"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="2"
+						strokeDasharray="5,5"
+					/>
+					<circle cx="90" cy="90" r="3" fill="currentColor" />
+				</svg>
+				<h2 className="relative z-10 text-3xl font-bold">Reabilitação</h2>
+			</div>
+		</section>
+	)
+}
 
-				<div className="grid grid-cols-1 gap-[var(--gap-cards)] md:grid-cols-3">
-					{dentData.tech.map((item, i) => {
-						const IconComponent = Icons[item.icon as keyof typeof Icons]
+function PopularTreatments() {
+	const items = [
+		{
+			id: 1,
+			title: "Lentes de Contato",
+			cat: "Estética",
+			image:
+				"https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1200&auto=format&fit=crop",
+		},
+		{
+			id: 2,
+			title: "Implantes",
+			cat: "Reabilitação",
+			image:
+				"https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1200&auto=format&fit=crop",
+		},
+		{ id: 3, title: "Invisalign", cat: "Ortodontia", image: treatmentsImageUrl },
+		{
+			id: 4,
+			title: "Clareamento",
+			cat: "Estética",
+			image:
+				"https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop",
+		},
+	] as const
+
+	const [activeId, setActiveId] = useState<number>(items[0].id)
+	const activeItem = items.find((item) => item.id === activeId) || items[0]
+
+	return (
+		<section className="mx-auto max-w-7xl px-6 py-24">
+			<motion.h2
+				initial={{ opacity: 0, y: 30 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ duration: 0.8 }}
+				className="mb-12 text-4xl font-bold tracking-tight text-brand-dark"
+			>
+				Tratamentos Populares
+			</motion.h2>
+			<div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+				<motion.div
+					initial={{ opacity: 0, scale: 0.95 }}
+					whileInView={{ opacity: 1, scale: 1 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.8 }}
+					className="relative h-[400px] overflow-hidden rounded-2xl bg-brand-dark/5"
+				>
+					<AnimatePresence mode="popLayout">
+						<motion.div
+							key={activeItem.id}
+							initial={{ opacity: 0, scale: 1.05 }}
+							animate={{ opacity: 1, scale: 1 }}
+							exit={{ opacity: 0, scale: 0.95 }}
+							transition={{ duration: 0.5, ease: "easeInOut" }}
+							className="absolute inset-0"
+						>
+							<Image
+								src={activeItem.image}
+								alt={activeItem.title}
+								fill
+								className="object-cover"
+								sizes="(min-width: 1024px) 50vw, 100vw"
+							/>
+						</motion.div>
+					</AnimatePresence>
+				</motion.div>
+				<div className="flex flex-col justify-center gap-8">
+					{items.map((item, i) => {
+						const isActive = item.id === activeId
 						return (
-							<RevealSection key={i} delay={i * 0.2}>
-								<GlassCard glow className="h-full">
-									<div
-										className={`mb-8 flex h-14 w-14 items-center justify-center rounded-full border border-white/20 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)] ${i === 0 ? "bg-[var(--dent-accent-blue)]/10 text-[var(--dent-accent-blue)]" : i === 1 ? "bg-[var(--dent-accent-purple)]/10 text-[var(--dent-accent-purple)]" : "bg-[var(--dent-accent-pink)]/10 text-[var(--dent-accent-pink)]"}`}
-									>
-										<IconComponent className="h-6 w-6" />
-									</div>
-									<h3 className="mb-4 font-bold text-2xl">{item.title}</h3>
-									<p className="text-[var(--dent-text-secondary)] text-sm leading-relaxed">
-										{item.desc}
-									</p>
-								</GlassCard>
-							</RevealSection>
+							<motion.div
+								key={item.id}
+								initial={{ opacity: 0, x: 20 }}
+								whileInView={{ opacity: 1, x: 0 }}
+								viewport={{ once: true, margin: "-50px" }}
+								transition={{ duration: 0.6, delay: i * 0.1 }}
+								className={`cursor-pointer border-b pb-4 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 rounded-sm ${isActive ? "border-brand-dark pl-4 opacity-100" : "border-gray-300 opacity-50 hover:opacity-80"}`}
+								onClick={() => setActiveId(item.id)}
+								onMouseEnter={() => setActiveId(item.id)}
+								tabIndex={0}
+								onKeyDown={(e) => {
+									if (e.key === "Enter" || e.key === " ") {
+										e.preventDefault()
+										setActiveId(item.id)
+									}
+								}}
+							>
+								<h3
+									className={`mb-2 text-2xl font-bold transition-colors duration-300 ${isActive ? "text-brand-dark" : "text-brand-dark/70"}`}
+								>
+									{item.title}
+								</h3>
+								<p className="text-sm text-text-muted">{item.cat}</p>
+							</motion.div>
 						)
 					})}
 				</div>
-			</section>
+			</div>
+		</section>
+	)
+}
 
-			{/* Protocol Section */}
-			<section className="relative z-10 border-white/5 border-t border-b bg-[var(--dent-bg-secondary)]/50 px-6 py-32">
-				<div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-20 lg:grid-cols-2">
-					<RevealSection>
-						<h2 className="mb-12 font-bold text-[clamp(32px,4vw,48px)] tracking-tight">
-							{dentData.process.headline}
-						</h2>
+function DigitalCare() {
+	return (
+		<section className="bg-brand-dark px-6 py-24 text-brand-white">
+			<div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
+				<motion.div
+					initial={{ opacity: 0, scale: 0.95 }}
+					whileInView={{ opacity: 1, scale: 1 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.8 }}
+					className="order-2 flex justify-center lg:order-1"
+				>
+					<Image
+						src={digitalImageUrl}
+						alt="Tecnologia 3D"
+						width={700}
+						height={900}
+						className="max-h-[600px] rounded-3xl object-cover"
+						sizes="(min-width: 1024px) 40vw, 90vw"
+					/>
+				</motion.div>
+				<motion.div
+					initial={{ opacity: 0, x: 30 }}
+					whileInView={{ opacity: 1, x: 0 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.8, delay: 0.2 }}
+					className="order-1 lg:order-2"
+				>
+					<h2 className="mb-8 text-5xl font-bold tracking-tight">
+						Gestão Digital
+						<br />
+						do Sorriso
+					</h2>
+					<div className="pt-16 lg:pt-32">
+						<p className="mb-6 leading-relaxed text-brand-white/80">
+							Todos os nossos tratamentos contam com o serviço de Planejamento Digital. Seu
+							especialista dedicado garante que cada detalhe do seu novo sorriso seja desenhado e
+							aprovado por você antes de qualquer intervenção.
+						</p>
+						<p className="leading-relaxed text-brand-white/80">
+							Fale com nossa equipe em Português, Inglês ou Espanhol.
+						</p>
+					</div>
+				</motion.div>
+			</div>
+		</section>
+	)
+}
 
-						<div className="space-y-10">
-							{dentData.process.steps.map((step, i) => (
-								<div key={i} className="group flex gap-6">
-									<div className="flex flex-col items-center">
-										<div className="glow-purple z-10 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--dent-accent-purple)]/30 bg-[var(--dent-bg-primary)] font-mono text-[var(--dent-accent-purple)] text-sm transition-colors group-hover:border-[var(--dent-accent-purple)]">
-											0{i + 1}
-										</div>
-										{i !== dentData.process.steps.length - 1 && (
-											<div className="mt-2 h-full w-[1px] bg-gradient-to-b from-[var(--dent-accent-purple)]/30 to-transparent" />
-										)}
-									</div>
-									<div className="pb-8">
-										<h3 className="mb-2 font-bold text-white text-xl transition-colors group-hover:text-[var(--dent-accent-blue)]">
-											{step.title}
-										</h3>
-										<p className="text-[var(--dent-text-secondary)] text-sm leading-relaxed">
-											{step.desc}
-										</p>
-									</div>
+function Experience() {
+	const items = [
+		{
+			icon: Shield,
+			title: "Garantia de Qualidade",
+			desc: "Nossa clínica combina a vantagem da tecnologia com a facilidade de um atendimento humano. Tenha acesso a serviços premium sem taxas abusivas.",
+		},
+		{
+			icon: User,
+			title: "Atendimento Exclusivo",
+			desc: "Pacientes podem agendar horários flexíveis, compartilhando a clínica apenas com pessoas da mesma família se desejarem. Experimente o conforto.",
+		},
+		{
+			icon: Microscope,
+			title: "Tecnologia de Ponta",
+			desc: "Fazemos a nossa parte para garantir um tratamento mais previsível. Via scanners 3D, os pacientes podem visualizar todo o resultado antes de começar.",
+		},
+		{
+			icon: Clock,
+			title: "Cuidado Digital",
+			desc: "Não fazemos negócios como nos anos 80. Receba orçamentos instantâneos online. Agende sua avaliação com um clique via um processo sem atritos.",
+		},
+		{
+			icon: Sparkles,
+			title: "Serviços Adicionais",
+			desc: "Evite taxas ocultas e pague apenas pelo serviço que você precisa. Melhore seu tratamento com múltiplos complementos. Molde sua jornada.",
+		},
+		{
+			icon: FileText,
+			title: "Especialista Pessoal",
+			desc: "Nossos especialistas podem apoiar qualquer demanda, 24/7. De pequenas correções a grandes reabilitações. Desfrute de um processo sem estresse.",
+		},
+	] as const
+
+	return (
+		<section className="mx-auto max-w-7xl px-6 py-24">
+			<motion.h2
+				initial={{ opacity: 0, y: 30 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ duration: 0.8 }}
+				className="mb-16 text-[clamp(60px,12vw,150px)] leading-[0.8] font-black tracking-tighter text-brand-dark"
+			>
+				Lumière<sup className="text-[clamp(20px,4vw,60px)] font-bold">®</sup>
+				<br />
+				Experience
+			</motion.h2>
+
+			<div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
+				<motion.div
+					initial={{ opacity: 0, x: -30 }}
+					whileInView={{ opacity: 1, x: 0 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.8, delay: 0.2 }}
+					className="lg:col-span-4"
+				>
+					<p className="mb-6 text-lg font-medium text-brand-dark">
+						Na Lumière somos ousados. A tecnologia é apenas uma ferramenta que usamos para levar
+						você até onde deseja. Nossos pacientes desfrutam de muito mais valor pela sua confiança,
+						acessando personalização inigualável.
+					</p>
+					<p className="mb-8 text-text-muted">
+						Oferecemos <strong>experiências personalizadas</strong> com nossos tratamentos
+						<strong> sob demanda</strong> e <strong>flexibilidade exclusiva</strong>. Nós elevamos a
+						forma como você sorri.
+					</p>
+					<button type="button" className={primaryButtonClass}>
+						Agendar Avaliação
+					</button>
+				</motion.div>
+
+				<div className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:col-span-8">
+					{items.map((item, i) => {
+						const Icon = item.icon
+						return (
+							<motion.div
+								key={item.title}
+								initial={{ opacity: 0, y: 30 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true, margin: "-50px" }}
+								transition={{ duration: 0.6, delay: i * 0.1 }}
+								className="group cursor-default"
+							>
+								<div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-gray-300 text-brand-dark transition-colors duration-300 group-hover:border-brand-dark group-hover:bg-brand-dark group-hover:text-brand-white">
+									<Icon className="h-8 w-8 stroke-1 transition-transform duration-300 group-hover:scale-110" />
 								</div>
-							))}
-						</div>
-					</RevealSection>
-
-					{/* Image Reveal */}
-					<RevealSection
-						delay={0.3}
-						className="glow-purple perspective-[1000px] relative h-[600px] overflow-hidden rounded-[24px] border border-white/10"
-					>
-						<div className="absolute inset-0 z-10 bg-gradient-to-t from-[var(--dent-bg-primary)] to-transparent align-bottom" />
-						{/* eslint-disable-next-line @next/next/no-img-element */}
-						<img
-							src={dentData.hero.image}
-							alt="3D Dental Scan Overlay"
-							className="h-full w-full scale-105 object-cover opacity-60 mix-blend-screen transition-transform duration-1000 hover:scale-100"
-							style={{
-								filter:
-									"grayscale(100%) contrast(1.5) sepia(100%) hue-rotate(200deg) saturate(300%)",
-							}}
-						/>
-
-						<div className="absolute right-8 bottom-8 left-8 z-20">
-							<GlassCard className="flex items-center justify-between p-6">
-								<div>
-									<div className="mb-1 font-bold text-sm text-white">Status Scan</div>
-									<div className="animate-pulse font-mono text-[var(--dent-accent-blue)] text-xs">
-										PROCESSANDO MESH 3D...
-									</div>
-								</div>
-								<div className="h-10 w-10 animate-spin rounded-full border-2 border-[var(--dent-accent-blue)] border-t-transparent" />
-							</GlassCard>
-						</div>
-					</RevealSection>
+								<h3 className="mb-3 text-lg font-bold text-brand-dark">{item.title}</h3>
+								<p className="text-sm leading-relaxed text-text-muted">{item.desc}</p>
+							</motion.div>
+						)
+					})}
 				</div>
-			</section>
+			</div>
+		</section>
+	)
+}
 
-			{/* Footer */}
-			<footer className="relative z-10 border-white/10 border-t bg-[var(--dent-bg-primary)] px-6 py-12">
-				<div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-6 md:flex-row">
-					<div className="flex items-center gap-2">
-						<div className="h-6 w-6 rounded-full bg-gradient-to-br from-[var(--dent-accent-blue)] to-[var(--dent-accent-purple)]" />
-						<span className="font-bold text-white tracking-tight">CosmoDent</span>
+function Gallery() {
+	return (
+		<section className="mx-auto max-w-7xl px-6 pb-24">
+			<div className="relative h-[600px] overflow-hidden rounded-3xl">
+				<Image src={galleryImageUrl} alt="Galeria" fill className="object-cover" sizes="100vw" />
+				<div className="absolute right-8 bottom-8 flex items-center gap-4 text-brand-white">
+					<ArrowRight className="h-8 w-8 rotate-180" />
+					<ArrowRight className="h-8 w-8" />
+					<span className="ml-4 text-3xl font-bold">1/6</span>
+				</div>
+			</div>
+		</section>
+	)
+}
+
+function CTA() {
+	return (
+		<section className="px-6 py-32 text-center">
+			<p className="mb-4 font-medium text-text-muted">O que você está esperando?</p>
+			<h2 className="text-[clamp(48px,10vw,120px)] leading-[0.9] font-black tracking-tighter text-brand-dark">
+				Agende uma
+				<br />
+				avaliação
+			</h2>
+		</section>
+	)
+}
+
+function Footer() {
+	return (
+		<footer className="bg-brand-dark px-6 pt-24 pb-12 text-brand-white">
+			<div className="mx-auto max-w-7xl">
+				<div className="mb-16">
+					<h2 className="text-4xl font-black tracking-tighter">
+						Lumière<sup className="text-lg font-bold">®</sup>
+					</h2>
+				</div>
+
+				<div className="mb-24 grid grid-cols-1 gap-12 md:grid-cols-4">
+					<div>
+						<h4 className="mb-6 font-bold">Siga-nos</h4>
+						<div className="flex gap-4">
+							<a
+								href="#"
+								className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-brand-white text-brand-dark transition-colors hover:bg-brand-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
+							>
+								<Instagram size={18} />
+							</a>
+							<a
+								href="#"
+								className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-brand-white text-brand-dark transition-colors hover:bg-brand-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
+							>
+								<Instagram size={18} />
+							</a>
+							<a
+								href="#"
+								className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-brand-white text-brand-dark transition-colors hover:bg-brand-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
+							>
+								<Instagram size={18} />
+							</a>
+						</div>
 					</div>
-					<div className="font-medium text-[var(--dent-text-secondary)] text-xs uppercase tracking-[0.1em]">
-						Odontologia Digital & Estética © 2026
+
+					<div>
+						<h4 className="mb-6 font-bold">Tratamentos</h4>
+						<ul className="space-y-3 text-sm text-brand-white/60">
+							<li>
+								<a href="#" className={footerLinkClass}>
+									Estética Dental
+								</a>
+							</li>
+							<li>
+								<a href="#" className={footerLinkClass}>
+									Reabilitação Oral
+								</a>
+							</li>
+							<li>
+								<a href="#" className={footerLinkClass}>
+									Ortodontia
+								</a>
+							</li>
+						</ul>
 					</div>
-					<div className="flex gap-6 font-medium text-[var(--dent-text-secondary)] text-sm">
-						<a href="#" className="transition-colors hover:text-white">
-							Termos
+
+					<div>
+						<h4 className="mb-6 font-bold">Clínica</h4>
+						<ul className="space-y-3 text-sm text-brand-white/60">
+							<li>
+								<a href="#" className={footerLinkClass}>
+									Sobre nós
+								</a>
+							</li>
+							<li>
+								<a href="#" className={footerLinkClass}>
+									Especialistas
+								</a>
+							</li>
+							<li>
+								<a href="#" className={footerLinkClass}>
+									Contato
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div>
+						<h4 className="mb-6 font-bold">Minha Conta</h4>
+						<ul className="space-y-3 text-sm text-brand-white/60">
+							<li>
+								<a href="#" className={footerLinkClass}>
+									Agendar
+								</a>
+							</li>
+							<li>
+								<a href="#" className={footerLinkClass}>
+									Resultados
+								</a>
+							</li>
+							<li>
+								<a href="#" className={footerLinkClass}>
+									Portal
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div className="flex flex-col items-start justify-between gap-6 border-t border-brand-white/10 pt-8 text-xs text-brand-white/40 md:flex-row md:items-center">
+					<div className="max-w-md">
+						<p className="mb-4">© Lumière Odontologia 2026</p>
+						<p>
+							Lumière® é uma marca registrada. Todos os tratamentos são realizados por profissionais
+							devidamente inscritos no CRO. As imagens são meramente ilustrativas e os resultados
+							podem variar de paciente para paciente.
+						</p>
+					</div>
+					<div className="flex gap-6">
+						<a href="#" className={footerLinkClass}>
+							Política de Cookies
 						</a>
-						<a href="#" className="transition-colors hover:text-white">
-							Privacidade
+						<a href="#" className={footerLinkClass}>
+							Termos e Condições
+						</a>
+						<a href="#" className={footerLinkClass}>
+							Política de Privacidade
 						</a>
 					</div>
 				</div>
-			</footer>
-		</main>
+			</div>
+		</footer>
+	)
+}
+
+export default function DentistaPremiumPage() {
+	return (
+		<div className="font-sans bg-brand-light text-text-main">
+			<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+				<Hero />
+				<Statement />
+				<SplitServices />
+				<PopularTreatments />
+				<DigitalCare />
+				<Experience />
+				<Gallery />
+				<CTA />
+				<Footer />
+			</motion.div>
+		</div>
 	)
 }

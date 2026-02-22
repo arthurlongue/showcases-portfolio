@@ -430,17 +430,17 @@ export function ProtocolSection() {
 	})
 
 	// Title stays pinned while cards progress through the section
-	const titleOpacity = useTransform(scrollYProgress, [0, 0.08, 0.18, 0.96], [0, 1, 1, 0])
-	const titleScale = useTransform(scrollYProgress, [0, 0.18, 0.35], [0.96, 1, 0.94])
-	const titleY = useTransform(scrollYProgress, [0, 0.22], ["6%", "-8%"])
+	const titleOpacity = useTransform(scrollYProgress, [0, 0.8, 0.96], [1, 1, 0])
+	const titleScale = useTransform(scrollYProgress, [0, 0.35], [1, 0.94])
+	const titleY = useTransform(scrollYProgress, [0, 0.22], ["0%", "-15%"])
 
 	// Decorative progress line
 	const lineWidth = useTransform(scrollYProgress, [0.2, 0.95], ["0%", "100%"])
 
 	return (
-		<section ref={sectionRef} className="relative z-10 bg-[#FAF7F3] pt-20 md:pt-32">
+		<section ref={sectionRef} className="relative z-10 bg-[#FAF7F3] pt-10 md:pt-16">
 			{/* Sticky title container — fills viewport, stays pinned */}
-			<div className="sticky top-0 z-20 flex h-screen items-center justify-center overflow-hidden">
+			<div className="sticky top-0 z-20 flex h-screen items-start pt-[12vh] md:pt-[15vh] justify-center overflow-hidden">
 				<motion.div
 					style={{ opacity: titleOpacity, scale: titleScale, y: titleY }}
 					className="flex w-full flex-col items-center px-6 text-center"

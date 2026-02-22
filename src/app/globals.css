@@ -359,6 +359,13 @@
 	overflow-x: hidden;
 }
 
+@layer utilities {
+	.mask-image-fade {
+		mask-image: linear-gradient(to bottom, transparent, black 40%, black 60%, transparent);
+		-webkit-mask-image: linear-gradient(to bottom, transparent, black 40%, black 60%, transparent);
+	}
+}
+
 .dark {
 	--sidebar: hsl(240 5.9% 10%);
 	--sidebar-foreground: hsl(240 4.8% 95.9%);

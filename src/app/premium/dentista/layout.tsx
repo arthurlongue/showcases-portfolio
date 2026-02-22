@@ -8,9 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function DentistaLayout({ children }: { children: React.ReactNode }) {
-	return (
-		<div className="dentista-theme dark min-h-screen overflow-hidden bg-background font-sans text-foreground antialiased selection:bg-[var(--dent-accent-blue)]/30">
-			{children}
-		</div>
-	)
+	return <div className="dentista-theme min-h-screen">{children}</div>
 }

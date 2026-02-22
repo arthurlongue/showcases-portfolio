@@ -1,232 +1,479 @@
-import { Activity, ArrowRight, Calendar } from "lucide-react"
-import { AmbientGlow, PillCategory, RevealSection } from "./components/client"
-import { nutriData } from "./data"
+import { Activity, Clock, HeartPulse, Instagram, Leaf, Linkedin, ShieldCheck } from "lucide-react"
+import { AnimatedCheck, MotionDiv, MotionH1, StatCounter } from "./components/client"
+import { SpecialtiesTabs } from "./components/specialties-tabs"
 
 export default function NutricionistaPremiumPage() {
-	return (
-		<main className="relative min-h-screen overflow-hidden bg-[var(--n-bg-dark)] font-sans text-foreground selection:bg-primary/30">
-			{/* Global Ambient Glow */}
-			<div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-				<AmbientGlow />
-			</div>
+	const btnClass =
+		"px-8 py-4 text-white bg-(--nutri-forest) rounded-full font-medium hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(45,106,79,0.2)] transition-all duration-300 inline-block text-center"
 
+	return (
+		<div className="min-h-screen bg-white font-sans text-(--nutri-text-main) selection:bg-(--nutri-forest) selection:text-white">
 			{/* Navbar */}
-			<nav className="fixed top-0 z-50 flex w-full items-center justify-between px-6 py-4 mix-blend-difference">
-				<div className="font-serif text-2xl text-white tracking-wide">
-					HV<span className="text-primary opacity-80">.</span>
+			<nav className="flex items-center justify-between px-8 py-6 bg-(--nutri-warm) relative z-50">
+				<div className="text-2xl font-bold text-(--nutri-text-main) tracking-tight flex items-center gap-2">
+					<Leaf className="w-6 h-6 text-(--nutri-forest)" />
+					Dra. Elena Costa
 				</div>
-				<button
-					type="button"
-					className="rounded-[8px] border border-primary px-6 py-2 font-semibold text-primary text-sm uppercase tracking-widest shadow-[0_0_15px_rgba(196,154,92,0.1)] transition-all duration-500 hover:bg-primary hover:text-[var(--n-bg-dark)] hover:shadow-[0_0_25px_rgba(196,154,92,0.3)]"
-				>
-					Consultório
-				</button>
+				<div className="hidden md:flex space-x-8 text-sm font-medium text-(--nutri-text-main)">
+					<a href="#sobre" className="hover:text-(--nutri-forest) transition-colors">
+						Sobre mim
+					</a>
+					<a href="#metodo" className="hover:text-(--nutri-forest) transition-colors">
+						O Método
+					</a>
+					<a href="#servicos" className="hover:text-(--nutri-forest) transition-colors">
+						Serviços
+					</a>
+					<a href="#depoimentos" className="hover:text-(--nutri-forest) transition-colors">
+						Depoimentos
+					</a>
+				</div>
+				<div className="flex items-center space-x-6">
+					<button
+						type="button"
+						className="hidden md:block px-6 py-2.5 text-sm font-medium text-white bg-(--nutri-forest) rounded-full hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(45,106,79,0.2)] transition-all duration-300"
+					>
+						Agendar Consulta
+					</button>
+				</div>
 			</nav>
 
 			{/* Hero */}
-			<section className="relative z-10 flex min-h-[95vh] items-center pt-20">
-				<div className="absolute inset-0 z-0">
-					{/* eslint-disable-next-line @next/next/no-img-element */}
-					<img
-						src={nutriData.hero.image}
-						alt="Cinematic clinic light"
-						className="h-full w-full object-cover object-left opacity-60 mix-blend-luminosity md:object-center"
-						style={{ filter: "sepia(10%) saturate(1.2) contrast(1.1) brightness(0.6)" }}
-					/>
-					<div className="absolute inset-0 bg-gradient-to-t from-[var(--n-bg-dark)] via-[var(--n-bg-dark)]/40 to-transparent" />
-				</div>
-
-				<div className="relative z-10 mx-auto flex h-full w-full max-w-[1100px] flex-col justify-end px-6 pb-24">
-					<RevealSection delay={0.2} className="mb-6">
-						<span className="font-sans text-primary text-xs uppercase tracking-[0.2em] md:text-sm">
-							{nutriData.hero.label}
-						</span>
-					</RevealSection>
-
-					<RevealSection delay={0.4}>
-						<h1 className="mb-8 max-w-3xl font-serif text-[clamp(44px,6vw,84px)] text-white leading-[1.05] tracking-tight mix-blend-plus-lighter">
-							Veja além. <br />
-							<span className="text-primary italic opacity-90">Desbloqueie</span> sua saúde.
-						</h1>
-					</RevealSection>
-
-					<RevealSection delay={0.6} className="max-w-xl">
-						<p className="mb-10 text-[var(--n-text-muted-dark)] text-lg leading-relaxed md:text-xl">
-							{nutriData.hero.subheadline}
-						</p>
-						<button
-							type="button"
-							className="group flex items-center rounded-[8px] bg-primary px-8 py-4 font-semibold text-[var(--n-bg-dark)] transition-all duration-300 hover:bg-[#D4A96C] hover:shadow-[0_0_30px_rgba(196,154,92,0.2)]"
+			<section className="relative bg-(--nutri-warm) pt-12 pb-32 px-8 overflow-hidden">
+				<div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+					<div className="z-10 relative">
+						<MotionH1
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.6 }}
+							className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-(--nutri-text-main) leading-[1.05] mb-8 tracking-tight"
 						>
-							{nutriData.hero.cta}
-							<ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
-						</button>
-					</RevealSection>
-				</div>
-			</section>
+							Nutrição funcional para uma vida com mais energia.
+						</MotionH1>
+						<MotionDiv
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.6, delay: 0.2 }}
+						>
+							<p className="text-lg text-(--nutri-text-muted) mb-10 font-medium leading-relaxed max-w-lg">
+								Descubra como a alimentação inteligente pode transformar sua saúde, sem dietas
+								restritivas e com foco na raiz do problema.
+							</p>
+							<div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+								<button type="button" className={btnClass}>
+									Agendar minha avaliação
+								</button>
+							</div>
+						</MotionDiv>
+					</div>
+					<div className="relative z-10">
+						<MotionDiv
+							initial={{ opacity: 0, scale: 0.95 }}
+							animate={{ opacity: 1, scale: 1 }}
+							transition={{ duration: 0.8 }}
+							className="relative"
+						>
+							<img
+								src="/showcases/nutricionista/nutricionista-na-cozinha.webp"
+								alt="Nutricionista"
+								className="rounded-4xl shadow-[0_20px_40px_rgba(45,106,79,0.12)] object-cover w-full h-150"
+							/>
 
-			{/* Mission (Light Section) */}
-			<section className="relative z-10 border-primary/10 border-t bg-[var(--n-bg-light)] px-6 py-32 text-[var(--n-text-on-light)]">
-				<div className="mx-auto max-w-[900px] text-center">
-					<RevealSection>
-						<p className="mb-12 font-serif text-[clamp(28px,4vw,44px)] text-[var(--n-bg-dark)] leading-[1.3]">
-							"{nutriData.mission.quote}"
-						</p>
-						<div className="flex flex-col items-center">
-							<div className="mb-6 h-[1px] w-16 bg-primary" />
-							<span className="font-sans font-semibold text-sm uppercase tracking-widest">
-								{nutriData.mission.author}
-							</span>
-							<span className="mt-2 font-serif text-[var(--n-text-muted-light)] italic">
-								{nutriData.mission.role}
-							</span>
-						</div>
-					</RevealSection>
-				</div>
-			</section>
+							{/* Trust Badge */}
+							<MotionDiv
+								initial={{ opacity: 0, x: -20 }}
+								animate={{ opacity: 1, x: 0 }}
+								transition={{ delay: 1, duration: 0.5 }}
+								className="absolute -left-6 top-1/4 bg-white px-5 py-3 rounded-full shadow-[0_12px_24px_rgba(45,106,79,0.15)] flex items-center space-x-3 z-20"
+							>
+								<ShieldCheck className="w-5 h-5 text-(--nutri-forest)" />
+								<span className="text-sm font-bold text-(--nutri-text-main)">CRN-3: 45892</span>
+							</MotionDiv>
 
-			{/* Topics / Pills (Dark Section) */}
-			<section className="relative z-10 bg-[var(--n-bg-dark)] px-6 py-32">
-				<div className="mx-auto max-w-[1100px] text-center">
-					<RevealSection>
-						<span className="mb-6 block text-primary text-xs uppercase tracking-[0.2em]">
-							OTIMIZAÇÃO COMPLETA
-						</span>
-						<h2 className="mx-auto mb-16 max-w-2xl font-serif text-[clamp(32px,4vw,48px)] text-white leading-tight">
-							Sua biologia é complexa. <br />
-							<span className="text-[var(--n-text-muted-dark)] italic">
-								A solução não precisa ser.
-							</span>
-						</h2>
-					</RevealSection>
-
-					<div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-4">
-						{nutriData.topics.map((topic, i) => (
-							<PillCategory key={i} index={i} label={topic.label} iconName={topic.icon} />
-						))}
+							<MotionDiv
+								initial={{ opacity: 0, x: 20 }}
+								animate={{ opacity: 1, x: 0 }}
+								transition={{ delay: 1.2, duration: 0.5 }}
+								className="absolute -right-6 bottom-1/4 bg-white px-5 py-3 rounded-full shadow-[0_12px_24px_rgba(45,106,79,0.15)] flex items-center space-x-3 z-20"
+							>
+								<HeartPulse className="w-5 h-5 text-(--nutri-forest)" />
+								<span className="text-sm font-bold text-(--nutri-text-main)">
+									Plano 100% Personalizado
+								</span>
+							</MotionDiv>
+						</MotionDiv>
 					</div>
 				</div>
 			</section>
 
-			{/* Product / Dashboard Mockup */}
-			<section className="relative z-10 px-6 py-20">
-				<div className="relative mx-auto max-w-[1100px]">
-					{/* Dashboard Glass Card */}
-					<RevealSection className="relative overflow-hidden rounded-[12px] border border-primary/20 bg-[var(--n-bg-mid)]/60 p-8 shadow-2xl backdrop-blur-xl md:p-12">
-						<div className="absolute top-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-
-						<div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-							<div>
-								<span className="mb-4 block text-primary text-xs uppercase tracking-[0.2em]">
-									{nutriData.philosophy.label}
-								</span>
-								<h3 className="mb-6 font-serif text-[clamp(28px,3vw,36px)] text-white">
-									{nutriData.philosophy.headline}
-								</h3>
-								<p className="mb-8 text-[var(--n-text-muted-dark)] text-lg leading-relaxed">
-									{nutriData.philosophy.description}
-								</p>
-								<div className="flex gap-4">
-									{nutriData.stats.slice(0, 2).map((stat, i) => (
-										<div key={i} className="flex-1 border-primary/30 border-l py-1 pl-4">
-											<div className="mb-1 font-serif text-3xl text-primary tracking-tight">
-												{stat.value}
-											</div>
-											<div className="text-[var(--n-text-muted-dark)] text-xs uppercase tracking-wider">
-												{stat.label}
-											</div>
-										</div>
-									))}
-								</div>
-							</div>
-
-							{/* Abstract UI Representation */}
-							<div className="relative rounded-[8px] border border-white/5 bg-[var(--n-bg-dark)] p-6 shadow-inner">
-								<div className="mb-8 flex items-center justify-between border-white/5 border-b pb-4">
-									<div className="flex items-center gap-3">
-										<Activity className="h-5 w-5 text-primary" />
-										<span className="font-mono text-[#E8C88A] text-sm tracking-widest">
-											Biomarker Panel
-										</span>
-									</div>
-									<div className="h-2 w-2 animate-pulse rounded-full bg-primary" />
-								</div>
-
-								<div className="space-y-6">
-									{[85, 92, 78].map((val, i) => (
-										<div key={i}>
-											<div className="mb-2 flex justify-between font-mono text-[var(--n-text-muted-dark)] text-xs uppercase">
-												<span>{["Cortisol", "HbA1c", "Testosterona Livre"][i]}</span>
-												<span className="text-white">{val}%</span>
-											</div>
-											<div className="h-1 w-full overflow-hidden rounded-full bg-[var(--n-bg-mid)]">
-												<div
-													className="h-full rounded-full bg-primary"
-													style={{ width: `${val}%` }}
-												/>
-											</div>
-										</div>
-									))}
-								</div>
-							</div>
+			{/* Floating Bar */}
+			<div className="max-w-6xl mx-auto -mt-16 relative z-20 px-4 sm:px-8">
+				<MotionDiv
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6 }}
+					className="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_12px_40px_rgba(45,106,79,0.08)] flex flex-col md:flex-row justify-between items-start md:items-center gap-8"
+				>
+					<div className="flex items-start space-x-5 flex-1">
+						<div className="p-3 bg-(--nutri-warm) rounded-full text-(--nutri-forest) shrink-0">
+							<Activity className="w-6 h-6" />
 						</div>
-					</RevealSection>
+						<div>
+							<h3 className="font-bold text-(--nutri-text-main) mb-2 text-lg">
+								Abordagem Funcional
+							</h3>
+							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
+								Tratamos a causa raiz dos seus sintomas, não apenas mascaramos o problema.
+							</p>
+						</div>
+					</div>
+					<div className="flex items-start space-x-5 flex-1">
+						<AnimatedCheck />
+						<div>
+							<h3 className="font-bold text-(--nutri-text-main) mb-2 text-lg">
+								Sem Restrições Severas
+							</h3>
+							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
+								Uma relação saudável com a comida, focada em nutrir o corpo e a mente.
+							</p>
+						</div>
+					</div>
+					<div className="flex items-start space-x-5 flex-1">
+						<div className="p-3 bg-(--nutri-warm) rounded-full text-(--nutri-forest) shrink-0">
+							<Clock className="w-6 h-6" />
+						</div>
+						<div>
+							<h3 className="font-bold text-(--nutri-text-main) mb-2 text-lg">Suporte Contínuo</h3>
+							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
+								Acompanhamento de perto via aplicativo para garantir a sua evolução.
+							</p>
+						</div>
+					</div>
+				</MotionDiv>
+			</div>
+
+			{/* About Section */}
+			<section id="sobre" className="py-32 px-8 bg-white">
+				<div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+					<div>
+						<div className="text-xs font-bold text-(--nutri-text-muted) uppercase tracking-[0.15em] mb-6">
+							Sobre Mim
+						</div>
+						<h2 className="text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] mb-8 tracking-tight">
+							Acredito que a saúde começa de dentro para fora.
+						</h2>
+						<p className="text-lg text-(--nutri-text-muted) mb-6 leading-relaxed">
+							Com mais de 10 anos de experiência em nutrição clínica e funcional, meu objetivo é
+							ajudar você a reconquistar sua vitalidade através da alimentação.
+						</p>
+						<p className="text-lg text-(--nutri-text-muted) mb-10 leading-relaxed">
+							Não prescrevo dietas de gaveta. Cada corpo é único, e seu plano alimentar deve
+							respeitar sua biologia, sua rotina e suas preferências. Vamos juntos construir um
+							estilo de vida sustentável e prazeroso.
+						</p>
+						<a
+							href="#"
+							className="inline-flex items-center text-(--nutri-forest) font-bold border-b-2 border-(--nutri-forest) pb-1 hover:text-(--nutri-text-main) hover:border-(--nutri-text-main) transition-colors"
+						>
+							Conheça minha formação
+						</a>
+					</div>
+					<div className="grid grid-cols-2 gap-6">
+						<img
+							src="/showcases/nutricionista/espinafre-abacate-sementes.webp"
+							alt="Ingredientes frescos"
+							className="rounded-4xl shadow-[0_20px_40px_rgba(45,106,79,0.08)] w-full h-full object-cover"
+						/>
+						<img
+							src="/showcases/nutricionista/preparando-salada.webp"
+							alt="Preparo de refeição"
+							className="rounded-4xl shadow-[0_20px_40px_rgba(45,106,79,0.08)] w-full h-full object-cover mt-12"
+						/>
+					</div>
 				</div>
 			</section>
 
-			{/* What If (Light Section) */}
-			<section className="relative z-10 mt-20 border-primary/10 border-t bg-[var(--n-bg-light)] px-6 py-32 text-[var(--n-text-on-light)]">
-				<div className="mx-auto max-w-[800px] text-center">
-					<RevealSection>
-						<span className="mb-10 block font-bold font-sans text-primary text-xs uppercase tracking-[0.2em]">
-							{nutriData.whatIf.label}
-						</span>
-						<div className="space-y-8 md:space-y-12">
-							{nutriData.whatIf.questions.map((q, i) => (
-								<h3
-									key={i}
-									className="font-serif text-[clamp(24px,3vw,36px)] text-[var(--n-bg-dark)] leading-tight opacity-90"
-								>
-									{q}
-								</h3>
-							))}
+			{/* Stats / The Method */}
+			<section id="metodo" className="py-32 px-8 bg-(--nutri-warm)">
+				<div className="max-w-7xl mx-auto">
+					<div className="text-center mb-20">
+						<div className="text-xs font-bold text-(--nutri-text-muted) uppercase tracking-[0.15em] mb-6">
+							O Método
+						</div>
+						<h2 className="text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] tracking-tight max-w-3xl mx-auto">
+							Um processo desenhado para resultados definitivos.
+						</h2>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+						<div className="bg-white p-10 rounded-4xl shadow-[0_8px_30px_rgba(45,106,79,0.05)] relative overflow-hidden group">
+							<div className="text-6xl font-bold text-(--nutri-sage) mb-6 tracking-tighter group-hover:text-(--nutri-forest) transition-colors duration-500">
+								01
+							</div>
+							<h3 className="text-xl font-bold text-(--nutri-text-main) mb-4">
+								Avaliação Profunda
+							</h3>
+							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
+								Análise detalhada do seu histórico, exames laboratoriais, rotina e sinais clínicos.
+							</p>
+						</div>
+						<div className="bg-white p-10 rounded-4xl shadow-[0_8px_30px_rgba(45,106,79,0.05)] relative overflow-hidden group">
+							<div className="text-6xl font-bold text-(--nutri-sage) mb-6 tracking-tighter group-hover:text-(--nutri-forest) transition-colors duration-500">
+								02
+							</div>
+							<h3 className="text-xl font-bold text-(--nutri-text-main) mb-4">Plano Estratégico</h3>
+							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
+								Criação de um cardápio viável, focado em nutrientes específicos para o seu objetivo.
+							</p>
+						</div>
+						<div className="bg-white p-10 rounded-4xl shadow-[0_8px_30px_rgba(45,106,79,0.05)] relative overflow-hidden group">
+							<div className="text-6xl font-bold text-(--nutri-sage) mb-6 tracking-tighter group-hover:text-(--nutri-forest) transition-colors duration-500">
+								03
+							</div>
+							<h3 className="text-xl font-bold text-(--nutri-text-main) mb-4">Suplementação</h3>
+							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
+								Prescrição de vitaminas e fitoterápicos apenas quando necessário, com base
+								científica.
+							</p>
+						</div>
+						<div className="bg-white p-10 rounded-4xl shadow-[0_8px_30px_rgba(45,106,79,0.05)] relative overflow-hidden group">
+							<div className="text-6xl font-bold text-(--nutri-sage) mb-6 tracking-tighter group-hover:text-(--nutri-forest) transition-colors duration-500">
+								04
+							</div>
+							<h3 className="text-xl font-bold text-(--nutri-text-main) mb-4">
+								Ajustes Constantes
+							</h3>
+							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
+								Acompanhamento da sua evolução e adaptação do plano para garantir a adesão.
+							</p>
+						</div>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-gray-200 pt-20">
+						<div className="text-center">
+							<div className="text-6xl md:text-7xl font-bold text-(--nutri-forest) mb-4 tracking-tighter">
+								<StatCounter value="2000" suffix="+" />
+							</div>
+							<p className="text-sm font-bold text-(--nutri-text-main) uppercase tracking-wider">
+								Pacientes Atendidos
+							</p>
+						</div>
+						<div className="text-center">
+							<div className="text-6xl md:text-7xl font-bold text-(--nutri-forest) mb-4 tracking-tighter">
+								<StatCounter value="100" suffix="%" />
+							</div>
+							<p className="text-sm font-bold text-(--nutri-text-main) uppercase tracking-wider">
+								Planos Exclusivos
+							</p>
+						</div>
+						<div className="text-center">
+							<div className="text-6xl md:text-7xl font-bold text-(--nutri-forest) mb-4 tracking-tighter">
+								<StatCounter value="0" />
+							</div>
+							<p className="text-sm font-bold text-(--nutri-text-main) uppercase tracking-wider">
+								Dietas Genéricas
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Services */}
+			<SpecialtiesTabs />
+
+			{/* Testimonials */}
+			<section id="depoimentos" className="py-32 px-8 bg-white overflow-hidden">
+				<div className="max-w-7xl mx-auto">
+					<div className="text-center mb-20">
+						<div className="text-xs font-bold text-(--nutri-text-muted) uppercase tracking-[0.15em] mb-6">
+							Depoimentos
+						</div>
+						<h2 className="text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] tracking-tight">
+							Histórias reais de transformação.
+						</h2>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+						<div className="bg-(--nutri-warm) p-10 rounded-4xl shadow-[0_12px_30px_rgba(45,106,79,0.05)] relative z-10 md:translate-y-8">
+							<div className="flex space-x-1 mb-6">
+								{[...Array(5)].map((_, i) => (
+									<span key={i} className="text-(--nutri-forest)">
+										★
+									</span>
+								))}
+							</div>
+							<p className="text-lg text-(--nutri-text-main) font-medium leading-relaxed mb-8">
+								"Nunca achei que conseguiria emagrecer comendo o que gosto. A Dra. Elena mudou minha
+								relação com a comida. Minha energia hoje é outra!"
+							</p>
+							<div className="flex items-center space-x-4">
+								<div className="w-12 h-12 bg-(--nutri-sage) rounded-full flex items-center justify-center text-(--nutri-forest) font-bold">
+									MC
+								</div>
+								<div>
+									<div className="font-bold text-(--nutri-text-main)">Mariana C.</div>
+									<div className="text-xs text-(--nutri-text-muted) uppercase tracking-wider">
+										Paciente há 6 meses
+									</div>
+								</div>
+							</div>
 						</div>
 
-						<button
-							type="button"
-							className="group mt-16 inline-flex items-center rounded-[8px] bg-[var(--n-bg-dark)] px-10 py-4 font-semibold text-primary transition-all duration-300 hover:bg-[#0a0703]"
-						>
-							Agendar Descoberta
-							<Calendar className="ml-3 h-4 w-4" />
+						<div className="bg-white border border-gray-100 p-10 rounded-4xl shadow-[0_20px_50px_rgba(45,106,79,0.08)] relative z-20">
+							<div className="flex space-x-1 mb-6">
+								{[...Array(5)].map((_, i) => (
+									<span key={i} className="text-(--nutri-forest)">
+										★
+									</span>
+								))}
+							</div>
+							<p className="text-lg text-(--nutri-text-main) font-medium leading-relaxed mb-8">
+								"Sofria com inchaço e dores abdominais há anos. Com o protocolo intestinal, em
+								poucas semanas me senti uma nova pessoa. Atendimento impecável."
+							</p>
+							<div className="flex items-center space-x-4">
+								<div className="w-12 h-12 bg-(--nutri-sage) rounded-full flex items-center justify-center text-(--nutri-forest) font-bold">
+									RP
+								</div>
+								<div>
+									<div className="font-bold text-(--nutri-text-main)">Rafael P.</div>
+									<div className="text-xs text-(--nutri-text-muted) uppercase tracking-wider">
+										Paciente há 1 ano
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div className="bg-(--nutri-warm) p-10 rounded-4xl shadow-[0_12px_30px_rgba(45,106,79,0.05)] relative z-10 md:translate-y-16">
+							<div className="flex space-x-1 mb-6">
+								{[...Array(5)].map((_, i) => (
+									<span key={i} className="text-(--nutri-forest)">
+										★
+									</span>
+								))}
+							</div>
+							<p className="text-lg text-(--nutri-text-main) font-medium leading-relaxed mb-8">
+								"A abordagem funcional faz toda a diferença. Meus exames melhoraram absurdamente e
+								finalmente consegui regular meu sono e ansiedade."
+							</p>
+							<div className="flex items-center space-x-4">
+								<div className="w-12 h-12 bg-(--nutri-sage) rounded-full flex items-center justify-center text-(--nutri-forest) font-bold">
+									LS
+								</div>
+								<div>
+									<div className="font-bold text-(--nutri-text-main)">Laura S.</div>
+									<div className="text-xs text-(--nutri-text-muted) uppercase tracking-wider">
+										Paciente há 8 meses
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* CTA */}
+			<section className="flex flex-col lg:flex-row mt-20">
+				<div className="flex-1">
+					<img
+						src="/showcases/nutricionista/nutricionista-na-cozinha.webp"
+						alt="Consulta"
+						className="w-full h-full object-cover min-h-125"
+					/>
+				</div>
+				<div className="flex-1 bg-(--nutri-warm) py-32 px-8 lg:px-24 flex flex-col justify-center">
+					<div className="max-w-xl">
+						<h2 className="text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] mb-8 tracking-tight">
+							Pronta para dar o primeiro passo rumo à sua melhor versão?
+						</h2>
+						<p className="text-lg text-(--nutri-text-muted) mb-12 leading-relaxed">
+							Agende sua consulta e vamos juntas construir um plano alimentar que funciona para a
+							sua vida.
+						</p>
+						<button type="button" className={btnClass}>
+							Agendar Consulta via WhatsApp
 						</button>
-					</RevealSection>
+					</div>
 				</div>
 			</section>
 
 			{/* Footer */}
-			<footer className="relative z-10 border-primary/20 border-t bg-[var(--n-bg-dark)] px-6 py-20">
-				<div className="mx-auto flex max-w-[1100px] flex-col items-center justify-between gap-8 md:flex-row md:items-start">
-					<div className="text-center md:text-left">
-						<div className="mb-2 font-serif text-3xl text-white tracking-wide">
-							HV<span className="text-primary opacity-80">.</span>
+			<footer className="bg-(--nutri-text-main) text-white py-20 px-8">
+				<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+					<div className="lg:col-span-2">
+						<div className="text-3xl font-bold mb-6 tracking-tight flex items-center gap-2">
+							<Leaf className="w-8 h-8 text-(--nutri-sage)" />
+							Dra. Elena Costa
 						</div>
-						<div className="text-[var(--n-text-muted-dark)] text-sm">
-							Nutrição de Precisão Clínica
+						<p className="text-white/70 max-w-sm leading-relaxed mb-8">
+							Nutrição Clínica e Funcional. Transformando vidas através da alimentação consciente e
+							baseada em evidências.
+						</p>
+						<div className="flex space-x-6">
+							<a href="#" className="text-white/50 hover:text-white transition-colors">
+								<Instagram className="w-6 h-6" />
+							</a>
+							<a href="#" className="text-white/50 hover:text-white transition-colors">
+								<Linkedin className="w-6 h-6" />
+							</a>
 						</div>
 					</div>
-					<div className="flex gap-8 font-semibold text-[var(--n-text-muted-dark)] text-sm uppercase tracking-widest">
-						<a href="#" className="transition-colors hover:text-primary">
-							Abordagem
-						</a>
-						<a href="#" className="transition-colors hover:text-primary">
-							Consultório
-						</a>
-						<a href="#" className="transition-colors hover:text-primary">
+					<div>
+						<div className="text-xs font-bold uppercase tracking-[0.15em] mb-8 text-white/50">
+							Navegação
+						</div>
+						<ul className="space-y-5 text-sm font-medium">
+							<li>
+								<a href="#sobre" className="hover:text-(--nutri-sage) transition-colors">
+									Sobre mim
+								</a>
+							</li>
+							<li>
+								<a href="#metodo" className="hover:text-(--nutri-sage) transition-colors">
+									O Método
+								</a>
+							</li>
+							<li>
+								<a href="#servicos" className="hover:text-(--nutri-sage) transition-colors">
+									Serviços
+								</a>
+							</li>
+							<li>
+								<a href="#depoimentos" className="hover:text-(--nutri-sage) transition-colors">
+									Depoimentos
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<div className="text-xs font-bold uppercase tracking-[0.15em] mb-8 text-white/50">
 							Contato
+						</div>
+						<ul className="space-y-5 text-sm font-medium text-white/80">
+							<li>contato@draelena.com.br</li>
+							<li>(11) 99999-9999</li>
+							<li className="pt-4">
+								Av. Paulista, 1000 - Bela Vista
+								<br />
+								São Paulo, SP
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div className="max-w-7xl mx-auto border-t border-white/10 pt-10 text-xs text-white/50 space-y-6 leading-relaxed flex flex-col sm:flex-row justify-between items-start sm:items-center">
+					<p>© 2024 Dra. Elena Costa. CRN-3: 45892. Todos os direitos reservados.</p>
+					<div className="flex space-x-6">
+						<a href="#" className="hover:text-white transition-colors">
+							Política de Privacidade
+						</a>
+						<span className="text-white/30">|</span>
+						<a href="#" className="hover:text-white transition-colors">
+							Termos de Uso
 						</a>
 					</div>
 				</div>
 			</footer>
-		</main>
+		</div>
 	)
 }

@@ -1,14 +1,5 @@
 # S3. Mail.ru Design
 
-> **Source:** design.mail.ru
-> **Reference:** `S3-mail-design.webp`
-> **Category:** Standard
-> **Best For:** Design teams, corporate culture pages, tech company showcases, product portfolios
-
-**Visual DNA:** Corporate design team showcase — clean white with bold blue accents, colorful product icons, event cards with varied backgrounds, floating UI component illustrations, and a structured design-system feel.
-
----
-
 ## Design Tokens
 
 ```css

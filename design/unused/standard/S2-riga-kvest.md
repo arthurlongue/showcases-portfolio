@@ -1,14 +1,5 @@
 # S2. Riga Kvest
 
-> **Source:** rigakvest.com
-> **Reference:** `S2-riga-kvest.webp`
-> **Category:** Standard
-> **Best For:** Tourism, city experiences, escape rooms, local events, adventure brands
-
-**Visual DNA:** Tourism/experience website — playful with real photography of old-town architecture, red-coral accents, bento-style asymmetric image grids, map integrations, and a friendly modern feel.
-
----
-
 ## Design Tokens
 
 ```css
