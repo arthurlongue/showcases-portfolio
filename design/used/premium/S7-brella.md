@@ -1,38 +1,40 @@
 # S7. Brella
 
-> **Source:** joinbrella.com
-> **Reference:** `S7-brella.webp`
-> **Category:** Premium
-> **Best For:** Nutricionista, nutrição funcional, clínicas de bem-estar, health-tech premium
+> **Fonte:** joinbrella.com
+> **Referência:** `S7-brella.webp`
+> **Categoria:** Premium
+> **Rota Alvo:** `/premium/nutricionista`
+> **Melhor Para:** Nutricionista clínica, nutrição funcional, reeducação alimentar
 
-**Visual DNA:** Clean, trusting health platform. Impeccable pure white and warm off-white layered with deep, grounding forest greens. High-end lifestyle and holistic health photography matched with clean, precise data visualization for health metrics.
+**Visual DNA:** Saúde premium com toque humano. Branco impecável, off-white quente e verdes
+profundos para transmitir confiança, acolhimento e autoridade.
 
 ---
 
 ## Design Tokens
 
 ```css
-/* ── Colors ── */
+/* Cores */
 --bg-primary: #FFFFFF;
---bg-warm: #F5F5F0; /* warm off-white */
+--bg-warm: #F5F5F0;
 --bg-sage: #E6EFEC;
---bg-forest: #2D6A4F; /* deep green anchor */
---text-primary: #1A4331; /* dark forest green */
+--bg-forest: #2D6A4F;
+--text-primary: #1A4331;
 --text-secondary: #4A6E59;
 --text-light: #FFFFFF;
 
-/* ── Typography ── */
+/* Tipografia */
 --font-heading: "Inter", "DM Sans", sans-serif;
 --font-body: "Inter", sans-serif;
 --heading-hero: 600 clamp(40px, 5vw, 64px) / 1.1 var(--font-heading);
 --heading-section: 600 clamp(28px, 3.5vw, 44px) / 1.2 var(--font-heading);
 --body: 400 18px / 1.65 var(--font-body);
 
-/* ── Spacing ── */
+/* Espaçamento */
 --section-padding: clamp(60px, 8vw, 100px);
 --max-width: 1200px;
 
-/* ── Borders & Radius ── */
+/* Bordas */
 --radius-card: 16px;
 --radius-button: 999px;
 --radius-image: 8px;
@@ -40,37 +42,55 @@
 
 ---
 
-## AI Replication Prompt
+## Diretrizes Globais (Projeto + DESIGN_CREATION_GUIDANCE)
 
-```
-You are building a premium Nutritionist / Functional Health landing page. The primary directive is "Organic Trust." The UI must feel clinical enough to be credible, but organic enough to be welcoming. Use simple, standard Tailwind or CSS implementations. Follow these rules:
+- Contexto do projeto: este site é um showcase de portfolio para captar leads que querem contratar criação de sites.
+- Entregável: landing page de nicho (LP), não plataforma digital.
+- Linguagem obrigatória: 100% pt-BR em toda cópia visível, com texto realista do nicho.
+- Proibido: login, cadastro com senha, dashboard, portal, área logada, app SaaS, onboarding de produto.
+- Direção criativa: evitar visual genérico de IA. O resultado deve parecer um site autoral, premium e estratégico.
+- Hierarquia mínima da LP: Hero com CTA, serviços, diferenciais/método, prova social, FAQ (quando fizer sentido), CTA final com contato.
+- Conversão: CTA principal sempre orientado a lead (WhatsApp, formulário, ligação, solicitar orçamento, agendar avaliação).
+- UX obrigatória: todo elemento clicável com hover, focus-visible ring e cursor-pointer.
+- Motion: animações sutis e intencionais (entradas, reveals, hover). Nada gratuito ou distrativo.
+- Responsividade: mobile-first real, com layout funcional em telas pequenas antes de escalar para desktop.
+- Mídia: usar imagens coerentes com o nicho e com alta qualidade visual. Não usar placeholders quebrados.
+- Acessibilidade e legibilidade: contraste adequado, tipografia clara e espaçamento consistente.
 
-VISUAL FOUNDATION:
-- Background: Use pure white (#FFFFFF) interchanged with warm off-white (#F5F5F0) to segment the journey.
-- Anchor color: Forest Green (#2D6A4F). Use it deliberately for interactive elements (pills) and high-value data/stats cards.
-- Shadows must NOT be pure gray. All drop-shadows must carry a faint tint of forest green (rgba(45, 106, 79, 0.08)) to harmonize the page depth.
-- Photography: Humans consuming healthy organic foods in natural light, high-end kitchen environments, or macro-shots of raw ingredients.
+## Prompt de Replicação IA (pt-BR)
 
-TYPOGRAPHY:
-- Fluid typographic hierarchy utilizing geometric sans-serifs (Inter/DM Sans). Tracking should be open on micro-copy for readability.
-- Headlines are tightly leaded (1.1 line-height) but massive (clamp up to 64px) to command the hero. Focus on dark green text (#1A4331) for high legibility.
-- Stat indicators (e.g., "10Kg", "100%", "Phase 1") use the largest font scale to anchor complex sections.
+```txt
+Você está criando uma landing page premium para uma Nutricionista.
 
-LAYOUT:
-- Hero: Clean alignment, bold sans-serif headline, organic photography seamlessly bleeding into the edges.
-- Asymmetric Cards: Use interlocking bento grids for "The Method" or "Nutritional Plans."
-- Data-driven sections: Use spatial z-indexing to float small trust badges (e.g. "CRN: 12345", "Plano Personalizado") partially over the boundaries of hero or feature imagery.
-- Testimonials: Minimalist cards overlapping structural backgrounds to create a tactile, scrapbook-but-digital feel.
+Objetivo do projeto:
+- Captar leads para contratação de consulta (WhatsApp, formulário ou telefone).
+- Comunicar autoridade clínica + acolhimento.
 
-COMPONENTS:
-- Primary Button: Pill shape (999px radius), forest green background, white text. Hover scales gently.
-- Bento Cards: 16px border-radius, warm off-white background, subtle green-tinted shadow.
-- Trust Badges: Small floating white pills with green text and icons.
+Escopo obrigatório:
+- Página institucional de serviços (LP), em português do Brasil.
+- Não criar plataforma, app, dashboard, área do paciente, login, cadastro com senha ou onboarding de produto.
+- Não usar linguagem de SaaS.
 
-ANIMATIONS & MICRO-INTERACTIONS:
-- Choreographed data reveal: Big stat numbers inside green feature cards must count up from 0 to their target.
-- Micro-interactions: Feature checkmarks are not static SVGs; they use SVG stroke draw-on animations as the user reads down the list.
-- Component feedback: Buttons gently scale up by 2% and elevate their drop shadow on hover providing satisfying, organic tactile feedback instantly.
+Direção visual:
+- Alternar branco (#FFFFFF) com off-white quente (#F5F5F0).
+- Usar verde floresta (#2D6A4F) como cor de ação para botões e destaques.
+- Sombras suaves com leve tom esverdeado.
+- Fotos reais de alimentação saudável, atendimento e bastidores de consultório.
 
-MOOD: Credible, deeply healthy, modern, and transformative. The feeling of breathing clean morning air.
+Estrutura recomendada:
+1. Hero com proposta clara + CTA "Agendar avaliação nutricional".
+2. Blocos de serviços (emagrecimento, performance, saúde intestinal, acompanhamento).
+3. Método de acompanhamento em etapas.
+4. Provas de confiança (CRN, depoimentos, resultados possíveis sem promessas irreais).
+5. FAQ objetivo.
+6. Bloco final com CTA forte e contato rápido.
+
+Microinterações:
+- Hover de botões com leve escala (1.02) e transição suave.
+- Cards surgindo com fade + translateY curto.
+- Foco visível em links e botões para acessibilidade.
+
+Tom:
+- Premium, limpo, humano e confiável.
+- Sempre vender serviço profissional, nunca produto/plataforma digital.
 ```

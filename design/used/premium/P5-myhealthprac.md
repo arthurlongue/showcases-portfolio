@@ -1,38 +1,40 @@
 # P5. MyHealthPrac
 
-> **Source:** myhealthprac.com
-> **Reference:** `P5-myhealthprac.webp`
-> **Category:** Premium
-> **Best For:** Cafeteria, high-end coffee shops, roasteries, artisanal bakeries
+> **Fonte:** myhealthprac.com
+> **Referência:** `P5-myhealthprac.webp`
+> **Categoria:** Premium
+> **Rota Alvo:** `/premium/assinatura-cafe`
+> **Melhor Para:** Clube de café por assinatura, torrefação artesanal, cafeteria autoral
 
-**Visual DNA:** Warm, cinematic editorial dual-tone (rich espresso and warm oat milk cream). Emphasis on dynamic fluid layouts, deep layered depth maps, and immersive photography overlays.
+**Visual DNA:** Editorial quente, cinematográfico e sensorial. Tons de café espresso, creme e
+destaques dourados para percepção de produto premium.
 
 ---
 
 ## Design Tokens
 
 ```css
-/* ── Colors ── */
---bg-primary: #FAF7F3; /* warm oat milk */
+/* Cores */
+--bg-primary: #FAF7F3;
 --bg-secondary: #F5F0EB;
---bg-dark: #1A1208; /* deep warm espresso */
---bg-accent: #C49A5C; /* golden crema */
+--bg-dark: #1A1208;
+--bg-accent: #C49A5C;
 --text-primary: #1A1208;
 --text-secondary: #5A4D45;
 --text-on-dark: #FAF7F3;
 
-/* ── Typography ── */
+/* Tipografia */
 --font-heading: "DM Serif Display", "Lora", serif;
 --font-body: "Inter", "Satoshi", sans-serif;
 --heading-hero: 400 clamp(44px, 5vw, 72px) / 1.1 var(--font-heading);
 --heading-section: 400 clamp(30px, 3.5vw, 44px) / 1.2 var(--font-heading);
 --body: 400 18px / 1.65 var(--font-body);
 
-/* ── Spacing ── */
+/* Espaçamento */
 --section-padding: clamp(60px, 8vw, 100px);
 --max-width: 1200px;
 
-/* ── Borders & Radius ── */
+/* Bordas */
 --radius-card: 12px;
 --radius-image: 8px;
 --radius-button: 999px;
@@ -40,40 +42,54 @@
 
 ---
 
-## AI Replication Prompt
+## Diretrizes Globais (Projeto + DESIGN_CREATION_GUIDANCE)
 
-```
-You are building a premium artisanal Cafeteria / Coffee Roastery landing page. The aesthetic is "cinematic editorial espresso" — warm, dramatic, high-end, and deeply sensory. Use simple, standard Tailwind or CSS implementations. Follow these rules:
+- Contexto do projeto: este site é um showcase de portfolio para captar leads que querem contratar criação de sites.
+- Entregável: landing page de nicho (LP), não plataforma digital.
+- Linguagem obrigatória: 100% pt-BR em toda cópia visível, com texto realista do nicho.
+- Proibido: login, cadastro com senha, dashboard, portal, área logada, app SaaS, onboarding de produto.
+- Direção criativa: evitar visual genérico de IA. O resultado deve parecer um site autoral, premium e estratégico.
+- Hierarquia mínima da LP: Hero com CTA, serviços, diferenciais/método, prova social, FAQ (quando fizer sentido), CTA final com contato.
+- Conversão: CTA principal sempre orientado a lead (WhatsApp, formulário, ligação, solicitar orçamento, agendar avaliação).
+- UX obrigatória: todo elemento clicável com hover, focus-visible ring e cursor-pointer.
+- Motion: animações sutis e intencionais (entradas, reveals, hover). Nada gratuito ou distrativo.
+- Responsividade: mobile-first real, com layout funcional em telas pequenas antes de escalar para desktop.
+- Mídia: usar imagens coerentes com o nicho e com alta qualidade visual. Não usar placeholders quebrados.
+- Acessibilidade e legibilidade: contraste adequado, tipografia clara e espaçamento consistente.
 
-VISUAL FOUNDATION:
-- Background base: Warm oat milk (#FAF7F3). No pure whites, no cold grays.
-- Deep contrast sections: Use deep warm espresso (#1A1208) for immersive background blocks.
-- Accent color: Golden crema (#C49A5C) for subtle highlights, active states, and buttons.
-- Photography: Sepia or warm-temperature graded. Intimate close-ups of coffee roasting, pouring, textures, and steam. Images should feel like a high-end magazine.
-- Soft gradients: Use subtle radial gradients (golden crema glow at 10% opacity) behind hero text or feature products to create depth.
+## Prompt de Replicação IA (pt-BR)
 
-TYPOGRAPHY:
-- Headings: Elegant serif (DM Serif Display or Lora), 400 weight ONLY. Let the size do the work, not the weight.
-- Body: Clean, modern sans-serif (Inter) for maximum legibility.
-- Typographic art: Allow hero text to dynamically overlap images. Use italics for emotional emphasis or pull quotes.
+```txt
+Você está criando uma landing page premium para um serviço de assinatura de café.
 
-LAYOUT:
-- Hero Section: Full-bleed espresso dark background (#1A1208) with a cinematic coffee image (reduced opacity/Ken Burns effect). Massive, fluid serif headline in warm cream.
-- "The Philosophy" Section: Large serif statement on a clean cream background. High whitespace, centered alignment.
-- Menu / Beans Featured: A horizontal scroll or CSS grid of floating product cards (radius 12px) featuring bags of coffee or signature drinks.
-- Origin Story: Split 50/50 layout. Left side: immersive tall image. Right side: typography describing the farm-to-cup process.
-- Footer: Dark espresso background, clean layout, newsletter signup with golden crema accent button.
+Objetivo do projeto:
+- Converter visitantes em assinantes por meio de CTA direto.
+- Valorizar origem, curadoria e experiência sensorial do café.
 
-COMPONENTS:
-- Primary Button: Pill shape (999px radius), dark espresso background, cream text. Hover: slight scale up and background shifts to golden crema.
-- Secondary Button: Transparent background, 1px dark border.
-- Product Cards: Clean cream background, subtle warm shadow (rgba(26,18,8,0.05)), high-res product image on top, elegant typography below.
+Escopo obrigatório:
+- Site institucional/LP em pt-BR para aquisição de leads e assinaturas.
+- Não criar plataforma de gestão, área do cliente com login, dashboard de pedidos ou app.
+- Sem linguagem de produto SaaS.
 
-ANIMATIONS & MICRO-INTERACTIONS:
-- Smooth Scroll reveals: Sections fade in upward smoothly (opacity 0 -> 1, translateY 20px -> 0) over 600ms.
-- Image Hover: Slow, deliberate scale (1.00 -> 1.05) over 1 second to create a "breathing" effect.
-- Parallax: Give background images a slight slower scroll speed to create intense depth behind the typography.
-- Button Hover: Background fill transitions smoothly, text color inverts.
+Direção visual:
+- Base creme quente com blocos escuros em tom espresso.
+- Cor de destaque dourada para CTAs e elementos de valor.
+- Fotografia próxima: grãos, moagem, preparo, embalagem, ritual.
 
-MOOD: Artisanal, uncompromising quality. A sensory coffee experience transcribed to the screen via deep contrast and elegant serifs.
+Estrutura recomendada:
+1. Hero com headline forte + CTA "Assinar agora".
+2. Como funciona a assinatura (3 passos simples).
+3. Planos (mensal, quinzenal, presenteável) com benefícios claros.
+4. Origem e curadoria dos grãos.
+5. Depoimentos e prova social.
+6. FAQ e CTA final.
+
+Interações:
+- Hover elegante em cards e botões.
+- Revelações suaves no scroll.
+- Feedback visual claro para botões clicáveis.
+
+Tom:
+- Sensorial, sofisticado e autoral.
+- Foco em venda de assinatura como serviço direto, não como plataforma digital.
 ```

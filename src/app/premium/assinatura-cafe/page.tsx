@@ -13,7 +13,7 @@ import {
 } from "./components/client"
 import { auraData } from "./data"
 
-export default function CafeteriaPremiumPage() {
+export default function AssinaturaCafePage() {
 	return (
 		<main className="min-h-screen bg-[#FAF7F3] text-[#1A1208] selection:bg-[#C49A5C]/30">
 			<FloatingNavbar />
@@ -57,13 +57,13 @@ export default function CafeteriaPremiumPage() {
 			<section className="relative z-20 mx-auto max-w-[1400px] px-6">
 				<FadeUp delay={0.2} className="mb-16 flex items-center justify-between pt-32 md:mb-24">
 					<h2 className="font-dm-serif text-5xl md:text-7xl">
-						Artefatos <br />
-						<span className="text-[#C49A5C] italic">Sensoriais.</span>
+						Plano de <br />
+						<span className="text-[#C49A5C] italic">Assinatura.</span>
 					</h2>
 					<p className="hidden max-w-xs text-right font-medium text-[#1A1208]/50 text-sm uppercase tracking-widest md:block">
-						Arquitetura Sensorial
+						Curadoria de Planos
 						<br />
-						Afinada em laboratório
+						Entregas em todo Brasil
 					</p>
 				</FadeUp>
 
@@ -101,13 +101,14 @@ export default function CafeteriaPremiumPage() {
 							<h2 className="mb-8 font-dm-serif text-5xl italic md:text-8xl">Aura.</h2>
 							<div className="flex items-center gap-3 font-mono text-[#C49A5C] text-xs uppercase tracking-widest">
 								<div className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-								Ecosistema de Torra Operacional
+								Clube de Assinatura Exclusivo
 							</div>
 						</div>
 
 						<div className="flex flex-col justify-end">
 							<p className="mb-8 max-w-md text-[#FAF7F3]/70 text-xl">
-								Faça parte da vanguarda do café especial. Acesso exclusivo a microlotes numerados.
+								Eleve seu padrão diário. Seja um membro exclusivo do nosso clube de assinatura e
+								receba microlotes raros em casa.
 							</p>
 							<div className="flex w-full max-w-md items-center border-[#FAF7F3]/20 border-b pb-2 transition-colors focus-within:border-[#C49A5C]">
 								<input

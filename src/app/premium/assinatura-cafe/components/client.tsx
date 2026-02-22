@@ -1,7 +1,7 @@
 "use client"
 
 import { CalendarDays, MousePointer2, Type } from "lucide-react"
-import { AnimatePresence, motion, useScroll, useTransform } from "motion/react"
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useTransform } from "motion/react"
 import { type ReactNode, useEffect, useRef, useState } from "react"
 import { auraData } from "../data"
 
@@ -415,60 +415,67 @@ export function PhilosophySection() {
 // -----------------------------
 export function ProtocolSection() {
 	const sectionRef = useRef<HTMLDivElement>(null)
-	const titleRef = useRef<HTMLDivElement>(null)
+	const [activeStep, setActiveStep] = useState(0)
+	const protocolCount = auraData.protocol.length
 
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
 		offset: ["start start", "end end"],
 	})
 
-	// Title fades out and scales down as user scrolls into the cards
-	const titleOpacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0])
-	const titleScale = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0.92])
-	const titleY = useTransform(scrollYProgress, [0, 0.25], ["0%", "-8%"])
+	const stepProgress = useTransform(scrollYProgress, [0.2, 0.95], [0, protocolCount - 1])
+	useMotionValueEvent(stepProgress, "change", (value) => {
+		const step = Math.max(0, Math.min(protocolCount - 1, Math.round(value)))
+		setActiveStep((previousStep) => (previousStep === step ? previousStep : step))
+	})
 
-	// Subtle line width animation for the decorative rule
-	const lineWidth = useTransform(scrollYProgress, [0, 0.12], ["0%", "100%"])
+	// Title stays pinned while cards progress through the section
+	const titleOpacity = useTransform(scrollYProgress, [0, 0.08, 0.18, 0.96], [0, 1, 1, 0])
+	const titleScale = useTransform(scrollYProgress, [0, 0.18, 0.35], [0.96, 1, 0.94])
+	const titleY = useTransform(scrollYProgress, [0, 0.22], ["6%", "-8%"])
+
+	// Decorative progress line
+	const lineWidth = useTransform(scrollYProgress, [0.2, 0.95], ["0%", "100%"])
 
 	return (
-		<section ref={sectionRef} className="relative z-10 bg-[#1A1208]">
+		<section ref={sectionRef} className="relative z-10 bg-[#FAF7F3] pt-20 md:pt-32">
 			{/* Sticky title container — fills viewport, stays pinned */}
 			<div className="sticky top-0 z-20 flex h-screen items-center justify-center overflow-hidden">
 				<motion.div
-					ref={titleRef}
 					style={{ opacity: titleOpacity, scale: titleScale, y: titleY }}
-					className="flex flex-col items-center text-center"
+					className="flex w-full flex-col items-center px-6 text-center"
 				>
-					<p className="mb-4 font-bold text-[#FAF7F3]/40 text-xs uppercase tracking-[0.3em] md:text-sm">
+					<p className="mb-4 font-bold text-[#1A1208]/50 text-xs uppercase tracking-[0.3em] md:text-sm">
 						Transparência Total
 					</p>
-					<h2 className="font-dm-serif text-6xl text-[#FAF7F3] md:text-8xl lg:text-9xl">
+					<h2 className="font-dm-serif text-6xl text-[#1A1208] md:text-8xl lg:text-9xl">
 						O Protocolo
 						<br />
 						<span className="text-[#C49A5C] italic">Aura.</span>
 					</h2>
 
-					{/* Decorative animated line */}
-					<motion.div
-						style={{ width: lineWidth }}
-						className="mt-8 h-px bg-gradient-to-r from-transparent via-[#C49A5C] to-transparent"
-					/>
+					<div className="mt-8 flex w-full max-w-xs items-center gap-3 md:max-w-sm md:gap-4">
+						<span className="font-mono text-[#1A1208]/45 text-xs uppercase tracking-widest">
+							0{activeStep + 1}
+						</span>
+						<div className="h-px flex-1 bg-[#1A1208]/15">
+							<motion.div style={{ width: lineWidth }} className="h-full bg-[#C49A5C]" />
+						</div>
+						<span className="font-mono text-[#1A1208]/35 text-xs uppercase tracking-widest">
+							0{protocolCount}
+						</span>
+					</div>
 
-					<p className="mt-6 max-w-md text-[#FAF7F3]/40 text-sm leading-relaxed md:text-base">
+					<p className="mt-6 max-w-md text-[#1A1208]/40 text-sm leading-relaxed md:text-base">
 						Cada etapa, exposta. Cada processo, rastreável.
 					</p>
 				</motion.div>
 			</div>
 
 			{/* Cards stack on top of the title */}
-			<div className="relative z-30 flex flex-col items-center gap-16 px-4 pb-[30vh] md:px-6">
+			<div className="relative z-30 -mt-[18svh] flex flex-col items-center gap-14 px-4 pb-[36svh] md:px-6">
 				{auraData.protocol.map((protocol, i) => (
-					<StickyCard
-						key={protocol.title}
-						protocol={protocol}
-						index={i}
-						total={auraData.protocol.length}
-					/>
+					<StickyCard key={protocol.title} protocol={protocol} index={i} total={protocolCount} />
 				))}
 			</div>
 		</section>
@@ -499,7 +506,9 @@ function StickyCard({
 	// Cards that aren't last dim/shrink as the next card rolls in
 	const isLast = index === total - 1
 	const scale = useTransform(scrollYProgress, [0.4, 1], isLast ? [1, 1] : [1, 0.93])
-	const cardOpacity = useTransform(scrollYProgress, [0.4, 1], isLast ? [1, 1] : [1, 0.4])
+	const cardOpacity = useTransform(scrollYProgress, [0.4, 1], isLast ? [1, 1] : [1, 0.45])
+	const rotate = useTransform(scrollYProgress, [0.4, 1], isLast ? [0, 0] : [0, -2.5])
+	const y = useTransform(scrollYProgress, [0.4, 1], isLast ? [0, 0] : [0, -36])
 	const filter = useTransform(
 		scrollYProgress,
 		[0.4, 1],
@@ -511,10 +520,12 @@ function StickyCard({
 			ref={cardRef}
 			className="sticky flex h-[85svh] max-h-[900px] w-full max-w-6xl origin-top flex-col justify-end overflow-hidden rounded-[2rem] bg-[#1A1208] p-6 shadow-2xl md:h-[80svh] md:p-10 lg:p-20"
 			style={{
-				top: `calc(10vh + ${index * 40}px)`,
+				top: `calc(9vh + ${index * 34}px)`,
 				zIndex: 30 + index,
 				scale,
 				opacity: cardOpacity,
+				rotate,
+				y,
 				filter,
 			}}
 		>

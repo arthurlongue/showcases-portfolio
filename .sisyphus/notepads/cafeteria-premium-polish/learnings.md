@@ -1,0 +1,1 @@
+- Created src/components/ui/AGENTS.md with specific guidance for shadcn/ui integration, client boundaries, and Tailwind v4 customization.

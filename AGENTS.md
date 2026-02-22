@@ -5,6 +5,42 @@ It contains multiple dummy projects from different niches (Dentista, Psicólogo,
 These projects all live inside this single codebase and are separated by specific routes.
 The stack includes React 19, Tailwind CSS v4, shadcn/ui, Framer Motion, and BiomeJS.
 
+# STRUCTURE
+```
+showcases-portfolio/
+├── src/
+│   ├── app/
+│   │   ├── essencial/          # 4 niches: manicure, padaria, psicologo, servicos-residenciais
+│   │   ├── premium/            # 5 niches: assinatura-cafe, dentista, fotografo, nutricionista, personal
+│   │   ├── layout.tsx          # Root layout
+│   │   ├── page.tsx            # Entry point
+│   │   └── globals.css         # Global styles + Tailwind v4 theme
+│   ├── components/
+│   │   └── ui/                 # 56 shadcn/ui components
+│   ├── hooks/
+│   │   └── use-mobile.ts
+│   └── lib/
+│       └── utils.ts            # cn() utility
+├── public/
+├── design/                   # Design assets (used/unused)
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+└── components.json           # shadcn config
+```
+
+# WHERE TO LOOK
+| Task | Location | Notes |
+|------|----------|-------|
+| Adding new niche showcase | src/app/[tier]/[niche]/ | Create page.tsx, layout.tsx |
+| UI components | src/components/ui/ | shadcn/ui primitives |
+| Shared components | src/components/[domain]/ | Cross-niche reusable components |
+| Custom hooks | src/hooks/ | Stateful logic separation |
+| Utilities | src/lib/ | cn(), helpers |
+| Global styles | src/app/globals.css | Tailwind v4 CSS config |
+| Root layout | src/app/layout.tsx | Fonts, providers |
+| Entry point | src/app/page.tsx | Portfolio landing |
+
 # Common Commands
 - **Development Server**: `pnpm dev`
 - **Build for Production**: `pnpm build`

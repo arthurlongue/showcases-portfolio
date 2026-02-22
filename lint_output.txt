@@ -1,8 +1,0 @@
-
-> showcases-portfolio@0.1.0 lint /home/artu/Desktop/projects/showcases-portfolio
-> biome check --write --unsafe . --max-diagnostics=100
-
-Checked 101 files in 109ms. No fixes applied.
-Found 38 errors.
-Found 52 warnings.
- ELIFECYCLE  Command failed with exit code 1.

@@ -1,78 +1,98 @@
 # P4. FlyHyer
 
-> **Source:** flyhyer.com
-> **Reference:** `P4-flyhyer.webp`
-> **Category:** Premium
-> **Best For:** Odontologia estética, clínicas premium de odontologia, harmonização facial, high-end healthcare
+> **Fonte:** flyhyer.com
+> **Referência:** `P4-flyhyer.webp`
+> **Categoria:** Premium
+> **Rota Alvo:** `/premium/dentista`
+> **Melhor Para:** Odontologia estética, clínica odontológica premium, harmonização facial
 
-**Visual DNA:** Deep-contrast luxury clinic aesthetic. Immaculate pure white surfaces layered over deep restorative navy blues. Editorial minimal serif type, spatial separation through extreme whitespace, and precision instrument-like hairlines.
+**Visual DNA:** Luxo clínico e precisão. Contraste entre branco puro e azul-marinho profundo,
+com composição arquitetônica e muito espaço negativo.
 
 ---
 
 ## Design Tokens
 
 ```css
-/* ── Colors ── */
---bg-primary: #0D1B2A; /* deep navy */
+/* Cores */
+--bg-primary: #0D1B2A;
 --bg-secondary: #1B263B;
---bg-light: #FFFFFF; /* pristine white */
+--bg-light: #FFFFFF;
 --bg-gray: #F8F9FA;
 --text-primary: #0D1B2A;
 --text-light: #FFFFFF;
 --text-secondary: #6C757D;
 --accent-border: #E0E0E0;
 
-/* ── Typography ── */
+/* Tipografia */
 --font-heading: "Playfair Display", "DM Serif Display", serif;
 --font-body: "Inter", "Satoshi", sans-serif;
 --heading-hero: 400 clamp(56px, 8vw, 96px) / 1.0 var(--font-heading);
 --heading-section: 400 clamp(36px, 4vw, 56px) / 1.1 var(--font-heading);
 --body: 400 16px / 1.8 var(--font-body);
---label: 500 13px / 1 var(--font-body); /* 0.08em letter-spacing */
+--label: 500 13px / 1 var(--font-body);
 
-/* ── Spacing ── */
+/* Espaçamento */
 --section-padding: clamp(80px, 10vw, 130px);
 --max-width: 1200px;
 
-/* ── Borders & Radius ── */
---radius-card: 0px; /* Sharp precision */
+/* Bordas */
+--radius-card: 0px;
 --radius-button: 0px;
 --radius-image: 0px;
 ```
 
 ---
 
-## AI Replication Prompt
+## Diretrizes Globais (Projeto + DESIGN_CREATION_GUIDANCE)
 
-```
-You are building a high-end luxury dentistry / facial aesthetics landing page. The design philosophy is "Precision and Purity." Avoid generic health tech tropes. It must feel like a Five-Star Hotel or exclusive aviation club applied to healthcare. Use simple, standard Tailwind or CSS implementations. Follow these rules:
+- Contexto do projeto: este site é um showcase de portfolio para captar leads que querem contratar criação de sites.
+- Entregável: landing page de nicho (LP), não plataforma digital.
+- Linguagem obrigatória: 100% pt-BR em toda cópia visível, com texto realista do nicho.
+- Proibido: login, cadastro com senha, dashboard, portal, área logada, app SaaS, onboarding de produto.
+- Direção criativa: evitar visual genérico de IA. O resultado deve parecer um site autoral, premium e estratégico.
+- Hierarquia mínima da LP: Hero com CTA, serviços, diferenciais/método, prova social, FAQ (quando fizer sentido), CTA final com contato.
+- Conversão: CTA principal sempre orientado a lead (WhatsApp, formulário, ligação, solicitar orçamento, agendar avaliação).
+- UX obrigatória: todo elemento clicável com hover, focus-visible ring e cursor-pointer.
+- Motion: animações sutis e intencionais (entradas, reveals, hover). Nada gratuito ou distrativo.
+- Responsividade: mobile-first real, com layout funcional em telas pequenas antes de escalar para desktop.
+- Mídia: usar imagens coerentes com o nicho e com alta qualidade visual. Não usar placeholders quebrados.
+- Acessibilidade e legibilidade: contraste adequado, tipografia clara e espaçamento consistente.
 
-VISUAL FOUNDATION:
-- Extreme polarity: The UI alternates between pristine white (#FFFFFF, representing clean teeth/hygiene) and deep navy blue (#0D1B2A, representing calm, trust, and depth).
-- ZERO bright vibrant accent colors. Sophistication comes strictly from optical negative space and razor-sharp 1px hairlines (#E0E0E0).
-- Shape: 0px border-radius everywhere. Everything is strictly geometric. No rounded pill buttons. Sharp aesthetic signifies surgical precision and exactness.
-- Photography: Edge-to-edge structural photography showing the clinic space, pristine equipment, or flawless subtle smiles, unfiltered.
+## Prompt de Replicação IA (pt-BR)
 
-TYPOGRAPHY:
-- Hero: Oversized fluid display typography using the overarching serif (e.g. "Playfair Display").
-- Treatment of trademark/copyright symbols (e.g., Lente de Contato®) as high-end ornamental elements mimicking luxury brand signatures.
-- Clinical uppercase micro-copy (13px, tracked out 0.08em) functions as architectural scaffolding framing the huge imagery.
+```txt
+Você está criando uma landing page premium para clínica odontológica.
 
-LAYOUT:
-- Hero Section: Deep navy background, large serif text in white, high-contrast imagery. Strict, architectural grid.
-- Over 60% of the viewport should be negative space.
-- The "Services" or "Treatments" table grid: A pure CSS Grid with 1px border lines replicating an elegant technical architecture document (e.g. Invisalign, Facetas em Resina).
-- Before/After Highlights: Strict side-by-side squares with 0px gap, extremely clinical.
+Objetivo do projeto:
+- Gerar agendamentos de avaliação e contatos comerciais.
+- Comunicar excelência, segurança e estética de alto padrão.
 
-COMPONENTS:
-- Primary Button: Sharp rectangle. Pure white background, dark text (or inverted if on white). 1px border.
-- Cards: No background, just sharp 1px borders forming a strict grid.
-- Service Items: Architectural lists with uppercase microcopy numbering (e.g., "01 — CLINICAL").
+Escopo obrigatório:
+- Landing page institucional em pt-BR.
+- Não criar portal do paciente, login, dashboard, prontuário digital ou plataforma.
+- Sem visual de health-tech genérico.
 
-ANIMATIONS & MICRO-INTERACTIONS:
-- Whisper, don't shout: Everything animates slowly (800ms) with ease-out. No bouncing. Elements elegantly unfurl, fade and slide up by 15px.
-- Hover states on service tables highlight the full grid row softly, transforming text colors.
-- Image Parallax: High-res clinic photos move inside their containers at strictly 0.9x scroll speed, generating luxurious spatial depth.
+Direção visual:
+- Alternância rigorosa entre branco puro e azul-marinho profundo.
+- Linhas finas de 1px para estrutura.
+- Sem cores vibrantes e sem cantos arredondados.
+- Fotos reais da clínica, equipe e resultados naturais.
 
-MOOD: Impeccably clean, highly exclusive, deeply trusted. The UI equivalent of walking into a multi-million-dollar aesthetic clinic with a marble lobby.
+Estrutura recomendada:
+1. Hero com headline de autoridade + CTA "Agendar avaliação".
+2. Procedimentos em grade técnica (lentes, facetas, implantes, clareamento).
+3. Bloco de diferenciais (tecnologia, biossegurança, atendimento).
+4. Antes e depois com apresentação sóbria.
+5. Depoimentos e credenciais.
+6. CTA final com canais de contato.
+
+Interações:
+- Animações lentas e discretas.
+- Hover de linhas/tabelas destacando a linha inteira.
+- Foco visível em todos os elementos clicáveis.
+
+Tom:
+- Exclusivo, preciso e confiável.
+- Site de captação de pacientes, nunca produto digital.
 ```

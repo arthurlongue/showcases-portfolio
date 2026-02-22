@@ -13,11 +13,12 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-	title: "Aura Roasters | Cinematic Espresso",
-	description: "O café premium, redefinido. Um manifesto à clareza.",
+	title: "Aura Roasters | Clube de Assinatura",
+	description:
+		"Café premium com exclusividade. Entregas frequentes de microlotes selecionados para verdadeiros apreciadores.",
 }
 
-export default function CafeteriaLayout({ children }: { children: React.ReactNode }) {
+export default function AssinaturaCafeLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<div
 			className={`${dmSerifDisplay.variable} ${inter.variable} relative min-h-screen bg-[#FAF7F3] font-sans text-[#1A1208] antialiased selection:bg-[#C49A5C]/30`}

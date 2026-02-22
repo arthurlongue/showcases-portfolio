@@ -1,18 +1,20 @@
 # S10. Uneebo
 
-> **Source:** uneebo.com
-> **Reference:** `S10-uneebo.webp`
-> **Category:** Standard
-> **Best For:** Serviços residenciais, arquitetos locais, reformas, paisagismo, decoradores
+> **Fonte:** uneebo.com
+> **Referência:** `S10-uneebo.webp`
+> **Categoria:** Essencial
+> **Rota Alvo:** `/essencial/servicos-residenciais`
+> **Melhor Para:** Serviços residenciais, reformas, manutenção, paisagismo
 
-**Visual DNA:** Clean, Scandinavian minimal service page. Pure whites, subtle gray strokes, and pristine photography of clean houses. Emphasis on rigid structural grids to project competence, organization, and elite execution for local home services.
+**Visual DNA:** Minimalismo escandinavo funcional. Branco predominante, linhas finas e fotos de
+execução real para reforçar organização e confiança.
 
 ---
 
 ## Design Tokens
 
 ```css
-/* ── Colors ── */
+/* Cores */
 --bg-primary: #FFFFFF;
 --bg-gray: #F8F9FA;
 --bg-dark: #1A1A1A;
@@ -21,55 +23,72 @@
 --text-secondary: #666666;
 --text-light: #FFFFFF;
 
-/* ── Typography ── */
+/* Tipografia */
 --font-heading: "DM Serif Text", "Lora", serif;
 --font-body: "Inter", sans-serif;
 --heading-hero: 500 clamp(32px, 4vw, 48px) / 1.2 var(--font-heading);
 --heading-section: 500 clamp(24px, 3vw, 36px) / 1.25 var(--font-heading);
 --body: 400 16px / 1.65 var(--font-body);
 
-/* ── Spacing ── */
+/* Espaçamento */
 --section-padding: clamp(60px, 6vw, 100px);
 --max-width: 1200px;
 
-/* ── Borders & Radius ── */
---radius-card: 8px; /* Architectural precision */
+/* Bordas */
+--radius-card: 8px;
 --radius-button: 4px;
 --radius-image: 4px;
 ```
 
 ---
 
-## AI Replication Prompt
+## Diretrizes Globais (Projeto + DESIGN_CREATION_GUIDANCE)
 
-```
-You are building an architectural/home services standard landing page (reformas, paisagismo, decoradores). Apply a clean Scandinavian minimal aesthetic to strip away clutter. The design must communicate "we are clean, punctual, and highly skilled." Follow these rules:
+- Contexto do projeto: este site é um showcase de portfolio para captar leads que querem contratar criação de sites.
+- Entregável: landing page de nicho (LP), não plataforma digital.
+- Linguagem obrigatória: 100% pt-BR em toda cópia visível, com texto realista do nicho.
+- Proibido: login, cadastro com senha, dashboard, portal, área logada, app SaaS, onboarding de produto.
+- Direção criativa: evitar visual genérico de IA. O resultado deve parecer um site autoral, premium e estratégico.
+- Hierarquia mínima da LP: Hero com CTA, serviços, diferenciais/método, prova social, FAQ (quando fizer sentido), CTA final com contato.
+- Conversão: CTA principal sempre orientado a lead (WhatsApp, formulário, ligação, solicitar orçamento, agendar avaliação).
+- UX obrigatória: todo elemento clicável com hover, focus-visible ring e cursor-pointer.
+- Motion: animações sutis e intencionais (entradas, reveals, hover). Nada gratuito ou distrativo.
+- Responsividade: mobile-first real, com layout funcional em telas pequenas antes de escalar para desktop.
+- Mídia: usar imagens coerentes com o nicho e com alta qualidade visual. Não usar placeholders quebrados.
+- Acessibilidade e legibilidade: contraste adequado, tipografia clara e espaçamento consistente.
 
-VISUAL FOUNDATION:
-- Pure White (#FFFFFF): Nearly the entire design sits on a pristine white background, letting the photography of completed home projects bring the color.
-- Structural framing: Rely heavily on 1px borders (#E9ECEF) to create rigid architectural grids, cards, and tables for services.
-- Dark Anchor (#1A1A1A) for footers and high-impact CTA sections to create stark contrast.
-- Corner radii are tighter (8px) to signify precision and construction. No soft bubbly elements.
+## Prompt de Replicação IA (pt-BR)
 
-TYPOGRAPHY:
-- Confident, structured serif headers paired with highly legible, tracked-out sans-serif microcopy (e.g., "01 — PINTURA", "02 — REFORMA").
-- Utilize strict column alignments. Text paragraphs should align perfectly with the edges of photographic grids beneath them.
+```txt
+Você está criando uma landing page essencial para serviços residenciais.
 
-LAYOUT:
-- Hero: Centered serif headline + dark CTA button + full-width architectural photo below.
-- Process timelines: A vertical or horizontal line-art timeline detailing exactly how the service works ("1. Orçamento -> 2. Execução -> 3. Entrega").
-- Before/After comparisons using native CSS image clipping or side-by-side rigid grids.
-- "The Guarantee" badge: A minimalist, trust-building badge highlighting warranty or punctuality guarantees.
+Objetivo do projeto:
+- Gerar pedidos de orçamento para serviços locais.
+- Comunicar pontualidade, qualidade e garantia.
 
-COMPONENTS:
-- Primary Button: Dark background (#1A1A1A), white text, 4px sharp radius.
-- Cards: Pure white, 1px light gray border, 8px radius.
-- Line-art icons: Thin, technical stroke architectural icons to symbolize services.
+Escopo obrigatório:
+- LP institucional em português do Brasil.
+- Não criar sistema de chamados com login, painel do cliente, app ou plataforma.
 
-ANIMATIONS & MICRO-INTERACTIONS:
-- Functional, snap-to-grid interactions. Accordions open instantly. 
-- Fast image loading and clean fade-ins (opacity: 0 -> 1 over 300ms) on scroll to simulate a clean reveal. No heavy parallax that might lag on mobile.
-- Focus states (:focus-visible) must be perfectly styled to show attention to detail.
+Direção visual:
+- Branco predominante com blocos cinza claro.
+- Grid limpo com bordas de 1px.
+- Visual técnico, organizado e objetivo.
 
-MOOD: Spotless, highly competent, architectural. The kind of service provider that leaves your house cleaner than they found it.
+Estrutura recomendada:
+1. Hero com proposta direta + CTA "Pedir orçamento".
+2. Lista de serviços com ícones simples.
+3. Etapas do atendimento (orçamento, execução, entrega).
+4. Antes e depois.
+5. Garantias e prova social.
+6. Contato final.
+
+Interações:
+- Hover simples e funcional.
+- Animações rápidas sem exagero.
+- Estados de foco visíveis.
+
+Tom:
+- Profissional, claro e confiável.
+- Sempre página de captação de serviços locais.
 ```

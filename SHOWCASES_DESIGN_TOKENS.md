@@ -10,7 +10,7 @@ The `design/` folder is organized into two main directories:
 
 ## 💎 Premium Tier Niches
 
-### 1. Cafeteria (`/cafeteria/premium`)
+### 1. Assinatura de Café (`/assinatura-cafe/premium`)
 - **Reference Template:** [P5-myhealthprac](file:///home/artu/Desktop/projects/showcases-portfolio/design/used/premium/P5-myhealthprac.md)
 - **Core Aesthetic:** Warm, cinematic editorial dual-tone (rich espresso and warm oat milk cream).
 - **Core Tokens:** `--bg-primary` (#FAF7F3), `--bg-dark` (#1A1208), `--bg-accent` (#C49A5C)
