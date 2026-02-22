@@ -63,4 +63,7 @@ export const auraData = {
 			type: "image" as const,
 		},
 	],
+	footer: {
+		image: "/showcases/cafeteria/cerrado.jpeg",
+	},
 }

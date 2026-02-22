@@ -7,8 +7,8 @@ import {
 	MagneticButton,
 	OriginShuffler,
 	PhilosophySection,
+	ProtocolSection,
 	SensorialTypewriter,
-	StickyStackingCards,
 	SubscriptionScheduler,
 } from "./components/client"
 import { auraData } from "./data"
@@ -54,8 +54,8 @@ export default function CafeteriaPremiumPage() {
 			</section>
 
 			{/* Features / Artefatos Funcionais */}
-			<section className="relative z-20 mx-auto  max-w-[1400px] px-6">
-				<FadeUp delay={0.2} className="pt-32 mb-16 flex items-center justify-between md:mb-24">
+			<section className="relative z-20 mx-auto max-w-[1400px] px-6">
+				<FadeUp delay={0.2} className="mb-16 flex items-center justify-between pt-32 md:mb-24">
 					<h2 className="font-dm-serif text-5xl md:text-7xl">
 						Artefatos <br />
 						<span className="text-[#C49A5C] italic">Sensoriais.</span>
@@ -83,26 +83,19 @@ export default function CafeteriaPremiumPage() {
 			{/* Philosophy / Parallax */}
 			<PhilosophySection />
 
-			{/* Protocolo da Torra */}
-			<section className="relative z-10 bg-[#FAF7F3] py-32">
-				<div className="mx-auto max-w-[1400px] px-6 text-center">
-					<FadeUp delay={0.2}>
-						<p className="mb-4 font-bold text-[#1A1208]/50 text-sm uppercase tracking-widest">
-							Transparência Total
-						</p>
-						<h2 className="font-dm-serif text-6xl md:text-8xl">
-							O Protocolo
-							<br />
-							<span className="text-[#C49A5C] italic">Aura.</span>
-						</h2>
-					</FadeUp>
-				</div>
-				<StickyStackingCards />
-			</section>
+			{/* Protocolo da Torra — Cinematic Sticky Scroll */}
+			<ProtocolSection />
 
 			{/* Footer */}
-			<footer className="relative z-20 mt-24 overflow-hidden rounded-t-[3rem] bg-[#1A1208] px-6 py-20 text-[#FAF7F3] md:rounded-t-[4rem] md:py-32">
-				<div className="mx-auto max-w-[1400px]">
+			<footer className="relative z-20 mt-0 overflow-hidden rounded-t-[3rem] px-6 py-20 text-[#FAF7F3] md:rounded-t-[4rem] md:py-32">
+				{/* eslint-disable-next-line @next/next/no-img-element */}
+				<img
+					src={auraData.footer.image}
+					alt=""
+					className="absolute inset-0 z-0 h-full w-full object-cover"
+				/>
+				<div className="absolute inset-0 z-0 bg-[#1A1208]/80" />
+				<div className="relative z-10 mx-auto max-w-[1400px]">
 					<div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-32">
 						<div>
 							<h2 className="mb-8 font-dm-serif text-5xl italic md:text-8xl">Aura.</h2>

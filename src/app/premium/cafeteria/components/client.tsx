@@ -50,8 +50,9 @@ export function MagneticButton({
 	const [position, setPosition] = useState({ x: 0, y: 0 })
 
 	const handleMouse = (e: React.MouseEvent<HTMLButtonElement>) => {
+		if (!ref.current) return
 		const { clientX, clientY } = e
-		const { height, width, left, top } = ref.current!.getBoundingClientRect()
+		const { height, width, left, top } = ref.current.getBoundingClientRect()
 		const middleX = clientX - (left + width / 2)
 		const middleY = clientY - (top + height / 2)
 		setPosition({ x: middleX * 0.1, y: middleY * 0.1 })
@@ -409,15 +410,68 @@ export function PhilosophySection() {
 }
 
 // -----------------------------
-// Sticky Stacking Cards
+// Cinematic Protocol Section
+// with Sticky Scroll Title
 // -----------------------------
-export function StickyStackingCards() {
+export function ProtocolSection() {
+	const sectionRef = useRef<HTMLDivElement>(null)
+	const titleRef = useRef<HTMLDivElement>(null)
+
+	const { scrollYProgress } = useScroll({
+		target: sectionRef,
+		offset: ["start start", "end end"],
+	})
+
+	// Title fades out and scales down as user scrolls into the cards
+	const titleOpacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0])
+	const titleScale = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0.92])
+	const titleY = useTransform(scrollYProgress, [0, 0.25], ["0%", "-8%"])
+
+	// Subtle line width animation for the decorative rule
+	const lineWidth = useTransform(scrollYProgress, [0, 0.12], ["0%", "100%"])
+
 	return (
-		<div className="relative mt-24">
-			{auraData.protocol.map((protocol, i) => (
-				<StickyCard key={i} protocol={protocol} index={i} total={auraData.protocol.length} />
-			))}
-		</div>
+		<section ref={sectionRef} className="relative z-10 bg-[#1A1208]">
+			{/* Sticky title container — fills viewport, stays pinned */}
+			<div className="sticky top-0 z-20 flex h-screen items-center justify-center overflow-hidden">
+				<motion.div
+					ref={titleRef}
+					style={{ opacity: titleOpacity, scale: titleScale, y: titleY }}
+					className="flex flex-col items-center text-center"
+				>
+					<p className="mb-4 font-bold text-[#FAF7F3]/40 text-xs uppercase tracking-[0.3em] md:text-sm">
+						Transparência Total
+					</p>
+					<h2 className="font-dm-serif text-6xl text-[#FAF7F3] md:text-8xl lg:text-9xl">
+						O Protocolo
+						<br />
+						<span className="text-[#C49A5C] italic">Aura.</span>
+					</h2>
+
+					{/* Decorative animated line */}
+					<motion.div
+						style={{ width: lineWidth }}
+						className="mt-8 h-px bg-gradient-to-r from-transparent via-[#C49A5C] to-transparent"
+					/>
+
+					<p className="mt-6 max-w-md text-[#FAF7F3]/40 text-sm leading-relaxed md:text-base">
+						Cada etapa, exposta. Cada processo, rastreável.
+					</p>
+				</motion.div>
+			</div>
+
+			{/* Cards stack on top of the title */}
+			<div className="relative z-30 flex flex-col items-center gap-16 px-4 pb-[30vh] md:px-6">
+				{auraData.protocol.map((protocol, i) => (
+					<StickyCard
+						key={protocol.title}
+						protocol={protocol}
+						index={i}
+						total={auraData.protocol.length}
+					/>
+				))}
+			</div>
+		</section>
 	)
 }
 
@@ -437,57 +491,84 @@ function StickyCard({
 	total: number
 }) {
 	const cardRef = useRef<HTMLDivElement>(null)
-	const { scrollYProgress } = useScroll({ target: cardRef, offset: ["start start", "end start"] })
+	const { scrollYProgress } = useScroll({
+		target: cardRef,
+		offset: ["start end", "end start"],
+	})
 
-	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9])
-	const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.4])
-	const filter = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(10px)"])
-
+	// Cards that aren't last dim/shrink as the next card rolls in
 	const isLast = index === total - 1
+	const scale = useTransform(scrollYProgress, [0.4, 1], isLast ? [1, 1] : [1, 0.93])
+	const cardOpacity = useTransform(scrollYProgress, [0.4, 1], isLast ? [1, 1] : [1, 0.4])
+	const filter = useTransform(
+		scrollYProgress,
+		[0.4, 1],
+		isLast ? ["brightness(1)", "brightness(1)"] : ["brightness(1)", "brightness(0.4)"],
+	)
 
 	return (
-		<div
+		<motion.div
 			ref={cardRef}
-			className={`group sticky top-0 flex h-[100svh] items-center justify-center p-6 ${!isLast ? "mb-[60vh]" : ""}`}
+			className="sticky flex h-[85svh] max-h-[900px] w-full max-w-6xl origin-top flex-col justify-end overflow-hidden rounded-[2rem] bg-[#1A1208] p-6 shadow-2xl md:h-[80svh] md:p-10 lg:p-20"
+			style={{
+				top: `calc(10vh + ${index * 40}px)`,
+				zIndex: 30 + index,
+				scale,
+				opacity: cardOpacity,
+				filter,
+			}}
 		>
-			<motion.div
-				style={{ scale, opacity, filter }}
-				className="relative flex h-[80svh] w-full max-w-6xl origin-top flex-col justify-end overflow-hidden rounded-[2rem] bg-[#1A1208] p-6 shadow-2xl ring-0 transition-[box-shadow] group-hover:ring-1 group-hover:ring-[#C49A5C]/20 md:h-[80svh] md:p-10 lg:p-20"
-			>
-				<div className="absolute inset-0 z-0">
-					{protocol.type === "video" ? (
-						<video
-							src={protocol.media}
-							poster={protocol.poster}
-							autoPlay
-							loop
-							muted
-							playsInline
-							className="h-full w-full object-cover opacity-60 mix-blend-luminosity"
-						/>
-					) : (
-						/* eslint-disable-next-line @next/next/no-img-element */
-						<img
-							src={protocol.media}
-							alt={protocol.title}
-							className="h-full w-full object-cover opacity-60 mix-blend-luminosity"
-						/>
-					)}
-					<div className="absolute inset-0 bg-gradient-to-t from-[#1A1208] via-[#1A1208]/40 to-transparent" />
-				</div>
+			<div className="absolute inset-0 z-0">
+				{protocol.type === "video" ? (
+					<video
+						src={protocol.media}
+						poster={protocol.poster}
+						autoPlay
+						loop
+						muted
+						playsInline
+						className="h-full w-full object-cover opacity-60 mix-blend-luminosity"
+					/>
+				) : (
+					/* eslint-disable-next-line @next/next/no-img-element */
+					<img
+						src={protocol.media}
+						alt={protocol.title}
+						className="h-full w-full object-cover opacity-60 mix-blend-luminosity"
+					/>
+				)}
+				<div className="absolute inset-0 bg-gradient-to-t from-[#1A1208] via-[#1A1208]/40 to-transparent" />
+			</div>
 
-				<div className="relative z-10 flex w-full flex-col md:w-1/2">
-					<span className="mb-4 font-bold text-[#C49A5C] text-sm uppercase tracking-widest">
-						Fase 0{index + 1}
-					</span>
-					<h3 className="mb-6 font-dm-serif text-3xl text-[#FAF7F3] leading-[1.1] md:text-5xl lg:text-7xl">
-						{protocol.title}
-					</h3>
-					<p className="max-w-md text-[#FAF7F3]/70 text-lg leading-relaxed md:text-xl">
-						{protocol.description}
-					</p>
-				</div>
-			</motion.div>
-		</div>
+			<div className="relative z-10 flex w-full flex-col md:w-1/2">
+				<motion.span
+					initial={{ opacity: 0, x: -20 }}
+					whileInView={{ opacity: 1, x: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6, delay: 0.1 }}
+					className="mb-4 font-bold text-[#C49A5C] text-sm uppercase tracking-widest"
+				>
+					Fase 0{index + 1}
+				</motion.span>
+				<motion.h3
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+					className="mb-6 font-dm-serif text-3xl text-[#FAF7F3] leading-[1.1] md:text-5xl lg:text-7xl"
+				>
+					{protocol.title}
+				</motion.h3>
+				<motion.p
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+					className="max-w-md text-[#FAF7F3]/70 text-lg leading-relaxed md:text-xl"
+				>
+					{protocol.description}
+				</motion.p>
+			</div>
+		</motion.div>
 	)
 }
