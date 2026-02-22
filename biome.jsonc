@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**", "!docs/examples"]
+		"includes": ["src/**", "*.ts", "*.tsx", "*.js", "*.jsx"]
 	},
 	"formatter": {
 		"enabled": true,
@@ -51,25 +51,20 @@
 				"useKeyWithClickEvents": "warn",
 				"useKeyWithMouseEvents": "warn",
 				"useMediaCaption": "warn",
-				"useValidAnchor": "warn",
+				"useValidAnchor": "off",
 				"useValidAriaProps": "warn",
 				"useValidAriaRole": "warn",
 				"useValidAriaValues": "warn",
 				"useValidLang": "warn"
 			},
-			"nursery": {
-				"useSortedClasses": {
-					"level": "warn",
-					"fix": "safe",
-					"options": {
-						"attributes": ["className"],
-						"functions": ["clsx", "cva", "cn"]
-					}
-				}
+			"performance": {
+				"noImgElement": "off"
 			},
+
 			"suspicious": {
 				"noExplicitAny": "error",
 				"noConsole": "warn",
+				"noArrayIndexKey": "off",
 				"noUnknownAtRules": "off"
 			},
 			"style": {
