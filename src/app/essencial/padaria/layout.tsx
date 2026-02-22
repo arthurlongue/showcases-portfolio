@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import "./theme.css"
 
 export const metadata: Metadata = {
 	title: "Padaria Essencial | Showcase",
@@ -7,9 +6,5 @@ export const metadata: Metadata = {
 }
 
 export default function PadariaLayout({ children }: { children: React.ReactNode }) {
-	return (
-		<div className="padaria-theme light min-h-screen bg-background font-sans text-foreground selection:bg-primary/30">
-			{children}
-		</div>
-	)
+	return <>{children}</>
 }

@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import "./theme.css"
 
 export const metadata: Metadata = {
 	title: "Manicure Essencial | Showcase",
@@ -7,9 +6,5 @@ export const metadata: Metadata = {
 }
 
 export default function ManicureLayout({ children }: { children: React.ReactNode }) {
-	return (
-		<div className="manicure-theme light min-h-screen bg-background font-sans text-foreground antialiased selection:bg-[var(--mani-accent-main)] selection:text-white">
-			{children}
-		</div>
-	)
+	return <>{children}</>
 }
