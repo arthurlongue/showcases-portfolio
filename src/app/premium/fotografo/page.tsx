@@ -233,7 +233,7 @@ function Services() {
 					drawing={
 						<div className="relative h-[120%] w-full overflow-hidden rounded-2xl">
 							<Image
-								src="/showcases/fotografo/retrato-dramatico.jpeg"
+								src="/showcases/fotografo/retrato-dramatico.webp"
 								alt="Retrato"
 								fill
 								className="object-cover"
@@ -265,7 +265,7 @@ function Services() {
 					drawing={
 						<div className="relative h-[120%] w-full overflow-hidden rounded-2xl">
 							<Image
-								src="/showcases/fotografo/diretora-estudio.jpeg"
+								src="/showcases/fotografo/diretora-estudio.webp"
 								alt="Corporativo"
 								fill
 								className="object-cover"
@@ -281,25 +281,25 @@ function Services() {
 function Portfolio() {
 	const images: PortfolioImage[] = [
 		{
-			src: "/showcases/fotografo/editorial-moda.jpeg",
+			src: "/showcases/fotografo/editorial-moda.webp",
 			aspect: "aspect-[4/3]",
 			col: "md:w-[48%]",
 			alt: "Modelo em editorial de moda",
 		},
 		{
-			src: "/showcases/fotografo/beleza-macro.jpeg",
+			src: "/showcases/fotografo/beleza-macro.webp",
 			aspect: "aspect-[3/4]",
 			col: "md:w-[48%]",
 			alt: "Detalhe beleza macro",
 		},
 		{
-			src: "/showcases/fotografo/silhueta-arquitetura.jpeg",
+			src: "/showcases/fotografo/silhueta-arquitetura.webp",
 			aspect: "aspect-[3/4]",
 			col: "md:w-[32%]",
 			alt: "Silhueta em arquitetura",
 		},
 		{
-			src: "/showcases/fotografo/retrato-dupla-exposicao.jpeg",
+			src: "/showcases/fotografo/retrato-dupla-exposicao.webp",
 			aspect: "aspect-[4/5]",
 			col: "md:w-[65%]",
 			alt: "Retrato dupla exposição",

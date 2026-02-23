@@ -531,14 +531,18 @@ export function HeroVideo({ src, className }: { src: string; className?: string 
 	const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
 	return (
-		<motion.div
-			ref={ref}
-			style={{ y, opacity }}
-			className={`overflow-hidden border-[var(--brutal-border-width)] border-[var(--color-brutal-border)] shadow-[var(--brutal-shadow-lg)] ${className}`}
-		>
-			<video autoPlay loop muted playsInline className="h-full w-full object-cover">
-				<source src={src} type="video/mp4" />
-			</video>
+		<motion.div ref={ref} style={{ y, opacity }} className={className}>
+			{/* Full offset rectangle outline behind the video */}
+			<div
+				className="pointer-events-none absolute -inset-2 border-[var(--brutal-border-width)] border-[var(--color-brutal-border)]"
+				aria-hidden="true"
+			/>
+			{/* Video with its own border */}
+			<div className="relative h-full w-full overflow-hidden border-[var(--brutal-border-width)] border-[var(--color-brutal-border)]">
+				<video autoPlay loop muted playsInline className="h-full w-full object-cover">
+					<source src={src} type="video/mp4" />
+				</video>
+			</div>
 		</motion.div>
 	)
 }

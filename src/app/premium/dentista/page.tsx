@@ -27,11 +27,11 @@ const primaryButtonClass =
 const footerLinkClass =
 	"cursor-pointer transition-colors hover:text-brand-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark rounded-sm"
 
-const heroImageUrl = "/showcases/dentista/consultorio-premium.jpeg"
-const estheticImageUrl = "/showcases/dentista/textura-agua.png"
-const treatmentsImageUrl = "/showcases/dentista/alinhador-transparente.png"
-const digitalImageUrl = "/showcases/dentista/scanner-digital.png"
-const galleryImageUrl = "/showcases/dentista/recepcao-clinica.jpeg"
+const heroImageUrl = "/showcases/dentista/consultorio-premium.webp"
+const estheticImageUrl = "/showcases/dentista/textura-agua.webp"
+const treatmentsImageUrl = "/showcases/dentista/alinhador-transparente.webp"
+const digitalImageUrl = "/showcases/dentista/scanner-digital.webp"
+const galleryImageUrl = "/showcases/dentista/recepcao-clinica.webp"
 
 function Hero() {
 	return (

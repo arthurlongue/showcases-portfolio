@@ -153,7 +153,7 @@ function Hero() {
 						className="absolute left-1/2 top-1/2 h-[500px] w-[400px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[32px]"
 					>
 						<Image
-							src="/showcases/personal/halter-closeup.jpeg"
+							src="/showcases/personal/halter-closeup.webp"
 							alt="Treino de alta performance"
 							fill
 							sizes="400px"
@@ -253,7 +253,7 @@ function FeatureOne() {
 
 					<div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[24px] bg-[#111111] shadow-2xl">
 						<Image
-							src="/showcases/personal/biomechanics_data.png"
+							src="/showcases/personal/biomechanics_data.webp"
 							alt="Análise biomecânica de dados"
 							fill
 							sizes="(max-width: 768px) 100vw, 50vw"
@@ -280,7 +280,7 @@ function FeatureTwo() {
 					>
 						<div className="absolute inset-0 z-0">
 							<Image
-								src="/showcases/personal/macro_weights.png"
+								src="/showcases/personal/macro_weights.webp"
 								alt="Equipamentos premium"
 								fill
 								sizes="(max-width: 768px) 100vw, 50vw"
@@ -447,9 +447,9 @@ function Transformations() {
 
 				<div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 					{[
-						{ img: "transformation-2.jpeg", title: "Foco Intenso" },
-						{ img: "transformation-1.jpeg", title: "Forca Absoluta" },
-						{ img: "transformation-3.jpeg", title: "Mutacao" },
+						{ img: "transformation-2.webp", title: "Foco Intenso" },
+						{ img: "transformation-1.webp", title: "Forca Absoluta" },
+						{ img: "transformation-3.webp", title: "Mutacao" },
 					].map((item, index) => (
 						<motion.div
 							key={item.title}
@@ -507,7 +507,7 @@ function Global() {
 						className="relative h-full w-full overflow-hidden rounded-full border border-white/10"
 					>
 						<Image
-							src="/showcases/personal/academia-premium.jpeg"
+							src="/showcases/personal/academia-premium.webp"
 							alt="Treino em consultoria remota"
 							fill
 							sizes="(max-width: 768px) 90vw, 420px"
@@ -557,7 +557,7 @@ function Philosophy() {
 						className="relative h-full w-full overflow-hidden rounded-[32px]"
 					>
 						<Image
-							src="/showcases/personal/abstract_energy_core.png"
+							src="/showcases/personal/abstract_energy_core.webp"
 							alt="Filosofia e energia contínua"
 							fill
 							sizes="(max-width: 768px) 100vw, 50vw"
