@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { Anton, Inter, JetBrains_Mono } from "next/font/google"
-import "./styles.css"
+import "./theme.css"
 
 const anton = Anton({
 	weight: "400",
