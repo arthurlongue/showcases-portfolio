@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /cafeteria
+Disallow: /dentista
+Disallow: /fotografo
+Disallow: /manicure
+Disallow: /nutricionista
+Disallow: /padaria
+Disallow: /personal
+Disallow: /psicologo
+Disallow: /servicos-residenciais
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml

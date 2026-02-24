@@ -9,9 +9,8 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-	title: "Personal Premium | Consultoria",
-	description:
-		"Consultoria personalizada com avaliação inicial, plano em até 48h e acompanhamento quinzenal.",
+	title: "Personal | New Design",
+	description: "Remaking the entire design and content.",
 }
 
 export default function PersonalLayout({ children }: { children: React.ReactNode }) {

@@ -45,12 +45,12 @@ export const servicesData = {
 			{
 				icon: "Shield",
 				title: "Equipe Segurada",
-				desc: "Profissionais identificados e cobertura de responsabilidade civil.",
+				desc: "Profissionais identificados com foto, CPF verificado e cobertura de responsabilidade civil. Você sabe quem entra na sua casa.",
 			},
 			{
 				icon: "Clock",
 				title: "Prazo Definido",
-				desc: "Cronograma por etapa com data de início e término no contrato.",
+				desc: "Data de início e término no contrato. Se atrasarmos por nossa culpa, você recebe desconto proporcional.",
 			},
 			{
 				icon: "Smartphone",
@@ -60,7 +60,7 @@ export const servicesData = {
 			{
 				icon: "FileText",
 				title: "Contrato Transparente",
-				desc: "Escopo, investimento e garantia por escrito, sem cobrança surpresa.",
+				desc: "Escopo fechado, investimento definido e garantia de 12 meses por escrito. O que não está no contrato não é cobrado.",
 			},
 		],
 	},

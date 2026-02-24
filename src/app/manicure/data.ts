@@ -19,22 +19,22 @@ export const maniData = {
 		{
 			color: "bg-[var(--mani-bg-peach)]",
 			title: "Biossegurança de Estúdio",
-			desc: "Materiais esterilizados em autoclave e kit individual lacrado para cada atendimento.",
+			desc: "Autoclave para ferramentas, kit individual lacrado por atendimento. Zero risco de contaminação cruzada.",
 		},
 		{
 			color: "bg-[var(--mani-bg-lavender)]",
 			title: "Produtos de Alta Performance",
-			desc: "Base construtora, gel de alta resistência e finalização com brilho duradouro.",
+			desc: "Base construtora flexível que acompanha o crescimento da unha, sem levantar nas pontas. Esmaltação com brilho por até 14 dias.",
 		},
 		{
 			color: "bg-[var(--mani-bg-mint)]",
 			title: "Pontualidade de Agenda",
-			desc: "Janela de atendimento organizada para você entrar no horário e sair no prazo combinado.",
+			desc: "Horário é horário. Você agenda, entra na cabine no minuto marcado e sai no tempo combinado — sem espera, sem atraso.",
 		},
 		{
 			color: "bg-[var(--mani-bg-yellow)]",
 			title: "Nail Art Sob Medida",
-			desc: "Referência aprovada antes de começar, com acabamento alinhado ao seu estilo.",
+			desc: "Você mostra a referência, eu indico o que funciona na sua formato de unha e aprova antes de começar. Sem surpresas no resultado final.",
 		},
 	],
 	steps: [

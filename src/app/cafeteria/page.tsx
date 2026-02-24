@@ -203,12 +203,12 @@ export default function CafeteriaPremiumPage() {
 					<BrutalReveal delay={0.15}>
 						<div className="mt-8 space-y-6 font-[family-name:var(--font-mono)] text-sm uppercase leading-relaxed opacity-80">
 							<p>
-								A VOID nasceu para servir café especial de forma consistente, mesmo em horário de
-								pico. Sem complicar o pedido e sem abrir mão de qualidade.
+								A VOID nasceu porque café especial costuma demorar demais. Aqui você entra, pede e
+								recebe em 6 minutos — com a mesma qualidade das 8h da manhã.
 							</p>
 							<p>
-								Cada receita tem ficha técnica, padrão de extração e origem identificada. Você sabe
-								o que está bebendo, de onde veio e por que o sabor se mantém.
+								Cada café tem origem rastreável, curva de torra documentada e receita calibrada.
+								O resultado: mesma xícara na segunda visita, na terceira, na vigésima.
 							</p>
 						</div>
 					</BrutalReveal>

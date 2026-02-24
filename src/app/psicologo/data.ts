@@ -104,7 +104,7 @@ export const psiData: PsicologoPageData = {
 		{
 			title: "Burnout & Humor",
 			description:
-				"Esgotamento emocional, desmotivação e tristeza persistente tratados com empatia e abordagem baseada em evidências.",
+				"Esgotamento emocional, desmotivação e tristeza persistente. Trabalho com técnicas da TCC para reestabelecer energia e sentido no dia a dia.",
 			icon: "pulse",
 		},
 		{

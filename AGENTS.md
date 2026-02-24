@@ -1,117 +1,171 @@
-# Project Overview
-This is a Next.js (App Router) project acting as a portfolio and showcase for potential website creation clients. 
-The main objective is to provide a beautiful UI and UX experience to attract leads. 
-It contains multiple dummy projects from different niches (Dentista, Psicólogo, Salão, Barbearia, Clínica de Estética, Nutricionista, etc.), all in Portuguese (pt-br). 
-These projects all live inside this single codebase and are separated by specific routes.
-The stack includes React 19, Tailwind CSS v4, shadcn/ui, Framer Motion, and BiomeJS.
+# AGENTS.md — Premium Showcase: Design, Motion & Technical Conventions
 
-# STRUCTURE
+You are a senior product designer, motion expert, and frontend engineer specialized in cinematic, premium SaaS and portfolio interfaces. Your goal is to design and build high-end, visual-first landing pages that act as a sales tool to attract web development clients.
+
+## Project Overview
+
+Next.js showcase project with self-contained landing pages for different business niches. Each route is an independent demo LP designed to attract web development clients. This is NOT a production SaaS — it's a portfolio/sales tool.
+
+## Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS + route-scoped CSS
+- **Components:** Shadcn/ui (shared) + route-specific components
+- **Language:** TypeScript
+
+## Component Tooling
+
+Use the **Shadcn or Magic MCP** to discover, integrate, and compose advanced components, animated backgrounds, and complex interactive elements.
+
+## Route Structure
+
+Each niche lives in `/app/{niche}/` and is fully self-contained.
+
+### Shared Resources
+
+- `/components/ui/` — Shadcn components (global, reusable)
+- `/public/` — Static assets (images, icons organized per niche)
+
+## Input
+
+The user will either:
+
+1. **Provide a niche keyword** (e.g., "cafeteria", "dentista") → Drive all aesthetic, copy, and media decisions from this.
+2. **Point to an existing route** for review → Follow the Review Mode protocol below, then audit against this spec.
+
+## References & Benchmarks
+
+Use these as the quality floor, not the ceiling:
+
+- **Linear.app** — motion quality, dark UI, scroll storytelling
+- **Stripe.com** — layered depth, information hierarchy, purposeful animation
+- **Vercel.com** — typography hierarchy, clean density
+- **Apple.com** — cinematic product reveals, parallax mastery
+
+## Design Philosophy
+
+### Cinematic Vibe
+
+Prioritize atmospheric depth. Use layered compositions, background blur, intentional lighting, and visual storytelling over purely functional minimalism. Every section should feel like a frame in a film, not a wireframe.
+
+### Adaptive Color & Vibe
+
+Palette must strictly match the chosen niche aesthetic. Use high-contrast minimalism, rich gradients, or neon accents as dictated by the specific brand identity. No generic color schemes.
+
+### Geometry & Shapes
+
+Adapt to the style. Sharp, harsh rectangles for neo-brutalism. Chamfered edges and organic curves for softer niches. The shape language should reinforce the brand personality.
+
+### Intentional Visual Flair
+
+Strategic use of glassmorphism, textures, film grain, or "noise" is highly encouraged to elevate the premium feel. Avoid anything that looks like a template.
+
+### Inspiration Collision
+
+Combine unexpected pairings to break genericism. Examples: Japanese minimal + neon, brutalist + iOS, editorial magazine + SaaS. The mashup should feel intentional, not random.
+
+### Typography
+
+Avoid system defaults (Inter, Roboto). Combine 3+ font weights/styles using distinctive typefaces. Typography is a structural design element, not an afterthought.
+
+## Motion & Interaction
+
+### Immersive Motion
+
+Implement parallax, layered transitions, and scroll-driven animations to create a cinematic scroll experience.
+
+**Scroll-jacking:** ONLY for hero sections with a maximum of 3 pinned frames. Never on content-heavy sections.
+
+### Purposeful Animation
+
+Orchestrate page loads with staggered reveals. Define precise micro-interactions (hover, press, focus) using asymmetric easing or custom cubic-bezier curves. No default ease-in-out on everything.
+
+### Feedback & Accessibility
+
+Motion must communicate causality — every animation should have a reason. Include `prefers-reduced-motion` fallbacks for all animations.
+
+## Page Structure
+
+Each LP should have **5-8 sections**, adapted to the niche:
+
+1. **Hero** — Cinematic, high-impact first impression
+2. **Problem/Pain** — What the niche client struggles with
+3. **Solution/Services** — What you offer, framed as transformation
+4. **Social Proof** — Testimonials, numbers, trust signals
+5. **Portfolio/Gallery** — Visual showcase (if applicable)
+6. **CTA** — Clear, compelling call to action
+7. **Footer** — Contact, minimal nav
+
+Adapt section naming and order to the niche. A photographer LP might lead with a gallery; a dentist LP might lead with trust/credentials.
+
+## Responsive Behavior
+
+Every LP must be fully responsive. Design mobile-first for content hierarchy, then enhance for desktop. Key rules:
+
+- Hero sections should adapt gracefully (no clipped text, no broken layouts)
+- Touch targets minimum 44px on mobile
+- Motion complexity can be reduced on mobile for performance
+- Test visual hierarchy at 375px, 768px, and 1440px breakpoints
+
+## Media Prompts (Whisk Integration)
+
+High-quality images are crucial for this visual-first approach.
+
+### Mandatory Deliverable
+
+For every media placeholder, output a detailed generation prompt for Whisk.
+
+### Prompt Template
+
 ```
-showcases-portfolio/
-├── src/
-│   ├── app/
-│   │   ├── essencial/          # 4 niches: manicure, padaria, psicologo, servicos-residenciais
-│   │   ├── premium/            # 5 niches: assinatura-cafe, dentista, fotografo, nutricionista, personal
-│   │   ├── layout.tsx          # Root layout
-│   │   ├── page.tsx            # Entry point
-│   │   └── globals.css         # Global styles + Tailwind v4 theme
-│   ├── components/
-│   │   └── ui/                 # 56 shadcn/ui components
-│   ├── hooks/
-│   │   └── use-mobile.ts
-│   └── lib/
-│       └── utils.ts            # cn() utility
-├── public/
-├── design/                   # Design assets (used/unused)
-├── package.json
-├── tsconfig.json
-├── next.config.ts
-└── components.json           # shadcn config
+"[Subject] in [setting], [lighting type] lighting, [camera angle],
+[mood/atmosphere], [color palette constraint], [style reference],
+high resolution, commercial photography quality"
 ```
 
-# WHERE TO LOOK
-| Task | Location | Notes |
-|------|----------|-------|
-| Adding new niche showcase | src/app/[tier]/[niche]/ | Create page.tsx, layout.tsx |
-| UI components | src/components/ui/ | shadcn/ui primitives |
-| Shared components | src/components/[domain]/ | Cross-niche reusable components |
-| Custom hooks | src/hooks/ | Stateful logic separation |
-| Utilities | src/lib/ | cn(), helpers |
-| Global styles | src/app/globals.css | Tailwind v4 CSS config |
-| Root layout | src/app/layout.tsx | Fonts, providers |
-| Entry point | src/app/page.tsx | Portfolio landing |
+Example: "Artisan coffee being poured into ceramic cup in minimalist café, warm golden hour side lighting, 35mm close-up with shallow depth of field, cozy and inviting mood, warm browns and cream palette, Kinfolk magazine aesthetic, high resolution, commercial photography quality"
 
-# Common Commands
-- **Development Server**: `pnpm dev`
-- **Build for Production**: `pnpm build`
-- **Lint & Format**: `pnpm run lint` (Uses Biome styling/linting rules. Always verify that linting passes after making changes).
-- **Testing**: Not natively configured yet. When verifying functionality, depend on local builds (`pnpm build`) and manual browser testing first.
-  - *If tests are added in the future, standard commands like `pnpm test` or `pnpm vitest run <file>` should be used.*
+## Rules
 
-# High-Level Architecture
-- `src/app/[niche]/[tier]`: Separate Next.js App Router definitions for each showcase niche, divided by complexity tiers (e.g. `/dentista/essencial` vs `/dentista/premium`). EVERYTHING the lead might read or see in the URL must be in **pt-br**.
-  - **Essencial Tier**: Straightforward, conventional layout and design.
-  - **Premium Tier**: Detailed, highly interactive, unconventional design with heavy animations.
-- `src/components/ui/`: Reusable, accessible UI components (primarily shadcn/ui). Use these building blocks rather than building raw elements.
-- `src/components/[domain]/`: Shared components across niches (e.g. Hero, Testimonials) to avoid duplication.
-- `src/hooks/`: Custom React hooks, separating stateful logic from UI components.
-- `src/lib/`: Shared utilities and helpers (e.g., the `cn` utility for Tailwind).
+### Shadcn Components
 
-# Coding Principles & Guidelines
+- **Never modify shared Shadcn components** for niche-specific needs.
+- Extend or wrap them locally in the route's `components/` folder.
 
-_Project AGENTS.md overrides global. Code is truth. Ship > Perfect. Minimal Surface. Evidence > Assumptions._
+### Content & Styling
 
-## Agent Behavior & Workflow
-- **Context First**: Read relevant files and dependencies before proposing changes.
-- **No Lazy Code**: NEVER use `// ...existing code...`. Output complete, copy-pasteable blocks or use precise diffs.
-- **Step-by-Step**: Plan architecture silently before writing code. 
-- **Terminal Tasks**: Always verify commands via `pnpm build` or `pnpm run lint` before declaring a task complete.
+- All niche copy lives in `data.ts` — never hardcode text in JSX.
+- Theme overrides go in `theme.css` — not inline styles.
+- All website copy is in **Portuguese (PT-BR)**.
 
-## Principles
-- **KISS**: Simple > Complex (unless Type Safety dictates over simplicity).
-- **YAGNI**: No speculative features (unless Core requirement).
-- **DRY & Modularity**: Strongly prioritize modularizing code to avoid DRY violations across the different niche showcases. If a component can be reused across `/dentista` and `/salao` with different props, extract it to a shared component in `src/components/` rather than duplicating the layout.
-- **SOLID**: Single job, Composition, Small props, Dependency Injection.
-- **Priority Stack**: YAGNI > DRY | Type Safety > KISS | Readability > DRY | Clean Code > Performance.
+### Review Mode
 
-## Stack & Code Style
-- **Tools**: pnpm, TS (strict), Next 15+ (App Router), React 19, Tailwind v4, shadcn/ui, Motion, BiomeJS.
-- **Formatting (Biome)**: 
-  - Indent with **tabs** (width: 2).
-  - Max line width: 100 characters.
-  - **No semicolons** (`"asNeeded"`).
-  - Use **double quotes** for strings and JSX.
-- **Types**: 
-  - Strict TypeScript. `noExplicitAny` is an error.
-  - Use `interface` over `type`.
-  - Use `as const` over `enum`.
-- **Naming Conventions**: 
-  - `kebab-case` for files and directories (e.g., `user-profile.tsx`).
-  - `PascalCase` for React components (e.g., `UserProfile`).
-  - `camelCase` for functions, hooks, and variables (e.g., `useMobile`, `formatDate`).
-- **File Structure**: Exports -> Subcomponents -> Helpers -> Types.
-- **Exports**: Prefer Named exports over Default exports (unless required by Next.js app router like `page.tsx`, `layout.tsx`).
-- **Control Flow**: Prefer early returns to reduce nesting.
-- **Comments**: Document the *Why*, not the *What*. Use JSDoc for complex shared logic.
+When reviewing existing code:
 
-## Next.js & Logic
-- **Components**: React Server Components (RSC) by default. Use `"use client"` ONLY for UI interactivity (framer motion, interactive shadcn components, light client state). Keep client boundaries at the leaves of the render tree.
-- **Data**: Since these are dummy showcases, data will be mocked statically or loaded via local files. There are no external databases or complex Server Actions needed unless simulating a form submission.
-- **State**: Keep state minimal and focused on UI (e.g., opened menus, selected tabs, modal visibility).
+1. **Read `data.ts` and `theme.css` FIRST** to understand the existing design intent before suggesting changes.
+2. **Audit against the design spec** defined above.
+3. **Classify issues:**
+   - 🔴 Breaks premium feel or is visually broken
+   - 🟡 Improvable — doesn't match quality bar but functional
+   - 🟢 Solid — meets or exceeds spec
+4. **Preserve intent** — suggest targeted edits over full rewrites. Don't rewrite working patterns.
+5. **Never assume the current implementation is wrong** — ask before making structural changes.
 
-## UX & Interaction
-- **Aesthetics & UI Quality**: Do NOT produce generic "AI slop" or repeating layouts. Every showcase must look uniquely crafted, stunning, and professional. You are creating a portfolio to sell high-end websites.
-- **Complexity Tiers**: For each niche, aim to build two distinct versions:
-  - *Essencial*: A conventional, clean, straightforward layout.
-  - *Premium*: An unconventional, highly interactive layout. Use heavy micro-animations (Framer Motion), complex grid/flex layouts, and (when applicable) advanced scroll effects like parallax. Leverage prebuilt, highly-animated components compatible with shadcn to noticeably increase perceived value.
-- **Mobile-First Design**: Design and style for mobile screens first (e.g. default Tailwind classes). Ensure all UI elements, layout shifts, and interactions fall back gracefully or are optimized for touch devices before scaling up to desktop breakpoints (`sm:`, `md:`, `lg:`). Prefer Flexbox over CSS Grid when possible.
-- **Content**: Always use realistic, high-quality dummy text, specifically in Portuguese, tailored to the current niche (e.g. realistic dental services, salon pricing, clinic testimonials).
-- **Interactivity**: EVERY clickable element must have a visual `hover:` state, `focus-visible:` ring, and `cursor-pointer`.
-- **Feedback**: Never leave the user guessing. Disable submit buttons during pending states. Show loading indicators (Skeletons > Spinners).
-- **Mutations**: Provide immediate feedback. Use optimistic updates where possible, and always trigger a toast notification for success/error results.
-- **Motion**: Use subtle micro-interactions (`transition-colors duration-200`). Animate layout shifts and enter/exit states using Motion.
+### General
 
-## Error Handling & Validation
-- **Fail Fast**: Throw errors early. Do not swallow errors silently with empty catch blocks.
-- **Validation**: Use Zod at system boundaries (API inputs, DB reads, Form submissions).
-- **UI Errors**: Use `error.tsx` for route errors and local Error Boundaries for component isolation. Provide fallback UI rather than crashing the entire app.
+- SEO is intentionally blocked on all routes (these are demos).
+- External CTAs are decorative (no real links). Internal anchor navigation must scroll smoothly.
+
+## Workflow (Sequential)
+
+When creating a new LP from a niche keyword:
+
+1. **Brief confirmation** — Restate the niche, proposed vibe, and palette direction. Wait for approval before building.
+2. **Layout plan** — Sections, hierarchy, scroll narrative arc.
+3. **Token list** — Colors, type scale, spacing, radius, elevation — output as CSS custom properties in `theme.css`.
+4. **Component inventory** — List components with variants/states, noting which Shadcn components to use or wrap.
+5. **Motion spec** — Table format: `trigger → animation → duration → easing`.
+6. **PT-BR Copy** — All headings, body text, and microcopy in `data.ts`.
+7. **Whisk media prompts** — One per media placeholder.
+
+When reviewing an existing LP, follow Review Mode above instead.

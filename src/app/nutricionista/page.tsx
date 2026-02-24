@@ -49,7 +49,7 @@ export default function NutricionistaPremiumPage() {
 							transition={{ duration: 0.6 }}
 							className="font-[family-name:var(--font-heading)] text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-(--nutri-text-main) leading-[1.05] mb-8 tracking-tight"
 						>
-							Nutrição clínica funcional para reduzir sintomas e voltar a ter rotina.
+							Menos sintomas, mais energia: plano alimentar em 48h com metas para 90 dias.
 						</MotionH1>
 						<MotionDiv
 							initial={{ opacity: 0, y: 20 }}
@@ -162,15 +162,13 @@ export default function NutricionistaPremiumPage() {
 							Sobre Mim
 						</div>
 						<h2 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] mb-8 tracking-tight">
-							Nutrição baseada em evidências, com conduta clara e acompanhamento de verdade.
+							Análise de exames + sintomas. Plano que funciona na sua rotina real.
 						</h2>
 						<p className="text-lg text-(--nutri-text-muted) mb-6 leading-relaxed">
-							Sou nutricionista clínica funcional (CRN-3 45892), com foco em saúde intestinal,
-							emagrecimento e equilíbrio hormonal em adultos.
+							Atuo com adultos que tentaram de tudo e não viram resultado. Leio seus exames, avalio seus sintomas e construo um plano que cabe na sua rotina — não o contrário.
 						</p>
 						<p className="text-lg text-(--nutri-text-muted) mb-10 leading-relaxed">
-							Cada paciente recebe plano alimentar individual, protocolo por fases e metas objetivas
-							para 30, 60 e 90 dias. O foco é resultado sustentável, sem extremismo.
+							Você recebe: cardápio semanal com opções de substituição, lista de compras organizada por corredor do mercado, e check-ins quinzenais para ajustar o que não está funcionando.
 						</p>
 						<a
 							href="#"
@@ -334,8 +332,7 @@ export default function NutricionistaPremiumPage() {
 							Dra. Elena Costa
 						</div>
 						<p className="text-white/70 max-w-sm leading-relaxed mb-8">
-							Nutrição Clínica e Funcional para adultos. Conduta baseada em evidências, metas
-							mensuráveis e acompanhamento próximo.
+							Nutrição clínica com processo definido: 90 min de consulta, análise de exames e plano entregue em até 48h. Atendimento presencial em São Paulo e online para todo Brasil.
 						</p>
 						<div className="flex space-x-6">
 							<a href="#" className="text-white/50 hover:text-white transition-colors">

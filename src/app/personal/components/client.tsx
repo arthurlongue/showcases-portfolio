@@ -1,11 +1,7 @@
-"use client";
+"use client"
 
-import type { ReactNode } from "react";
+import type { ReactNode } from "react"
 
-type PersonalClientProps = {
-  children?: ReactNode;
-};
-
-export function PersonalClient({ children }: PersonalClientProps) {
-  return <>{children}</>;
+export function PersonalClient({ children }: { children?: ReactNode }) {
+	return <>{children}</>
 }

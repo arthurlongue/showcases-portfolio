@@ -1,3 +1,3 @@
 export const personalData = {
-  title: "Personal Showcase",
-};
+	title: "Personal Showcase",
+}

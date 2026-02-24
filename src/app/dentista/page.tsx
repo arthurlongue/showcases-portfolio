@@ -121,7 +121,7 @@ function Hero() {
 				className="mt-6 flex flex-col items-center justify-between gap-4 md:flex-row"
 			>
 				<p className="text-lg font-medium text-brand-dark">
-					Diagnóstico completo, plano fechado e prazos definidos desde a 1ª consulta.
+					Você sai da primeira consulta com diagnóstico completo, plano por escrito e cronograma de cada fase.
 				</p>
 				<div className="flex gap-4">
 					<button type="button" className={primaryButtonClass}>

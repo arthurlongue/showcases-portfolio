@@ -1,8 +1,8 @@
 export const padariaData = {
 	hero: {
-		headline: "Você conhece sua fome. Nós sabemos como alimentá-la.",
+		headline: "Fermentação natural de 48h, assado de madrugada, na sua mesa antes das 7h.",
 		subheadline:
-			"Pães de fermentação natural, doces artesanais e o frescor da padaria direto na sua porta. Sem conservantes, apenas sabor de verdade.",
+			"Pães de fermentação natural com levain de 8 anos de idade. Massa de longa maturação, mais digestão leve e sabor complexo. Entregue fresco, sem conservantes.",
 		cta: "Montar minha cesta",
 		image: "/showcases/padaria/hero.webp",
 	},
@@ -35,13 +35,13 @@ export const padariaData = {
 		},
 		{
 			title: "Bolo de Cenoura",
-			description: "Receita de vó, com muita cobertura de chocolate.",
+			description: "Massa de 3 dias de fermentação, cobertura de chocolate 50% cacau.",
 			image: "/showcases/padaria/bolo-cenoura.webp",
 			ingredients: ["Cenouras Frescas", "Chocolate 50%", "Ovos Caipiras"],
 		},
 		{
 			title: "Pão de Queijo",
-			description: "O verdadeiro sabor de Minas, assado na hora.",
+			description: "Polvilho azedo de Minas, queijo meia cura, assado a cada 30 minutos.",
 			image: "/showcases/padaria/pao-queijo.webp",
 			ingredients: ["Polvilho Azedo", "Queijo Meia Cura", "Leite Integral"],
 		},
