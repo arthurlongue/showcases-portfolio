@@ -107,10 +107,10 @@ function Hero() {
 	)
 }
 
-function Brands() {
-	const brands = ["AMARO", "TRACK&FIELD", "LIVO", "DENGO", "GQ BRASIL", "CASA VOGUE", "FFW"]
-	const scrollBrands = [...brands, ...brands]
+const BRANDS = ["AMARO", "TRACK&FIELD", "LIVO", "DENGO", "GQ BRASIL", "CASA VOGUE", "FFW"]
+const SCROLL_BRANDS = [...BRANDS, ...BRANDS]
 
+function Brands() {
 	return (
 		<section className="relative z-10 flex flex-col items-center overflow-hidden border-black/10 border-b bg-(--foto-bg) py-16">
 			<div className="mx-auto mb-12 flex w-full max-w-7xl items-center gap-4 px-6">
@@ -129,7 +129,7 @@ function Brands() {
 					animate={{ x: ["0%", "-50%"] }}
 					transition={{ duration: 30, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
 				>
-					{scrollBrands.map((brand, index) => (
+					{SCROLL_BRANDS.map((brand, index) => (
 						<div key={`${brand}-${index}`} className="flex items-center justify-center px-8 py-2">
 							<span className="whitespace-nowrap font-serif font-bold text-(--foto-text) text-2xl tracking-widest uppercase md:text-3xl">
 								{brand}
@@ -142,40 +142,40 @@ function Brands() {
 	)
 }
 
-function ProcessDark() {
-	const steps: ProcessStep[] = [
-		{
-			icon: "1",
-			title: "Briefing e proposta em 24h",
-			desc: "Você recebe escopo, investimento e cronograma em um PDF direto, sem pacote confuso.",
-		},
-		{
-			icon: "2",
-			title: "Pré-produção em até 5 dias",
-			desc: "Definimos conceito, referências, locação, casting e lista de cenas antes da captação.",
-		},
-		{
-			icon: "3",
-			title: "Captação com direção no set",
-			desc: "Equipe enxuta, checklist de tomadas e acompanhamento em tempo real com aprovação.",
-		},
-		{
-			icon: "4",
-			title: "Pós com 2 rodadas de ajuste",
-			desc: "Tratamento de cor e pele com consistência, mantendo o padrão visual da sua marca.",
-		},
-		{
-			icon: "5",
-			title: "Entrega final em até 7 dias úteis",
-			desc: "Galeria online + arquivos em alta e versão otimizada para site, social e mídia paga.",
-		},
-		{
-			icon: "6",
-			title: "Licenciamento claro e backup",
-			desc: "Contrato simples, direitos de uso definidos e backup seguro por 12 meses.",
-		},
-	]
+const PROCESS_STEPS: ProcessStep[] = [
+	{
+		icon: "1",
+		title: "Briefing e proposta em 24h",
+		desc: "Você recebe escopo, investimento e cronograma em um PDF direto, sem pacote confuso.",
+	},
+	{
+		icon: "2",
+		title: "Pré-produção em até 5 dias",
+		desc: "Definimos conceito, referências, locação, casting e lista de cenas antes da captação.",
+	},
+	{
+		icon: "3",
+		title: "Captação com direção no set",
+		desc: "Equipe enxuta, checklist de tomadas e acompanhamento em tempo real com aprovação.",
+	},
+	{
+		icon: "4",
+		title: "Pós com 2 rodadas de ajuste",
+		desc: "Tratamento de cor e pele com consistência, mantendo o padrão visual da sua marca.",
+	},
+	{
+		icon: "5",
+		title: "Entrega final em até 7 dias úteis",
+		desc: "Galeria online + arquivos em alta e versão otimizada para site, social e mídia paga.",
+	},
+	{
+		icon: "6",
+		title: "Licenciamento claro e backup",
+		desc: "Contrato simples, direitos de uso definidos e backup seguro por 12 meses.",
+	},
+]
 
+function ProcessDark() {
 	return (
 		<section
 			id="metodo"
@@ -193,7 +193,7 @@ function ProcessDark() {
 				</h2>
 
 				<div className="flex flex-wrap justify-center gap-x-8 gap-y-12">
-					{steps.map((step, index) => (
+					{PROCESS_STEPS.map((step, index) => (
 						<div key={step.title} className="w-full max-w-sm px-4 md:w-[30%]">
 							<motion.div
 								initial={{ opacity: 0, y: 24 }}
@@ -277,34 +277,34 @@ function Services() {
 	)
 }
 
-function Portfolio() {
-	const images: PortfolioImage[] = [
-		{
-			src: "/showcases/fotografo/editorial-moda.webp",
-			aspect: "aspect-[4/3]",
-			col: "md:w-[48%]",
-			alt: "Modelo em editorial de moda",
-		},
-		{
-			src: "/showcases/fotografo/beleza-macro.webp",
-			aspect: "aspect-[3/4]",
-			col: "md:w-[48%]",
-			alt: "Detalhe beleza macro",
-		},
-		{
-			src: "/showcases/fotografo/silhueta-arquitetura.webp",
-			aspect: "aspect-[3/4]",
-			col: "md:w-[32%]",
-			alt: "Silhueta em arquitetura",
-		},
-		{
-			src: "/showcases/fotografo/retrato-dupla-exposicao.webp",
-			aspect: "aspect-[4/5]",
-			col: "md:w-[65%]",
-			alt: "Retrato dupla exposição",
-		},
-	]
+const PORTFOLIO_IMAGES: PortfolioImage[] = [
+	{
+		src: "/showcases/fotografo/editorial-moda.webp",
+		aspect: "aspect-[4/3]",
+		col: "md:w-[48%]",
+		alt: "Modelo em editorial de moda",
+	},
+	{
+		src: "/showcases/fotografo/beleza-macro.webp",
+		aspect: "aspect-[3/4]",
+		col: "md:w-[48%]",
+		alt: "Detalhe beleza macro",
+	},
+	{
+		src: "/showcases/fotografo/silhueta-arquitetura.webp",
+		aspect: "aspect-[3/4]",
+		col: "md:w-[32%]",
+		alt: "Silhueta em arquitetura",
+	},
+	{
+		src: "/showcases/fotografo/retrato-dupla-exposicao.webp",
+		aspect: "aspect-[4/5]",
+		col: "md:w-[65%]",
+		alt: "Retrato dupla exposição",
+	},
+]
 
+function Portfolio() {
 	return (
 		<section id="portfolio" className="relative z-10 bg-(--foto-bg) py-32">
 			<div className="mx-auto max-w-7xl px-6">
@@ -323,7 +323,7 @@ function Portfolio() {
 				</div>
 
 				<div className="flex flex-wrap justify-between gap-6 md:gap-8">
-					{images.map((image, index) => (
+					{PORTFOLIO_IMAGES.map((image, index) => (
 						<motion.div
 							key={image.src}
 							initial={{ opacity: 0, y: 30 }}
