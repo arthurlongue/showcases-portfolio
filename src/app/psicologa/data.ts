@@ -209,4 +209,3 @@ export const psiData: PsicologaPageData = {
 		crp: "CRP 16/00000 — Psicóloga Clínica",
 	},
 }
-

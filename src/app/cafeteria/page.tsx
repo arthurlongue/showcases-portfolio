@@ -207,8 +207,8 @@ export default function CafeteriaPremiumPage() {
 								recebe em 6 minutos — com a mesma qualidade das 8h da manhã.
 							</p>
 							<p>
-								Cada café tem origem rastreável, curva de torra documentada e receita calibrada.
-								O resultado: mesma xícara na segunda visita, na terceira, na vigésima.
+								Cada café tem origem rastreável, curva de torra documentada e receita calibrada. O
+								resultado: mesma xícara na segunda visita, na terceira, na vigésima.
 							</p>
 						</div>
 					</BrutalReveal>

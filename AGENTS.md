@@ -8,7 +8,7 @@ Next.js showcase project with self-contained landing pages for different busines
 
 ## Component Tooling
 
-Use the **Shadcn or Magic MCP** to discover, integrate, and compose advanced components, animated backgrounds, and complex interactive elements.
+Use agents to manipulate the **Shadcn or Magic MCP** to discover, integrate, and compose advanced components, animated backgrounds, and complex interactive elements.
 
 ## Input
 

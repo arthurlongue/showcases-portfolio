@@ -165,10 +165,13 @@ export default function NutricionistaPremiumPage() {
 							Análise de exames + sintomas. Plano que funciona na sua rotina real.
 						</h2>
 						<p className="text-lg text-(--nutri-text-muted) mb-6 leading-relaxed">
-							Atuo com adultos que tentaram de tudo e não viram resultado. Leio seus exames, avalio seus sintomas e construo um plano que cabe na sua rotina — não o contrário.
+							Atuo com adultos que tentaram de tudo e não viram resultado. Leio seus exames, avalio
+							seus sintomas e construo um plano que cabe na sua rotina — não o contrário.
 						</p>
 						<p className="text-lg text-(--nutri-text-muted) mb-10 leading-relaxed">
-							Você recebe: cardápio semanal com opções de substituição, lista de compras organizada por corredor do mercado, e check-ins quinzenais para ajustar o que não está funcionando.
+							Você recebe: cardápio semanal com opções de substituição, lista de compras organizada
+							por corredor do mercado, e check-ins quinzenais para ajustar o que não está
+							funcionando.
 						</p>
 						<a
 							href="#"
@@ -332,7 +335,8 @@ export default function NutricionistaPremiumPage() {
 							Dra. Elena Costa
 						</div>
 						<p className="text-white/70 max-w-sm leading-relaxed mb-8">
-							Nutrição clínica com processo definido: 90 min de consulta, análise de exames e plano entregue em até 48h. Atendimento presencial em São Paulo e online para todo Brasil.
+							Nutrição clínica com processo definido: 90 min de consulta, análise de exames e plano
+							entregue em até 48h. Atendimento presencial em São Paulo e online para todo Brasil.
 						</p>
 						<div className="flex space-x-6">
 							<a href="#" className="text-white/50 hover:text-white transition-colors">

@@ -161,7 +161,7 @@ export default function PersonalPage() {
 						{marquee.map((item) => (
 							<span key={item} className="flex items-center gap-8">
 								<span>{item}</span>
-								<span style={{ color: "var(--np-accent)" }}>■</span>
+								<span style={{ color: "var(--np-bg)" }}>■</span>
 							</span>
 						))}
 					</span>
@@ -358,7 +358,8 @@ export default function PersonalPage() {
 								fontSize: "clamp(2rem, 8vw, 6rem)",
 								fontWeight: 900,
 								lineHeight: 0.9,
-								color: "var(--np-bg)",
+								color: "var(--np-ink)",
+								textShadow: "0 2px 16px rgba(0, 0, 0, 0.5)",
 								textTransform: "uppercase",
 								letterSpacing: "-0.02em",
 							}}

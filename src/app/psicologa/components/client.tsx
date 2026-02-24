@@ -14,7 +14,6 @@ import {
 	Quote,
 	SignalHigh,
 	Star,
-	UserCircle2,
 	Users,
 	X,
 } from "lucide-react"

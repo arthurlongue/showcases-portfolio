@@ -1,1 +1,1 @@
-export const dentistaData = {};
+export const dentistaData = {}

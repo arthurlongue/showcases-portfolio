@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import type { ReactNode } from "react";
+import type { ReactNode } from "react"
 
 type ClientProps = {
-  children?: ReactNode;
-};
+	children?: ReactNode
+}
 
 export function Client({ children }: ClientProps) {
-  return <>{children}</>;
+	return <>{children}</>
 }
