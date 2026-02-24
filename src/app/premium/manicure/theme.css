@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+	--color-mani-primary: #333333;
+	--color-mani-secondary: #e6dfdf;
+	--color-mani-bg: #fdfbf7;
+	--color-mani-oat: #eae6df;
+	--color-mani-text: #1a1a1a;
+	--color-mani-text-muted: #6b6b6b;
+	--color-mani-border: #d1cdc7;
+	--color-mani-white: #ffffff;
+
+	--font-display: var(--font-anton);
+	--font-body: var(--font-inter);
+}
+
+@layer base {
+	.manicure-theme {
+		@apply font-body text-mani-text bg-mani-bg antialiased selection:bg-mani-secondary selection:text-black;
+	}
+}

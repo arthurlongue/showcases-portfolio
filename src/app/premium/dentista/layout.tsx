@@ -1,12 +1,19 @@
 import type { Metadata } from "next"
+import { Inter } from "next/font/google"
 import "./theme.css"
 
+const inter = Inter({
+	subsets: ["latin"],
+	variable: "--font-inter",
+	display: "swap",
+})
+
 export const metadata: Metadata = {
-	title: "OdontoDigital Premium | Showcase",
+	title: "Lumière Odontologia Premium | Showcase",
 	description:
-		"O futuro da odontologia estética. Escaneamento 3D, precisão milimétrica e tecnologia de ponta.",
+		"Odontologia premium com escaneamento 3D, plano por fases, prazos definidos e acompanhamento completo.",
 }
 
 export default function DentistaLayout({ children }: { children: React.ReactNode }) {
-	return <div className="dentista-theme min-h-screen">{children}</div>
+	return <div className={`dentista-theme min-h-screen ${inter.variable}`}>{children}</div>
 }

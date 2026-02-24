@@ -1,7 +1,8 @@
 "use client"
 
 import {
-	ArrowRight,
+	ChevronLeft,
+	ChevronRight,
 	Clock,
 	FileText,
 	Instagram,
@@ -13,7 +14,7 @@ import {
 } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import Image from "next/image"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 
 const navLinkClass =
 	"cursor-pointer transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-light rounded-sm"
@@ -31,7 +32,6 @@ const heroImageUrl = "/showcases/dentista/consultorio-premium.webp"
 const estheticImageUrl = "/showcases/dentista/textura-agua.webp"
 const treatmentsImageUrl = "/showcases/dentista/alinhador-transparente.webp"
 const digitalImageUrl = "/showcases/dentista/scanner-digital.webp"
-const galleryImageUrl = "/showcases/dentista/recepcao-clinica.webp"
 
 function Hero() {
 	return (
@@ -82,7 +82,7 @@ function Hero() {
 				<h2 className="text-4xl leading-none font-bold tracking-tight text-brand-dark">
 					Odontologia
 					<br />
-					Personalizada
+					de Alto Padrão
 				</h2>
 			</motion.div>
 
@@ -120,13 +120,15 @@ function Hero() {
 				transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
 				className="mt-6 flex flex-col items-center justify-between gap-4 md:flex-row"
 			>
-				<p className="text-lg font-medium text-brand-dark">Mais conforto, precisão e estética!</p>
+				<p className="text-lg font-medium text-brand-dark">
+					Diagnóstico completo, plano fechado e prazos definidos desde a 1ª consulta.
+				</p>
 				<div className="flex gap-4">
 					<button type="button" className={primaryButtonClass}>
-						Agendar Avaliação
+						Agendar Consulta Inicial
 					</button>
 					<button type="button" className={primaryButtonClass}>
-						Ver Tratamentos
+						Ver Planos de Tratamento
 					</button>
 				</div>
 			</motion.div>
@@ -137,20 +139,20 @@ function Hero() {
 function Statement() {
 	const statementItems = [
 		{
-			title: "Soluções Flexíveis",
-			desc: "Pare de depender de tratamentos genéricos. Tenha um plano feito sob medida.",
+			title: "Plano Fechado na 1ª Consulta",
+			desc: "Você sai com diagnóstico, etapas do tratamento, investimento e cronograma por fase.",
 		},
 		{
-			title: "Orçamentos Claros",
-			desc: "Saiba exatamente o que está pagando. Sem taxas ocultas. Sem promessas irreais.",
+			title: "Prazos Reais",
+			desc: "Procedimentos estéticos simples podem começar em até 7 dias após a avaliação.",
 		},
 		{
-			title: "Totalmente Personalizável",
-			desc: "Controle todos os aspectos do seu tratamento. Adicione serviços complementares facilmente.",
+			title: "Entregáveis Concretos",
+			desc: "Documentação fotográfica, escaneamento 3D e simulação do sorriso antes de iniciar.",
 		},
 		{
-			title: "Cuidado Pessoal",
-			desc: "Receba suporte completo do nosso time de especialistas. Estamos com você em cada etapa.",
+			title: "Acompanhamento Contínuo",
+			desc: "Retornos programados e orientações pós-procedimento com canal direto da equipe.",
 		},
 	] as const
 
@@ -163,8 +165,8 @@ function Statement() {
 				transition={{ duration: 0.8, ease: "easeOut" }}
 				className="mb-20 max-w-5xl text-[clamp(32px,5vw,64px)] leading-[1.1] font-bold tracking-tight text-brand-dark"
 			>
-				Acreditamos que em um mundo onde pacientes viraram números, uma abordagem pessoal é a chave
-				para garantir que você tenha a melhor experiência odontológica.
+				Tratamento premium não é promessa vaga: é planejamento clínico claro, previsibilidade de
+				prazo e acompanhamento de ponta a ponta.
 			</motion.h2>
 
 			<div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -209,13 +211,13 @@ function SplitServices() {
 					transition={{ duration: 0.8, delay: 0.2 }}
 				>
 					<p className="mb-8 text-brand-white/80">
-						Soluções inteligentes para todas as suas necessidades odontológicas
+						Da harmonização do sorriso à reabilitação oral completa, com protocolos definidos.
 					</p>
 					<button
 						type="button"
 						className="cursor-pointer rounded-full border border-brand-white/30 px-6 py-3 text-sm font-medium transition-colors hover:bg-brand-white hover:text-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
 					>
-						Todos os Serviços
+						Conhecer Tratamentos
 					</button>
 				</motion.div>
 			</div>
@@ -230,22 +232,18 @@ function SplitServices() {
 				<div className="absolute inset-0 bg-brand-dark/10 transition-colors duration-500 group-hover:bg-transparent" />
 				<div className="absolute bottom-8 left-8 text-3xl font-bold text-brand-white">Estética</div>
 			</div>
-			<div className="group relative flex h-[400px] flex-col justify-end overflow-hidden bg-brand-accent p-12 text-brand-white lg:h-auto">
-				<svg
-					className="absolute top-12 right-12 h-32 w-32 opacity-50 transition-transform duration-500 group-hover:scale-110 group-hover:opacity-80"
-					viewBox="0 0 100 100"
-				>
-					<title>Trajetória de tratamento</title>
-					<path
-						d="M10,90 Q50,10 90,90"
-						fill="none"
-						stroke="currentColor"
-						strokeWidth="2"
-						strokeDasharray="5,5"
-					/>
-					<circle cx="90" cy="90" r="3" fill="currentColor" />
-				</svg>
-				<h2 className="relative z-10 text-3xl font-bold">Reabilitação</h2>
+			<div className="group overflow-hidden relative h-[400px] bg-gray-200 lg:h-auto">
+				<Image
+					src="/showcases/dentista/reabilitacao-oral.webp"
+					alt="Reabilitação"
+					fill
+					className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+					sizes="(min-width: 1024px) 33vw, 100vw"
+				/>
+				<div className="absolute inset-0 bg-brand-dark/10 transition-colors duration-500 group-hover:bg-transparent" />
+				<div className="absolute bottom-8 left-8 text-3xl font-bold text-brand-white">
+					Reabilitação
+				</div>
 			</div>
 		</section>
 	)
@@ -255,25 +253,22 @@ function PopularTreatments() {
 	const items = [
 		{
 			id: 1,
-			title: "Lentes de Contato",
+			title: "Lentes de Contato Dental",
 			cat: "Estética",
-			image:
-				"https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1200&auto=format&fit=crop",
+			image: "/showcases/dentista/lentes-de-contato.webp",
 		},
 		{
 			id: 2,
-			title: "Implantes",
+			title: "Implante Unitário",
 			cat: "Reabilitação",
-			image:
-				"https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1200&auto=format&fit=crop",
+			image: "/showcases/dentista/implantes.webp",
 		},
-		{ id: 3, title: "Invisalign", cat: "Ortodontia", image: treatmentsImageUrl },
+		{ id: 3, title: "Alinhadores Transparentes", cat: "Ortodontia", image: treatmentsImageUrl },
 		{
 			id: 4,
-			title: "Clareamento",
+			title: "Clareamento em Consultório",
 			cat: "Estética",
-			image:
-				"https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop",
+			image: "/showcases/dentista/clareamento.webp",
 		},
 	] as const
 
@@ -382,18 +377,18 @@ function DigitalCare() {
 					className="order-1 lg:order-2"
 				>
 					<h2 className="mb-8 text-5xl font-bold tracking-tight">
-						Gestão Digital
+						Planejamento Digital
 						<br />
 						do Sorriso
 					</h2>
 					<div className="pt-16 lg:pt-32">
 						<p className="mb-6 leading-relaxed text-brand-white/80">
-							Todos os nossos tratamentos contam com o serviço de Planejamento Digital. Seu
-							especialista dedicado garante que cada detalhe do seu novo sorriso seja desenhado e
-							aprovado por você antes de qualquer intervenção.
+							Em todos os planos premium, você recebe escaneamento intraoral, estudo fotográfico e
+							simulação 3D. Antes de qualquer intervenção, validamos forma, proporção e etapas do
+							tratamento junto com você.
 						</p>
 						<p className="leading-relaxed text-brand-white/80">
-							Fale com nossa equipe em Português, Inglês ou Espanhol.
+							Seu plano é entregue por escrito, com valores por fase e previsão de sessões.
 						</p>
 					</div>
 				</motion.div>
@@ -407,32 +402,32 @@ function Experience() {
 		{
 			icon: Shield,
 			title: "Garantia de Qualidade",
-			desc: "Nossa clínica combina a vantagem da tecnologia com a facilidade de um atendimento humano. Tenha acesso a serviços premium sem taxas abusivas.",
+			desc: "Corpo clínico com inscrição ativa no CRO, protocolos de biossegurança e documentação completa de cada etapa.",
 		},
 		{
 			icon: User,
 			title: "Atendimento Exclusivo",
-			desc: "Pacientes podem agendar horários flexíveis, compartilhando a clínica apenas com pessoas da mesma família se desejarem. Experimente o conforto.",
+			desc: "Agenda estendida, confirmação por WhatsApp e tempo de consulta planejado para explicar opções sem pressa.",
 		},
 		{
 			icon: Microscope,
 			title: "Tecnologia de Ponta",
-			desc: "Fazemos a nossa parte para garantir um tratamento mais previsível. Via scanners 3D, os pacientes podem visualizar todo o resultado antes de começar.",
+			desc: "Scanner 3D, fotografia clínica e planejamento digital para decisões com previsibilidade clínica e estética.",
 		},
 		{
 			icon: Clock,
 			title: "Cuidado Digital",
-			desc: "Não fazemos negócios como nos anos 80. Receba orçamentos instantâneos online. Agende sua avaliação com um clique via um processo sem atritos.",
+			desc: "Você recebe orçamento em PDF, cronograma por fase e orientações pré e pós-procedimento no mesmo dia.",
 		},
 		{
 			icon: Sparkles,
 			title: "Serviços Adicionais",
-			desc: "Evite taxas ocultas e pague apenas pelo serviço que você precisa. Melhore seu tratamento com múltiplos complementos. Molde sua jornada.",
+			desc: "Inclua manutenção, placas, profilaxia e ajustes estéticos de forma transparente, sem itens surpresa.",
 		},
 		{
 			icon: FileText,
 			title: "Especialista Pessoal",
-			desc: "Nossos especialistas podem apoiar qualquer demanda, 24/7. De pequenas correções a grandes reabilitações. Desfrute de um processo sem estresse.",
+			desc: "Um dentista responsável acompanha seu caso do início ao fim, com revisões programadas após cada fase.",
 		},
 	] as const
 
@@ -459,17 +454,15 @@ function Experience() {
 					className="lg:col-span-4"
 				>
 					<p className="mb-6 text-lg font-medium text-brand-dark">
-						Na Lumière somos ousados. A tecnologia é apenas uma ferramenta que usamos para levar
-						você até onde deseja. Nossos pacientes desfrutam de muito mais valor pela sua confiança,
-						acessando personalização inigualável.
+						Na Lumière, cada plano é estruturado para reduzir incerteza: diagnóstico completo,
+						priorização clínica e execução com prazo definido.
 					</p>
 					<p className="mb-8 text-text-muted">
-						Oferecemos <strong>experiências personalizadas</strong> com nossos tratamentos
-						<strong> sob demanda</strong> e <strong>flexibilidade exclusiva</strong>. Nós elevamos a
-						forma como você sorri.
+						Você aprova o projeto do sorriso antes do início e acompanha os avanços com registros
+						clínicos em todas as etapas.
 					</p>
 					<button type="button" className={primaryButtonClass}>
-						Agendar Avaliação
+						Agendar Avaliação Completa
 					</button>
 				</motion.div>
 
@@ -500,14 +493,79 @@ function Experience() {
 }
 
 function Gallery() {
+	const galleryImages = [
+		{ src: "/showcases/dentista/recepcao-clinica.webp", alt: "Recepção da clínica Lumière" },
+		{ src: "/showcases/dentista/consultorio-premium.webp", alt: "Consultório premium" },
+		{ src: "/showcases/dentista/consultorio-moderno.webp", alt: "Consultório moderno" },
+		{ src: "/showcases/dentista/consultorio-classico.webp", alt: "Consultório clássico" },
+		{ src: "/showcases/dentista/scanner-digital.webp", alt: "Scanner digital 3D" },
+		{ src: "/showcases/dentista/sorriso-perfeito.webp", alt: "Resultado de tratamento estético" },
+	] as const
+
+	const [[currentIndex, direction], setSlide] = useState([0, 0])
+
+	const navigate = useCallback(
+		(newDirection: number) => {
+			setSlide(([prev]) => {
+				const next = (prev + newDirection + galleryImages.length) % galleryImages.length
+				return [next, newDirection]
+			})
+		},
+		[galleryImages.length],
+	)
+
+	const variants = {
+		enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
+		center: { x: 0, opacity: 1 },
+		exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0 }),
+	}
+
 	return (
 		<section className="mx-auto max-w-7xl px-6 pb-24">
 			<div className="relative h-[600px] overflow-hidden rounded-3xl">
-				<Image src={galleryImageUrl} alt="Galeria" fill className="object-cover" sizes="100vw" />
-				<div className="absolute right-8 bottom-8 flex items-center gap-4 text-brand-white">
-					<ArrowRight className="h-8 w-8 rotate-180" />
-					<ArrowRight className="h-8 w-8" />
-					<span className="ml-4 text-3xl font-bold">1/6</span>
+				<AnimatePresence initial={false} custom={direction} mode="popLayout">
+					<motion.div
+						key={currentIndex}
+						custom={direction}
+						variants={variants}
+						initial="enter"
+						animate="center"
+						exit="exit"
+						transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+						className="absolute inset-0"
+					>
+						<Image
+							src={galleryImages[currentIndex].src}
+							alt={galleryImages[currentIndex].alt}
+							fill
+							className="object-cover"
+							sizes="100vw"
+						/>
+					</motion.div>
+				</AnimatePresence>
+
+				<div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
+				<div className="absolute right-8 bottom-8 flex items-center gap-3">
+					<button
+						type="button"
+						onClick={() => navigate(-1)}
+						className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white/20 text-brand-white backdrop-blur-sm transition-all duration-300 hover:bg-white/40 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent active:scale-95"
+						aria-label="Foto anterior"
+					>
+						<ChevronLeft className="h-6 w-6" />
+					</button>
+					<button
+						type="button"
+						onClick={() => navigate(1)}
+						className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white/20 text-brand-white backdrop-blur-sm transition-all duration-300 hover:bg-white/40 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent active:scale-95"
+						aria-label="Próxima foto"
+					>
+						<ChevronRight className="h-6 w-6" />
+					</button>
+					<span className="ml-2 text-3xl font-bold text-brand-white tabular-nums">
+						{currentIndex + 1}/{galleryImages.length}
+					</span>
 				</div>
 			</div>
 		</section>
@@ -517,12 +575,17 @@ function Gallery() {
 function CTA() {
 	return (
 		<section className="px-6 py-32 text-center">
-			<p className="mb-4 font-medium text-text-muted">O que você está esperando?</p>
+			<p className="mb-4 font-medium text-text-muted">
+				Comece com um plano clínico claro e sem surpresa.
+			</p>
 			<h2 className="text-[clamp(48px,10vw,120px)] leading-[0.9] font-black tracking-tighter text-brand-dark">
 				Agende uma
 				<br />
-				avaliação
+				avaliação completa
 			</h2>
+			<button type="button" className={`${primaryButtonClass} mt-10 px-10 py-4 text-base`}>
+				Agendar Minha Avaliação
+			</button>
 		</section>
 	)
 }

@@ -1,4 +1,7 @@
 .nutricionista-theme {
+	/* Typography */
+	--font-heading: var(--font-fraunces);
+
 	/* Core Palette */
 	--nutri-warm: #f5f5f0;
 	--nutri-sage: #e6efec;

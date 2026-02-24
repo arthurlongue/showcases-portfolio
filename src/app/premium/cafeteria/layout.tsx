@@ -19,9 +19,9 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-	title: "VOID Coffee Roasters | Cafeína Extrema",
+	title: "VOID Coffee Roasters | Cafeteria Especial em São Paulo",
 	description:
-		"Torramos os grãos até chorarem. Sem xaropes. Sem descafeinado. Sem misericórdia. Bem-vindo ao vazio.",
+		"Torra própria, grãos rastreáveis e preparo calibrado. Cafeteria especial em São Paulo com cardápio sazonal e reservas rápidas.",
 }
 
 export default function CafeteriaLayout({ children }: { children: React.ReactNode }) {

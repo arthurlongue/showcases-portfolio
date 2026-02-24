@@ -2,40 +2,7 @@ import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 
-const essencialShowcases = [
-	{
-		href: "/essencial/manicure",
-		title: "Manicure & Nail Studio",
-		description: "Estúdio de manicure e esmaltação em gel com agendamento online.",
-		tags: ["Beleza", "Agendamento"],
-	},
-	{
-		href: "/essencial/padaria",
-		title: "Padaria Artesanal",
-		description: "Padaria com pães artesanais, confeitaria e café da manhã.",
-		tags: ["Alimentação", "Delivery"],
-	},
-	{
-		href: "/essencial/psicologo",
-		title: "Psicólogo",
-		description: "Consultório de psicologia com atendimento presencial e online.",
-		tags: ["Saúde Mental", "Consultas"],
-	},
-	{
-		href: "/essencial/servicos-residenciais",
-		title: "Serviços Residenciais",
-		description: "Empresa de reformas, pintura e manutenção doméstica.",
-		tags: ["Reformas", "Casa"],
-	},
-]
-
 const premiumShowcases = [
-	{
-		href: "/premium/assinatura-cafe",
-		title: "Assinatura de Café",
-		description: "Serviço de assinatura de cafés especiais com curadoria mensal.",
-		tags: ["Assinatura", "Café"],
-	},
 	{
 		href: "/premium/cafeteria",
 		title: "Cafeteria",
@@ -66,6 +33,30 @@ const premiumShowcases = [
 		description: "Trainer especializado em hipertrofia, emagrecimento e performance.",
 		tags: ["Fitness", "Treino"],
 	},
+	{
+		href: "/premium/manicure",
+		title: "Manicure & Nail Studio",
+		description: "Estúdio de manicure e esmaltação em gel com agendamento online.",
+		tags: ["Beleza", "Agendamento"],
+	},
+	{
+		href: "/premium/padaria",
+		title: "Padaria Artesanal",
+		description: "Padaria com pães artesanais, confeitaria e café da manhã.",
+		tags: ["Alimentação", "Delivery"],
+	},
+	{
+		href: "/premium/psicologo",
+		title: "Psicólogo",
+		description: "Consultório de psicologia com atendimento presencial e online.",
+		tags: ["Saúde Mental", "Consultas"],
+	},
+	{
+		href: "/premium/servicos-residenciais",
+		title: "Ateliê Obra (Reformas)",
+		description: "Empresa de reformas, pintura e manutenção doméstica de alto padrão.",
+		tags: ["Reformas", "Casa", "Luxo"],
+	},
 ]
 
 interface ShowcaseCardProps {
@@ -73,10 +64,9 @@ interface ShowcaseCardProps {
 	title: string
 	description: string
 	tags: string[]
-	tier: "essencial" | "premium"
 }
 
-function ShowcaseCard({ href, title, description, tags, tier }: ShowcaseCardProps) {
+function ShowcaseCard({ href, title, description, tags }: ShowcaseCardProps) {
 	return (
 		<Link
 			href={href}
@@ -92,11 +82,7 @@ function ShowcaseCard({ href, title, description, tags, tier }: ShowcaseCardProp
 			<p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
 			<div className="mt-auto flex flex-wrap gap-1.5 pt-1">
 				{tags.map((tag) => (
-					<Badge
-						key={tag}
-						variant={tier === "premium" ? "default" : "secondary"}
-						className="text-xs"
-					>
+					<Badge key={tag} className="text-xs">
 						{tag}
 					</Badge>
 				))}
@@ -114,33 +100,19 @@ export default function Home() {
 				</p>
 				<h1 className="font-bold text-4xl tracking-tight sm:text-5xl">Showcases</h1>
 				<p className="mt-3 max-w-xl text-muted-foreground">
-					Exemplos de sites para diferentes nichos, divididos em dois planos:{" "}
-					<strong>Essencial</strong> e <strong>Premium</strong>.
+					Exemplos de sites para diferentes nichos no plano <strong>Premium</strong>.
 				</p>
 			</header>
 
-			<section className="mb-12">
-				<div className="mb-5 flex items-center gap-3">
-					<h2 className="font-semibold text-xl">Essencial</h2>
-					<span className="h-px flex-1 bg-border" />
-					<Badge variant="secondary">{essencialShowcases.length} projetos</Badge>
-				</div>
-				<div className="grid gap-4 sm:grid-cols-2">
-					{essencialShowcases.map((showcase) => (
-						<ShowcaseCard key={showcase.href} {...showcase} tier="essencial" />
-					))}
-				</div>
-			</section>
-
 			<section>
 				<div className="mb-5 flex items-center gap-3">
-					<h2 className="font-semibold text-xl">Premium</h2>
+					<h2 className="font-semibold text-xl">Premium Showcases</h2>
 					<span className="h-px flex-1 bg-border" />
 					<Badge>{premiumShowcases.length} projetos</Badge>
 				</div>
 				<div className="grid gap-4 sm:grid-cols-2">
 					{premiumShowcases.map((showcase) => (
-						<ShowcaseCard key={showcase.href} {...showcase} tier="premium" />
+						<ShowcaseCard key={showcase.href} {...showcase} />
 					))}
 				</div>
 			</section>

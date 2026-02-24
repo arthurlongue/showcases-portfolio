@@ -1,6 +1,7 @@
 import { Activity, Clock, HeartPulse, Instagram, Leaf, Linkedin, ShieldCheck } from "lucide-react"
 import { AnimatedCheck, MotionDiv, MotionH1, StatCounter } from "./components/client"
 import { SpecialtiesTabs } from "./components/specialties-tabs"
+import { TestimonialsCarousel } from "./components/testimonials-carousel"
 
 export default function NutricionistaPremiumPage() {
 	const btnClass =
@@ -46,9 +47,9 @@ export default function NutricionistaPremiumPage() {
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6 }}
-							className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-(--nutri-text-main) leading-[1.05] mb-8 tracking-tight"
+							className="font-[family-name:var(--font-heading)] text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-(--nutri-text-main) leading-[1.05] mb-8 tracking-tight"
 						>
-							Nutrição funcional para uma vida com mais energia.
+							Nutrição clínica funcional para reduzir sintomas e voltar a ter rotina.
 						</MotionH1>
 						<MotionDiv
 							initial={{ opacity: 0, y: 20 }}
@@ -56,8 +57,8 @@ export default function NutricionistaPremiumPage() {
 							transition={{ duration: 0.6, delay: 0.2 }}
 						>
 							<p className="text-lg text-(--nutri-text-muted) mb-10 font-medium leading-relaxed max-w-lg">
-								Descubra como a alimentação inteligente pode transformar sua saúde, sem dietas
-								restritivas e com foco na raiz do problema.
+								Consulta de 90 minutos, análise de exames e plano alimentar entregue em até 48h. Com
+								metas semanais, lista de substituições e acompanhamento por 12 semanas.
 							</p>
 							<div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
 								<button type="button" className={btnClass}>
@@ -98,7 +99,7 @@ export default function NutricionistaPremiumPage() {
 							>
 								<HeartPulse className="w-5 h-5 text-(--nutri-forest)" />
 								<span className="text-sm font-bold text-(--nutri-text-main)">
-									Plano 100% Personalizado
+									Plano entregue em 48h
 								</span>
 							</MotionDiv>
 						</MotionDiv>
@@ -121,10 +122,10 @@ export default function NutricionistaPremiumPage() {
 						</div>
 						<div>
 							<h3 className="font-bold text-(--nutri-text-main) mb-2 text-lg">
-								Abordagem Funcional
+								Investigação Clínica
 							</h3>
 							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
-								Tratamos a causa raiz dos seus sintomas, não apenas mascaramos o problema.
+								Avaliação de sintomas, rotina e exames para definir conduta com prioridade clínica.
 							</p>
 						</div>
 					</div>
@@ -132,10 +133,10 @@ export default function NutricionistaPremiumPage() {
 						<AnimatedCheck />
 						<div>
 							<h3 className="font-bold text-(--nutri-text-main) mb-2 text-lg">
-								Sem Restrições Severas
+								Plano Viável no Dia a Dia
 							</h3>
 							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
-								Uma relação saudável com a comida, focada em nutrir o corpo e a mente.
+								Cardápio com opções de substituição, refeições fora de casa e lista de compras.
 							</p>
 						</div>
 					</div>
@@ -146,7 +147,7 @@ export default function NutricionistaPremiumPage() {
 						<div>
 							<h3 className="font-bold text-(--nutri-text-main) mb-2 text-lg">Suporte Contínuo</h3>
 							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
-								Acompanhamento de perto via aplicativo para garantir a sua evolução.
+								Check-ins quinzenais e ajuste de estratégia conforme adesão e evolução clínica.
 							</p>
 						</div>
 					</div>
@@ -160,17 +161,16 @@ export default function NutricionistaPremiumPage() {
 						<div className="text-xs font-bold text-(--nutri-text-muted) uppercase tracking-[0.15em] mb-6">
 							Sobre Mim
 						</div>
-						<h2 className="text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] mb-8 tracking-tight">
-							Acredito que a saúde começa de dentro para fora.
+						<h2 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] mb-8 tracking-tight">
+							Nutrição baseada em evidências, com conduta clara e acompanhamento de verdade.
 						</h2>
 						<p className="text-lg text-(--nutri-text-muted) mb-6 leading-relaxed">
-							Com mais de 10 anos de experiência em nutrição clínica e funcional, meu objetivo é
-							ajudar você a reconquistar sua vitalidade através da alimentação.
+							Sou nutricionista clínica funcional (CRN-3 45892), com foco em saúde intestinal,
+							emagrecimento e equilíbrio hormonal em adultos.
 						</p>
 						<p className="text-lg text-(--nutri-text-muted) mb-10 leading-relaxed">
-							Não prescrevo dietas de gaveta. Cada corpo é único, e seu plano alimentar deve
-							respeitar sua biologia, sua rotina e suas preferências. Vamos juntos construir um
-							estilo de vida sustentável e prazeroso.
+							Cada paciente recebe plano alimentar individual, protocolo por fases e metas objetivas
+							para 30, 60 e 90 dias. O foco é resultado sustentável, sem extremismo.
 						</p>
 						<a
 							href="#"
@@ -201,8 +201,8 @@ export default function NutricionistaPremiumPage() {
 						<div className="text-xs font-bold text-(--nutri-text-muted) uppercase tracking-[0.15em] mb-6">
 							O Método
 						</div>
-						<h2 className="text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] tracking-tight max-w-3xl mx-auto">
-							Um processo desenhado para resultados definitivos.
+						<h2 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] tracking-tight max-w-3xl mx-auto">
+							Um processo com entregáveis claros e prazos definidos.
 						</h2>
 					</div>
 
@@ -215,7 +215,8 @@ export default function NutricionistaPremiumPage() {
 								Avaliação Profunda
 							</h3>
 							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
-								Análise detalhada do seu histórico, exames laboratoriais, rotina e sinais clínicos.
+								Consulta inicial de 90 minutos com anamnese, sintomas, histórico e leitura de exames
+								recentes.
 							</p>
 						</div>
 						<div className="bg-white p-10 rounded-4xl shadow-[0_8px_30px_rgba(45,106,79,0.05)] relative overflow-hidden group">
@@ -224,7 +225,8 @@ export default function NutricionistaPremiumPage() {
 							</div>
 							<h3 className="text-xl font-bold text-(--nutri-text-main) mb-4">Plano Estratégico</h3>
 							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
-								Criação de um cardápio viável, focado em nutrientes específicos para o seu objetivo.
+								Em até 48h você recebe cardápio semanal, lista de substituições e orientações por
+								horário.
 							</p>
 						</div>
 						<div className="bg-white p-10 rounded-4xl shadow-[0_8px_30px_rgba(45,106,79,0.05)] relative overflow-hidden group">
@@ -233,8 +235,8 @@ export default function NutricionistaPremiumPage() {
 							</div>
 							<h3 className="text-xl font-bold text-(--nutri-text-main) mb-4">Suplementação</h3>
 							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
-								Prescrição de vitaminas e fitoterápicos apenas quando necessário, com base
-								científica.
+								Suplementos e fitoterápicos só quando há indicação clínica, dose definida e prazo de
+								reavaliação.
 							</p>
 						</div>
 						<div className="bg-white p-10 rounded-4xl shadow-[0_8px_30px_rgba(45,106,79,0.05)] relative overflow-hidden group">
@@ -245,7 +247,7 @@ export default function NutricionistaPremiumPage() {
 								Ajustes Constantes
 							</h3>
 							<p className="text-sm text-(--nutri-text-muted) leading-relaxed">
-								Acompanhamento da sua evolução e adaptação do plano para garantir a adesão.
+								Retorno em 30 dias e check-ins quinzenais para ajustes de adesão, sintomas e exames.
 							</p>
 						</div>
 					</div>
@@ -256,7 +258,7 @@ export default function NutricionistaPremiumPage() {
 								<StatCounter value="2000" suffix="+" />
 							</div>
 							<p className="text-sm font-bold text-(--nutri-text-main) uppercase tracking-wider">
-								Pacientes Atendidos
+								Consultas Realizadas
 							</p>
 						</div>
 						<div className="text-center">
@@ -264,7 +266,7 @@ export default function NutricionistaPremiumPage() {
 								<StatCounter value="100" suffix="%" />
 							</div>
 							<p className="text-sm font-bold text-(--nutri-text-main) uppercase tracking-wider">
-								Planos Exclusivos
+								Planos Individualizados
 							</p>
 						</div>
 						<div className="text-center">
@@ -289,87 +291,12 @@ export default function NutricionistaPremiumPage() {
 						<div className="text-xs font-bold text-(--nutri-text-muted) uppercase tracking-[0.15em] mb-6">
 							Depoimentos
 						</div>
-						<h2 className="text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] tracking-tight">
-							Histórias reais de transformação.
+						<h2 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] tracking-tight">
+							Resultados percebidos no dia a dia de pacientes reais.
 						</h2>
 					</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-						<div className="bg-(--nutri-warm) p-10 rounded-4xl shadow-[0_12px_30px_rgba(45,106,79,0.05)] relative z-10 md:translate-y-8">
-							<div className="flex space-x-1 mb-6">
-								{[...Array(5)].map((_, i) => (
-									<span key={i} className="text-(--nutri-forest)">
-										★
-									</span>
-								))}
-							</div>
-							<p className="text-lg text-(--nutri-text-main) font-medium leading-relaxed mb-8">
-								"Nunca achei que conseguiria emagrecer comendo o que gosto. A Dra. Elena mudou minha
-								relação com a comida. Minha energia hoje é outra!"
-							</p>
-							<div className="flex items-center space-x-4">
-								<div className="w-12 h-12 bg-(--nutri-sage) rounded-full flex items-center justify-center text-(--nutri-forest) font-bold">
-									MC
-								</div>
-								<div>
-									<div className="font-bold text-(--nutri-text-main)">Mariana C.</div>
-									<div className="text-xs text-(--nutri-text-muted) uppercase tracking-wider">
-										Paciente há 6 meses
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div className="bg-white border border-gray-100 p-10 rounded-4xl shadow-[0_20px_50px_rgba(45,106,79,0.08)] relative z-20">
-							<div className="flex space-x-1 mb-6">
-								{[...Array(5)].map((_, i) => (
-									<span key={i} className="text-(--nutri-forest)">
-										★
-									</span>
-								))}
-							</div>
-							<p className="text-lg text-(--nutri-text-main) font-medium leading-relaxed mb-8">
-								"Sofria com inchaço e dores abdominais há anos. Com o protocolo intestinal, em
-								poucas semanas me senti uma nova pessoa. Atendimento impecável."
-							</p>
-							<div className="flex items-center space-x-4">
-								<div className="w-12 h-12 bg-(--nutri-sage) rounded-full flex items-center justify-center text-(--nutri-forest) font-bold">
-									RP
-								</div>
-								<div>
-									<div className="font-bold text-(--nutri-text-main)">Rafael P.</div>
-									<div className="text-xs text-(--nutri-text-muted) uppercase tracking-wider">
-										Paciente há 1 ano
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div className="bg-(--nutri-warm) p-10 rounded-4xl shadow-[0_12px_30px_rgba(45,106,79,0.05)] relative z-10 md:translate-y-16">
-							<div className="flex space-x-1 mb-6">
-								{[...Array(5)].map((_, i) => (
-									<span key={i} className="text-(--nutri-forest)">
-										★
-									</span>
-								))}
-							</div>
-							<p className="text-lg text-(--nutri-text-main) font-medium leading-relaxed mb-8">
-								"A abordagem funcional faz toda a diferença. Meus exames melhoraram absurdamente e
-								finalmente consegui regular meu sono e ansiedade."
-							</p>
-							<div className="flex items-center space-x-4">
-								<div className="w-12 h-12 bg-(--nutri-sage) rounded-full flex items-center justify-center text-(--nutri-forest) font-bold">
-									LS
-								</div>
-								<div>
-									<div className="font-bold text-(--nutri-text-main)">Laura S.</div>
-									<div className="text-xs text-(--nutri-text-muted) uppercase tracking-wider">
-										Paciente há 8 meses
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<TestimonialsCarousel />
 				</div>
 			</section>
 
@@ -384,12 +311,12 @@ export default function NutricionistaPremiumPage() {
 				</div>
 				<div className="flex-1 bg-(--nutri-warm) py-32 px-8 lg:px-24 flex flex-col justify-center">
 					<div className="max-w-xl">
-						<h2 className="text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] mb-8 tracking-tight">
-							Pronta para dar o primeiro passo rumo à sua melhor versão?
+						<h2 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-(--nutri-text-main) leading-[1.1] mb-8 tracking-tight">
+							Quer começar com um plano claro para os próximos 90 dias?
 						</h2>
 						<p className="text-lg text-(--nutri-text-muted) mb-12 leading-relaxed">
-							Agende sua consulta e vamos juntas construir um plano alimentar que funciona para a
-							sua vida.
+							Primeira consulta com 90 minutos, devolutiva técnica e plano em até 48h. Atendimentos
+							presenciais em São Paulo e online para todo o Brasil.
 						</p>
 						<button type="button" className={btnClass}>
 							Agendar Consulta via WhatsApp
@@ -407,8 +334,8 @@ export default function NutricionistaPremiumPage() {
 							Dra. Elena Costa
 						</div>
 						<p className="text-white/70 max-w-sm leading-relaxed mb-8">
-							Nutrição Clínica e Funcional. Transformando vidas através da alimentação consciente e
-							baseada em evidências.
+							Nutrição Clínica e Funcional para adultos. Conduta baseada em evidências, metas
+							mensuráveis e acompanhamento próximo.
 						</p>
 						<div className="flex space-x-6">
 							<a href="#" className="text-white/50 hover:text-white transition-colors">

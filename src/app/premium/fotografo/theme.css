@@ -1,0 +1,12 @@
+.fotografo-theme {
+	/* Typography */
+	--font-serif: var(--font-playfair);
+
+	/* Palette */
+	--foto-bg: #f8f8f8;
+	--foto-bg-dark: #0b0b1a;
+	--foto-text: #111;
+	--foto-text-muted: #444;
+	--foto-text-light: #666;
+	--foto-accent: #eef27a;
+}

@@ -10,37 +10,39 @@ const specialties = [
 		id: "emagrecimento",
 		title: "Emagrecimento Saudável",
 		description:
-			'Cada consulta é um mergulho na sua saúde. Investigamos sintomas que você achava "normais" e devolvemos o equilíbrio ao seu organismo.',
-		subDescription: "Atendimentos presenciais em São Paulo e consultas online para todo o mundo.",
+			"Estratégia para perda de gordura com manutenção de massa magra, sem cardápio impossível de seguir.",
+		subDescription: "Meta definida por fase, retorno em 30 dias e ajustes quinzenais.",
 	},
 	{
 		id: "saude-intestinal",
 		title: "Saúde Intestinal (Disbiose)",
 		description:
-			"Tratamento focado na recuperação da microbiota intestinal, melhorando a digestão, imunidade e absorção de nutrientes.",
-		subDescription: "Protocolos personalizados para síndrome do intestino irritável e disbiose.",
+			"Protocolo para gases, estufamento, constipação e desconforto abdominal com foco em rotina alimentar.",
+		subDescription:
+			"Conduta individual para disbiose e SII, com evolução acompanhada por sintomas.",
 	},
 	{
 		id: "modulacao-hormonal",
 		title: "Modulação Hormonal",
 		description:
-			"Equilíbrio hormonal através da nutrição. Abordagem natural para SOP, menopausa, tireoide e fadiga crônica.",
-		subDescription: "Estratégias nutricionais baseadas em exames laboratoriais detalhados.",
+			"Abordagem nutricional para SOP, tireoide, menopausa e fadiga, alinhada com exames laboratoriais.",
+		subDescription:
+			"Plano alimentar por fases para reduzir sintomas e melhorar disposição ao longo do mês.",
 	},
 	{
 		id: "nutricao-esportiva",
 		title: "Nutrição Esportiva",
 		description:
-			"Otimização de performance e composição corporal. Planejamento alimentar alinhado aos seus treinos e objetivos.",
-		subDescription: "Acompanhamento para atletas amadores e profissionais.",
+			"Planejamento de pré, intra e pós-treino para performance, recuperação e composição corporal.",
+		subDescription: "Estratégias para praticantes e atletas com rotina de treino e competição.",
 	},
 	{
 		id: "doencas-autoimunes",
 		title: "Doenças Autoimunes",
 		description:
-			"Manejo de doenças autoimunes através de dietas anti-inflamatórias e identificação de gatilhos alimentares.",
+			"Manejo nutricional com foco anti-inflamatório, adesão e redução de gatilhos alimentares.",
 		subDescription:
-			"Suporte nutricional para Hashimoto, Artrite Reumatoide, Psoríase, entre outras.",
+			"Suporte para Hashimoto, artrite reumatoide, psoríase e outras condições autoimunes.",
 	},
 ]
 

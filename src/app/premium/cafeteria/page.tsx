@@ -17,43 +17,43 @@ import {
 const MENU_ITEMS = [
 	{
 		id: "01",
-		name: "Vazio Negro",
-		desc: "Espresso duplo. Sofrimento puro.",
-		price: "R$ 12",
+		name: "Espresso da Casa",
+		desc: "Blend próprio 70/30. Extração de 25s com notas de chocolate e caramelo.",
+		price: "R$ 10",
 		image: "/showcases/cafeteria/xicara-mesa.webp",
 	},
 	{
 		id: "02",
-		name: "Ruído Branco",
-		desc: "Cortado com leite de aveia. Quase tolerável.",
+		name: "Cortado de Aveia",
+		desc: "Duplo espresso + leite de aveia vaporizado. Equilíbrio entre doçura e corpo.",
 		price: "R$ 16",
 		image: "/showcases/cafeteria/cortado.webp",
 	},
 	{
 		id: "03",
-		name: "Suor Frio",
-		desc: "Cold brew de 24h. Palpitações garantidas.",
+		name: "Cold Brew 18h",
+		desc: "Infusão a frio por 18 horas, final limpo e cítrico. Servido com gelo grande.",
 		price: "R$ 18",
 		image: "/showcases/cafeteria/hibisco-gelado.webp",
 	},
 	{
 		id: "04",
-		name: "Coado",
-		desc: "Single origin. Gosto de terra e frutas vermelhas.",
+		name: "Coado da Semana",
+		desc: "Microlote rotativo (V60 ou Kalita), com origem e torra informadas no balcão.",
 		price: "R$ 15",
 		image: "/showcases/cafeteria/coado.webp",
 	},
 	{
 		id: "05",
-		name: "Matcha",
-		desc: "Água de pântano para quem odeia café.",
+		name: "Matcha Cítrico",
+		desc: "Matcha cerimonial com tônica e limão-siciliano. Opção sem café para a tarde.",
 		price: "R$ 22",
 		image: "/showcases/cafeteria/matcha.webp",
 	},
 	{
 		id: "06",
-		name: "Massa",
-		desc: "Croissant amanhecido. Você vai comprar mesmo assim.",
+		name: "Croissant de Manteiga",
+		desc: "Fermentação de 24h, assado no dia. Disponível até acabar a fornada.",
 		price: "R$ 14",
 		image: "/showcases/cafeteria/croissant.webp",
 	},
@@ -62,48 +62,48 @@ const MENU_ITEMS = [
 const processSteps = [
 	{
 		number: "01",
-		title: "Seleção Cruel",
+		title: "Origem Rastreável",
 		description:
-			"Visitamos fazendas e rejeitamos 90% do que encontramos. Só grãos que nos fazem sentir algo entram.",
+			"Compramos lotes de pequenos produtores de MG e SP, com laudo sensorial e QR de rastreio.",
 	},
 	{
 		number: "02",
-		title: "Torra Sem Piedade",
+		title: "Torra em Pequenos Lotes",
 		description:
-			"Torramos até o grão chorar. Cada curva de torra é um ato de violência calculada contra a mediocridade.",
+			"Torramos 3 vezes por semana, em lotes de até 12 kg, e respeitamos descanso de 48h antes do serviço.",
 	},
 	{
 		number: "03",
-		title: "Moagem na Hora",
+		title: "Calibração Diária",
 		description:
-			"Moemos no momento do pedido. Granulometria calculada ao milímetro. Café velho é café morto.",
+			"Moagem, dose e rendimento são ajustados na abertura e revisados a cada troca de lote.",
 	},
 	{
 		number: "04",
-		title: "Extração Obsessiva",
+		title: "Entrega Consistente",
 		description:
-			"93°C. 25 segundos. 9 bar. Cada variável controlada ao milissegundo. Isso não é arte — é engenharia.",
+			"Pedido sai em média em até 6 minutos no salão, com ficha técnica fixa para manter o padrão.",
 	},
 ]
 
 const testimonials = [
 	{
 		quote:
-			"Tomei o Vazio Negro e finalmente entendi o significado do sofrimento. Voltei no dia seguinte.",
+			"Atendimento rápido no horário de pico e café muito estável. Virei cliente fixa do coado da semana.",
 		author: "Carla Mendes",
-		role: "Arquiteta insone",
+		role: "Arquiteta • avaliação 5/5 no Google",
 	},
 	{
 		quote:
-			"O ambiente é hostil, o café é brutal, mas a experiência é absurdamente viciante. Melhor espresso da minha vida.",
+			"Fechei reunião no salão e funcionou muito bem: silêncio, tomada perto e pedido entregue em menos de 10 minutos.",
 		author: "Thiago Rocha",
-		role: "Designer, ex-vegano",
+		role: "Diretor de criação • cliente corporativo",
 	},
 	{
 		quote:
-			"O Suor Frio destruiu minha relação com café de cápsula. Não tem volta. Obrigada pelo trauma.",
+			"A transparência sobre origem e torra passa confiança. Dá para perceber o cuidado técnico em cada xícara.",
 		author: "Fernanda Liu",
-		role: "Sommelier de cafés",
+		role: "Q-Grader • consultora de cafés especiais",
 	},
 ]
 
@@ -148,8 +148,8 @@ export default function CafeteriaPremiumPage() {
 					>
 						<h1 className="hero-text">EXTREMA</h1>
 						<div className="mb-4 max-w-sm font-[family-name:var(--font-mono)] text-xs uppercase leading-relaxed tracking-wide opacity-80 md:mb-10 md:text-sm">
-							Torramos os grãos até chorarem. Sem xaropes. Sem descafeinado. Sem misericórdia.
-							Bem-vindo ao vazio.
+							Torra própria semanal, grãos rastreáveis e extração calibrada para quem leva café a
+							sério. Bem-vindo à VOID.
 						</div>
 					</BrutalReveal>
 				</div>
@@ -159,11 +159,11 @@ export default function CafeteriaPremiumPage() {
 			<section className="border-b-[var(--brutal-border-width)] border-[var(--color-brutal-border)] bg-[var(--color-brutal-accent)] py-4">
 				<Marquee speed={20} className="text-[var(--color-brutal-text-light)]">
 					<span className="flex items-center gap-8 pr-8 font-[family-name:var(--font-heading)] text-3xl uppercase tracking-[0.02em] md:text-5xl">
-						<span>SEM DESCAFEINADO</span>
+						<span>TORRA PRÓPRIA</span>
 						<span>•</span>
-						<span>ENERGIA PURA</span>
+						<span>ORIGEM RASTREÁVEL</span>
 						<span>•</span>
-						<span>TORRA ESCURA</span>
+						<span>CARDÁPIO SAZONAL</span>
 						<span>•</span>
 					</span>
 				</Marquee>
@@ -173,13 +173,13 @@ export default function CafeteriaPremiumPage() {
 			<section className="border-b-[var(--brutal-border-width)] border-[var(--color-brutal-border)] px-6 py-20 md:px-12">
 				<div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
 					<BrutalReveal delay={0}>
-						<StaggerCounter value={6} label="Grãos Rejeitados de Cada 10" />
+						<StaggerCounter value={7} label="Lotes Torrados por Semana" />
 					</BrutalReveal>
 					<BrutalReveal delay={0.1}>
-						<StaggerCounter value={847} label="Xícaras por Dia" />
+						<StaggerCounter value={420} label="Xícaras Servidas por Dia" />
 					</BrutalReveal>
 					<BrutalReveal delay={0.2}>
-						<StaggerCounter value={0} label="Descafeinados Servidos" />
+						<StaggerCounter value={12} label="Itens no Cardápio Fixo" />
 					</BrutalReveal>
 					<BrutalReveal delay={0.3}>
 						<StaggerCounter value={93} label="Temperatura Ideal" suffix="°C" />
@@ -203,19 +203,18 @@ export default function CafeteriaPremiumPage() {
 					<BrutalReveal delay={0.15}>
 						<div className="mt-8 space-y-6 font-[family-name:var(--font-mono)] text-sm uppercase leading-relaxed opacity-80">
 							<p>
-								Acreditamos que o café não deve ser confortável. Ele deve ser um soco na cara logo
-								pela manhã. Uma experiência visceral que te lembra que você está vivo.
+								A VOID nasceu para servir café especial de forma consistente, mesmo em horário de
+								pico. Sem complicar o pedido e sem abrir mão de qualidade.
 							</p>
 							<p>
-								Nossa torra é meticulosamente calculada para extrair o máximo de intensidade. Não
-								mascaramos o sabor com leite vaporizado ou arte em latte. Servimos a verdade, crua e
-								escura.
+								Cada receita tem ficha técnica, padrão de extração e origem identificada. Você sabe
+								o que está bebendo, de onde veio e por que o sabor se mantém.
 							</p>
 						</div>
 					</BrutalReveal>
 					<BrutalReveal delay={0.3}>
 						<BrutalButton variant="outline" className="mt-12">
-							Descubra o Processo
+							Ver Protocolo de Preparo
 							<ArrowRight className="ml-3 inline h-4 w-4 text-[var(--color-brutal-accent)]" />
 						</BrutalButton>
 					</BrutalReveal>
@@ -244,7 +243,7 @@ export default function CafeteriaPremiumPage() {
 								O Cardápio
 							</h2>
 							<p className="mt-6 font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-widest">
-								Consuma por sua conta e risco.
+								Preços atualizados em fevereiro de 2026.
 							</p>
 						</BrutalReveal>
 					</div>
@@ -316,9 +315,9 @@ export default function CafeteriaPremiumPage() {
 							</BrutalReveal>
 							<BrutalReveal delay={0.1}>
 								<div className="mt-8 space-y-3 font-[family-name:var(--font-mono)] text-sm uppercase tracking-wide opacity-90">
-									<p>Av. Distopia, 1984</p>
-									<p>Setor 7G</p>
-									<p>São Paulo, SP 01000-000</p>
+									<p>Rua Fradique Coutinho, 1240</p>
+									<p>Vila Madalena</p>
+									<p>São Paulo, SP 05416-001</p>
 								</div>
 							</BrutalReveal>
 							<BrutalReveal delay={0.2}>
@@ -349,8 +348,8 @@ export default function CafeteriaPremiumPage() {
 									<span>08:00 - 16:00</span>
 								</div>
 								<div className="flex justify-between pt-2 text-[var(--color-brutal-accent)]">
-									<span>Dormir</span>
-									<span>Nunca</span>
+									<span>Tempo médio de fila</span>
+									<span>6 min</span>
 								</div>
 							</div>
 						</BrutalReveal>
@@ -372,7 +371,7 @@ export default function CafeteriaPremiumPage() {
 						Café é
 						<br />
 						<span className="text-[var(--color-brutal-accent)]">
-							<GlitchText>Sofrimento.</GlitchText>
+							<GlitchText>Método.</GlitchText>
 						</span>
 					</h2>
 				</div>
@@ -390,8 +389,8 @@ export default function CafeteriaPremiumPage() {
 									<span className="text-[var(--color-brutal-accent)]">Ritual</span>
 								</h2>
 								<p className="mt-6 font-[family-name:var(--font-mono)] text-sm uppercase leading-relaxed text-[var(--color-brutal-text-muted)]">
-									Do grão à xícara, cada etapa é um ato de brutalidade controlada. Não é artesanal —
-									é obsessão em forma líquida.
+									Do recebimento ao balcão, tudo é registrado: lote, curva de torra, tempo de
+									extração e retorno dos clientes.
 								</p>
 							</BrutalReveal>
 						</div>
@@ -415,13 +414,13 @@ export default function CafeteriaPremiumPage() {
 			<section className="border-b-[var(--brutal-border-width)] border-[var(--color-brutal-border)] bg-[var(--color-brutal-text)] py-3">
 				<Marquee speed={25} reverse className="text-[var(--color-brutal-bg)]">
 					<span className="flex items-center gap-6 pr-6 font-[family-name:var(--font-heading)] text-xl uppercase tracking-[0.15em] md:text-2xl">
-						<span>Sem Frescura</span>
+						<span>Leite Vegetal Sem Custo Extra</span>
 						<span className="text-[var(--color-brutal-accent)]">■</span>
-						<span>Zero Xarope</span>
+						<span>Torra 3x por Semana</span>
 						<span className="text-[var(--color-brutal-accent)]">■</span>
-						<span>Torra Própria</span>
+						<span>Origem Rastreável</span>
 						<span className="text-[var(--color-brutal-accent)]">■</span>
-						<span>Sem Misericórdia</span>
+						<span>Receitas Calibradas</span>
 						<span className="text-[var(--color-brutal-accent)]">■</span>
 					</span>
 				</Marquee>
@@ -486,9 +485,9 @@ export default function CafeteriaPremiumPage() {
 				<div className="mx-auto max-w-6xl">
 					<BrutalReveal>
 						<h2 className="font-[family-name:var(--font-heading)] text-5xl uppercase tracking-tight md:text-7xl">
-							Quem Sobreviveu,
+							Quem Experimenta,
 							<br />
-							<span className="text-[var(--color-brutal-accent)]">Voltou.</span>
+							<span className="text-[var(--color-brutal-accent)]">Volta.</span>
 						</h2>
 					</BrutalReveal>
 
@@ -506,6 +505,29 @@ export default function CafeteriaPremiumPage() {
 				</div>
 			</section>
 
+			{/* ▬▬▬ CTA ▬▬▬ */}
+			<section className="flex flex-col items-center justify-center border-b-[var(--brutal-border-width)] border-[var(--color-brutal-border)] px-6 py-32 text-center md:py-40">
+				<BrutalReveal>
+					<h2 className="font-[family-name:var(--font-heading)] text-[clamp(48px,10vw,120px)] uppercase leading-[0.85] tracking-tight">
+						Reservar
+						<br />
+						<span className="text-[var(--color-brutal-accent)]">Mesa</span>
+					</h2>
+				</BrutalReveal>
+				<BrutalReveal delay={0.15}>
+					<p className="mt-8 max-w-md font-[family-name:var(--font-mono)] text-xs uppercase leading-relaxed tracking-wide opacity-60">
+						Reserva por WhatsApp com confirmação em até 5 minutos. Menu degustação (3 métodos + pão
+						de fermentação natural) por R$ 59 até 31/03/2026.
+					</p>
+				</BrutalReveal>
+				<BrutalReveal delay={0.3}>
+					<BrutalButton className="mt-12">
+						Reservar Agora
+						<ArrowRight className="ml-3 inline h-4 w-4 text-[var(--color-brutal-accent)]" />
+					</BrutalButton>
+				</BrutalReveal>
+			</section>
+
 			{/* ▬▬▬ FOOTER ▬▬▬ */}
 			<footer className="relative z-10 flex flex-col items-center justify-between gap-8 border-t-[var(--brutal-border-width)] border-[var(--color-brutal-border)] p-8 md:flex-row md:p-16">
 				<div className="font-[family-name:var(--font-heading)] text-6xl uppercase tracking-wider md:text-8xl">
@@ -513,7 +535,7 @@ export default function CafeteriaPremiumPage() {
 				</div>
 				<div className="text-center font-[family-name:var(--font-mono)] text-[10px] uppercase leading-loose tracking-widest opacity-50 md:text-right md:text-xs">
 					<p>© 2026 VOID COFFEE ROASTERS.</p>
-					<p>TODOS OS DIREITOS RESERVADOS. NÃO NOS PROCESSE.</p>
+					<p>TODOS OS DIREITOS RESERVADOS.</p>
 				</div>
 			</footer>
 		</main>

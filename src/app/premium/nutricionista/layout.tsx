@@ -1,15 +1,24 @@
 import type { Metadata } from "next"
+import { Fraunces } from "next/font/google"
 import "./theme.css"
+
+const fraunces = Fraunces({
+	subsets: ["latin"],
+	variable: "--font-fraunces",
+	display: "swap",
+})
 
 export const metadata: Metadata = {
 	title: "Nutricionista Premium | Showcase",
 	description:
-		"Transforme sua relação com a alimentação. Nutrição funcional e personalizada para uma vida plena.",
+		"Nutrição clínica funcional com plano em 48h, metas por fases e acompanhamento quinzenal.",
 }
 
 export default function NutricionistaLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="nutricionista-theme min-h-screen bg-(--nutri-warm) text-(--nutri-text-main) antialiased selection:bg-(--nutri-forest)/20">
+		<div
+			className={`nutricionista-theme min-h-screen bg-(--nutri-warm) text-(--nutri-text-main) antialiased selection:bg-(--nutri-forest)/20 ${fraunces.variable}`}
+		>
 			{children}
 		</div>
 	)

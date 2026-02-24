@@ -22,30 +22,27 @@ interface Pillar {
 
 const pillarItems: Pillar[] = [
 	{
-		title: "Forca",
-		description:
-			"Construa uma base solida. A forca e a mae de todas as qualidades fisicas e o pilar da longevidade.",
+		title: "Força",
+		description: "Base sólida para ganhar massa e proteger articulações no longo prazo.",
 		icon: <Shield className="h-6 w-6 text-white" />,
 	},
 	{
-		title: "Resistencia",
-		description:
-			"Capacidade de suportar o processo. Condicionamento de elite para performar no treino e na vida.",
+		title: "Resistência",
+		description: "Condicionamento para manter intensidade do início ao fim da sessão.",
 		icon: <Zap className="h-6 w-6 text-white" />,
 	},
 	{
 		title: "Disciplina",
-		description:
-			"Onde a motivacao falha, a disciplina assume. O metodo so funciona se voce executar o planejado.",
+		description: "Metas semanais, check-ins e ajustes para você evoluir sem estagnar.",
 		icon: <Target className="h-6 w-6 text-white" />,
 	},
 ]
 
-const ctaNames = ["Joao", "Maria", "Pedro", "Lucas", "Ana", "Carlos", "Julia"] as const
+const ctaNames = ["João", "Maria", "Pedro", "Lucas", "Ana", "Carlos", "Júlia"] as const
 
 export default function PersonalPremiumPage() {
 	return (
-		<div className="min-h-screen bg-[#040404] text-white selection:bg-[#E6FF00] selection:text-black">
+		<div className="min-h-screen bg-(--personal-bg) text-white selection:bg-(--personal-accent) selection:text-black">
 			<Navbar />
 			<main>
 				<Hero />
@@ -65,14 +62,14 @@ export default function PersonalPremiumPage() {
 
 function Navbar() {
 	return (
-		<nav className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-[#040404]/80 backdrop-blur-md">
+		<nav className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-(--personal-bg)/80 backdrop-blur-md">
 			<div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6">
 				<div className="flex items-center gap-3">
 					<div className="flex h-8 w-8 items-center justify-center rounded-full bg-white">
-						<div className="h-4 w-4 rounded-full bg-[#040404]" />
+						<div className="h-4 w-4 rounded-full bg-(--personal-bg)" />
 					</div>
 					<span className="font-display text-sm font-bold tracking-tight text-white">
-						Apex<span className="text-[#888888]">Performance</span>
+						Apex<span className="text-(--personal-text-muted)">Performance</span>
 					</span>
 				</div>
 
@@ -83,15 +80,15 @@ function Navbar() {
 				<div className="flex items-center gap-3">
 					<a
 						href="#contato"
-						className="cursor-pointer rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:text-[#E6FF00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#040404]"
+						className="cursor-pointer rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:text-(--personal-accent) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--personal-bg)"
 					>
-						Avaliacao
+						Avaliação
 					</a>
 					<a
 						href="#contato"
-						className="cursor-pointer rounded-full bg-white px-6 py-2 text-sm font-bold text-black transition-colors hover:bg-[#E6FF00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#040404]"
+						className="cursor-pointer rounded-full bg-white px-6 py-2 text-sm font-bold text-black transition-colors hover:bg-(--personal-accent) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--personal-bg)"
 					>
-						Comecar
+						Começar
 					</a>
 				</div>
 			</div>
@@ -110,40 +107,108 @@ function Hero() {
 	return (
 		<section
 			ref={heroRef}
-			className="relative flex min-h-screen items-center overflow-hidden bg-[#040404] pt-20"
+			className="relative flex min-h-screen items-center overflow-hidden bg-(--personal-bg) pt-20"
 		>
-			<div className="pointer-events-none absolute right-0 top-0 h-[800px] w-[800px] translate-x-1/3 -translate-y-1/2 rounded-full bg-white/5 blur-[120px]" />
+			{/* Mobile background image */}
+			<div className="absolute inset-0 lg:hidden">
+				<Image
+					src="/showcases/personal/halter-closeup.webp"
+					alt=""
+					fill
+					sizes="100vw"
+					className="object-cover opacity-30 grayscale contrast-125"
+					priority
+				/>
+				<div className="absolute inset-0 bg-gradient-to-t from-(--personal-bg) via-(--personal-bg)/70 to-(--personal-bg)/40" />
+			</div>
+
+			{/* Desktop glow */}
+			<div className="pointer-events-none absolute right-0 top-0 hidden h-[800px] w-[800px] translate-x-1/3 -translate-y-1/2 rounded-full bg-white/5 blur-[120px] lg:block" />
 
 			<div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
 				<div className="max-w-2xl">
 					<motion.h1
-						className="mb-6 font-display text-[clamp(64px,8vw,120px)] leading-[0.9] font-medium tracking-tighter text-white"
+						className="mb-6 font-display text-[clamp(56px,10vw,120px)] leading-[0.9] font-medium tracking-tighter text-white"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 					>
-						Forca <br />
-						<span className="text-[#888888]">Bruta &</span> <br />
+						Força <br />
+						<span className="text-(--personal-text-muted)">Bruta &</span> <br />
 						Refinada
 					</motion.h1>
+
+					<motion.p
+						className="mb-8 max-w-sm text-base leading-relaxed text-(--personal-text-muted) lg:hidden"
+						initial={{ opacity: 0, y: 10 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8, delay: 0.3 }}
+					>
+						Consultoria premium com avaliação em 60 min, plano em até 48h e ajustes quinzenais.
+					</motion.p>
+
+					{/* Mobile floating stats */}
+					<motion.div
+						className="mb-8 flex flex-wrap gap-3 lg:hidden"
+						initial={{ opacity: 0, y: 10 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.6, delay: 0.4 }}
+					>
+						<div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
+							<TrendingUp className="h-3.5 w-3.5 text-(--personal-accent)" />
+							<span className="text-xs font-bold text-white">2.450 kcal</span>
+							<span className="text-[10px] text-(--personal-accent)">+12%</span>
+						</div>
+						<div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
+							<CheckCircle2 className="h-3.5 w-3.5 text-(--personal-accent)" />
+							<span className="text-xs font-bold text-white">12,4 t/mês</span>
+						</div>
+						<div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
+							<Activity className="h-3.5 w-3.5 text-(--personal-accent)" />
+							<span className="text-xs font-bold text-white">130+ alunos</span>
+						</div>
+					</motion.div>
+
+					{/* Mobile CTA */}
+					<motion.div
+						className="mb-10 flex gap-3 lg:hidden"
+						initial={{ opacity: 0, y: 10 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.6, delay: 0.5 }}
+					>
+						<a
+							href="#contato"
+							className="flex cursor-pointer items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-black transition-colors hover:bg-(--personal-accent) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent)"
+						>
+							Começar agora
+							<ArrowRight className="h-4 w-4" />
+						</a>
+						<a
+							href="#contato"
+							className="flex cursor-pointer items-center rounded-full border border-white/20 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent)"
+						>
+							Avaliação
+						</a>
+					</motion.div>
 
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 1, delay: 0.5 }}
-						className="mt-12 flex items-center gap-2 text-sm text-[#888888]"
+						className="mt-6 flex items-center gap-2 text-sm text-(--personal-text-muted) lg:mt-12"
 					>
-						<div className="flex h-6 w-4 justify-center rounded-full border border-[#888888] p-1">
+						<div className="flex h-6 w-4 justify-center rounded-full border border-(--personal-text-muted) p-1">
 							<motion.div
 								animate={{ y: [0, 8, 0] }}
 								transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
-								className="h-1 w-1 rounded-full bg-[#888888]"
+								className="h-1 w-1 rounded-full bg-(--personal-text-muted)"
 							/>
 						</div>
-						Scroll
+						Role
 					</motion.div>
 				</div>
 
+				{/* Desktop floating cards */}
 				<div className="relative hidden h-[600px] lg:block">
 					<motion.div
 						style={{ y: floatingY }}
@@ -160,7 +225,7 @@ function Hero() {
 							className="object-cover opacity-80 grayscale contrast-125"
 							priority
 						/>
-						<div className="absolute inset-0 bg-gradient-to-t from-[#040404] via-transparent to-transparent" />
+						<div className="absolute inset-0 bg-gradient-to-t from-(--personal-bg) via-transparent to-transparent" />
 					</motion.div>
 
 					<motion.div
@@ -172,12 +237,12 @@ function Hero() {
 					>
 						<div className="mb-4 flex items-start justify-between">
 							<div>
-								<div className="text-[10px] font-bold uppercase tracking-wider text-[#888888]">
+								<div className="text-[10px] font-bold uppercase tracking-wider text-(--personal-text-muted)">
 									Metabolismo
 								</div>
 								<div className="font-display text-xl font-bold">2.450 kcal</div>
 							</div>
-							<div className="flex items-center gap-1 rounded-md bg-[#E6FF00]/20 px-2 py-1 text-xs font-bold">
+							<div className="flex items-center gap-1 rounded-md bg-(--personal-accent)/20 px-2 py-1 text-xs font-bold">
 								<TrendingUp className="h-3 w-3" /> +12%
 							</div>
 						</div>
@@ -188,7 +253,9 @@ function Hero() {
 									className="flex-1 rounded-t-sm bg-black/10"
 									style={{ height: `${height}%` }}
 								>
-									{index === 5 ? <div className="h-full w-full rounded-t-sm bg-[#E6FF00]" /> : null}
+									{index === 5 ? (
+										<div className="h-full w-full rounded-t-sm bg-(--personal-accent)" />
+									) : null}
 								</div>
 							))}
 						</div>
@@ -202,13 +269,13 @@ function Hero() {
 						className="absolute -right-10 bottom-32 w-56 rounded-2xl border border-white/10 bg-[#111111] p-5 shadow-2xl backdrop-blur-xl"
 					>
 						<div className="mb-3 flex items-center gap-3">
-							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E6FF00]">
+							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-(--personal-accent)">
 								<CheckCircle2 className="h-5 w-5 text-black" />
 							</div>
-							<div className="text-sm font-medium text-white">Treino Concluido</div>
+							<div className="text-sm font-medium text-white">Treino concluído</div>
 						</div>
-						<div className="mb-1 text-xs text-[#888888]">Carga total movida</div>
-						<div className="font-display text-2xl font-bold text-white">12.4 Ton</div>
+						<div className="mb-1 text-xs text-(--personal-text-muted)">Carga total no mês</div>
+						<div className="font-display text-2xl font-bold text-white">12,4 t</div>
 					</motion.div>
 				</div>
 			</div>
@@ -218,7 +285,7 @@ function Hero() {
 
 function FeatureOne() {
 	return (
-		<section className="relative border-t border-white/5 bg-[#040404] py-32">
+		<section className="relative border-t border-white/5 bg-(--personal-bg) py-32">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 px-6 lg:grid-cols-2">
 				<div>
 					<div className="relative flex flex-col gap-8 border-l border-white/10 pl-8">
@@ -228,11 +295,11 @@ function FeatureOne() {
 
 						<div>
 							<h2 className="mb-4 font-display text-4xl font-medium tracking-tight text-white md:text-5xl">
-								Diagnostico <br /> Biomecanico
+								Diagnóstico <br /> Biomecânico
 							</h2>
-							<p className="max-w-md text-lg leading-relaxed text-[#888888]">
-								Nao adivinhamos, nos medimos. Uma analise completa da sua estrutura, mobilidade e
-								assimetrias para criar a base perfeita do seu treino.
+							<p className="max-w-md text-lg leading-relaxed text-(--personal-text-muted)">
+								Na primeira sessão, mapeamos mobilidade, histórico de lesões e padrões de movimento.
+								Você recebe relatório objetivo e prioridades de treino em até 48h.
 							</p>
 						</div>
 					</div>
@@ -245,12 +312,6 @@ function FeatureOne() {
 					transition={{ duration: 0.8 }}
 					className="relative flex aspect-[4/5] flex-col items-center justify-center overflow-hidden rounded-[32px] bg-[#F4F4F4] p-8 md:p-12"
 				>
-					<div className="absolute left-8 top-8">
-						<div className="font-display text-2xl font-bold text-black">
-							Upload do seu <br /> assessment
-						</div>
-					</div>
-
 					<div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[24px] bg-[#111111] shadow-2xl">
 						<Image
 							src="/showcases/personal/biomechanics_data.webp"
@@ -268,7 +329,7 @@ function FeatureOne() {
 
 function FeatureTwo() {
 	return (
-		<section className="relative bg-[#040404] py-32">
+		<section className="relative bg-(--personal-bg) py-32">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 px-6 lg:grid-cols-2">
 				<div className="order-2 lg:order-1">
 					<motion.div
@@ -291,18 +352,18 @@ function FeatureTwo() {
 
 						<div className="relative z-10 w-full mb-8">
 							<h3 className="mb-8 font-display text-3xl font-medium text-white">
-								Prescricao <br /> Exata
+								Prescrição <br /> Exata
 							</h3>
 							<div className="space-y-6">
 								<div className="flex items-center justify-between border-b border-white/10 pb-4">
-									<div className="text-sm text-[#888888]">Foco do mesociclo</div>
+									<div className="text-sm text-(--personal-text-muted)">Foco do mesociclo</div>
 									<div className="flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-bold text-black">
 										<CheckCircle2 className="h-3 w-3" /> Hipertrofia
 									</div>
 								</div>
 								<div>
-									<div className="mb-1 text-sm text-[#888888]">Volume semanal</div>
-									<div className="font-display text-4xl font-medium text-white">18 Series</div>
+									<div className="mb-1 text-sm text-(--personal-text-muted)">Volume semanal</div>
+									<div className="font-display text-4xl font-medium text-white">18 séries</div>
 								</div>
 							</div>
 						</div>
@@ -310,15 +371,15 @@ function FeatureTwo() {
 						<div className="relative z-10 flex w-full flex-col gap-4 sm:flex-row">
 							<button
 								type="button"
-								className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/10 bg-[#040404]/50 backdrop-blur-md py-4 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
+								className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/10 bg-(--personal-bg)/50 backdrop-blur-md py-4 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
 							>
-								<Activity className="h-4 w-4" /> Ver detalhes
+								<Activity className="h-4 w-4" /> Ver plano
 							</button>
 							<button
 								type="button"
-								className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl bg-white py-4 text-sm font-bold text-black transition-colors hover:bg-[#E6FF00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
+								className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl bg-white py-4 text-sm font-bold text-black transition-colors hover:bg-(--personal-accent) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
 							>
-								<Play className="h-4 w-4" /> Iniciar treino
+								<Play className="h-4 w-4" /> Assistir execução
 							</button>
 						</div>
 					</motion.div>
@@ -334,9 +395,9 @@ function FeatureTwo() {
 							<h2 className="mb-4 font-display text-4xl font-medium tracking-tight text-white md:text-5xl">
 								Treino <br /> Periodizado
 							</h2>
-							<p className="max-w-md text-lg leading-relaxed text-[#888888]">
-								Esqueca fichas genericas. Cada serie, repeticao e intervalo e calculado para extrair
-								o maximo do seu potencial, ajustado semana a semana.
+							<p className="max-w-md text-lg leading-relaxed text-(--personal-text-muted)">
+								Nada de ficha pronta. Seu treino é organizado em blocos de 4 semanas, com progressão
+								de carga, RPE e revisão quinzenal.
 							</p>
 						</div>
 					</div>
@@ -348,13 +409,13 @@ function FeatureTwo() {
 
 function Showcase() {
 	return (
-		<section className="relative overflow-hidden bg-[#040404] py-32">
+		<section className="relative overflow-hidden bg-(--personal-bg) py-32">
 			<div className="mx-auto mb-16 max-w-7xl px-6 text-center">
 				<h2 className="mb-6 font-display text-4xl font-medium tracking-tight text-white md:text-6xl">
-					Evolucao <br /> <span className="text-[#888888]">Visivel.</span>
+					Evolução <br /> <span className="text-(--personal-text-muted)">Visível.</span>
 				</h2>
-				<p className="mx-auto max-w-xl text-lg text-[#888888]">
-					Acompanhe seu progresso com metricas reais. O que nao e medido, nao e gerenciado.
+				<p className="mx-auto max-w-xl text-lg text-(--personal-text-muted)">
+					Você acompanha carga, frequência e medidas no app. Meta e progresso claros toda semana.
 				</p>
 			</div>
 
@@ -370,7 +431,7 @@ function Showcase() {
 						<div className="h-3 w-3 rounded-full bg-white/20" />
 						<div className="h-3 w-3 rounded-full bg-white/20" />
 						<div className="h-3 w-3 rounded-full bg-white/20" />
-						<div className="mx-auto flex items-center gap-2 text-xs font-medium text-[#888888]">
+						<div className="mx-auto flex items-center gap-2 text-xs font-medium text-(--personal-text-muted)">
 							<Activity className="h-3 w-3" /> apexperformance.app
 						</div>
 					</div>
@@ -378,7 +439,9 @@ function Showcase() {
 					<div className="p-8 md:p-12">
 						<div className="mb-12 flex flex-col items-end justify-between gap-6 md:flex-row">
 							<div>
-								<div className="mb-2 text-sm text-[#888888]">Carga total levantada (mes)</div>
+								<div className="mb-2 text-sm text-(--personal-text-muted)">
+									Carga total levantada (mês)
+								</div>
 								<div className="font-display text-5xl font-medium text-white md:text-7xl">
 									48.200 kg
 								</div>
@@ -386,13 +449,13 @@ function Showcase() {
 							<div className="flex flex-wrap gap-4">
 								<button
 									type="button"
-									className="cursor-pointer rounded-full border border-white/10 bg-white/10 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
+									className="cursor-pointer rounded-full border border-white/10 bg-white/10 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
 								>
-									Historico
+									Histórico
 								</button>
 								<button
 									type="button"
-									className="cursor-pointer rounded-full bg-white px-6 py-2 text-sm font-bold text-black transition-colors hover:bg-[#E6FF00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
+									className="cursor-pointer rounded-full bg-white px-6 py-2 text-sm font-bold text-black transition-colors hover:bg-(--personal-accent) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
 								>
 									Novo recorde
 								</button>
@@ -407,7 +470,7 @@ function Showcase() {
 									whileInView={{ height: `${height}%` }}
 									viewport={{ once: true }}
 									transition={{ duration: 0.8, delay: index * 0.05 }}
-									className={`w-full rounded-t-md ${index === 9 ? "bg-[#E6FF00]" : "bg-white/10"}`}
+									className={`w-full rounded-t-md ${index === 9 ? "bg-(--personal-accent)" : "bg-white/10"}`}
 								/>
 							))}
 						</div>
@@ -426,30 +489,30 @@ function Showcase() {
 
 function Transformations() {
 	return (
-		<section className="relative bg-[#040404] py-32 border-t border-white/5">
+		<section className="relative bg-(--personal-bg) py-32 border-t border-white/5">
 			<div className="mx-auto max-w-7xl px-6">
 				<div className="mb-16 flex flex-col items-center justify-between gap-8 md:flex-row md:items-end">
 					<div>
 						<h2 className="mb-6 font-display text-4xl font-medium tracking-tight text-white md:text-5xl">
-							Sua Melhor <br /> <span className="text-[#888888]">Versao.</span>
+							Sua Melhor <br /> <span className="text-(--personal-text-muted)">Versão.</span>
 						</h2>
-						<p className="max-w-md text-lg leading-relaxed text-[#888888]">
-							O resultado da juncao entre disciplina implacavel e um metodo validado. A
-							transformacao fisica e inevitavel quando voce nao aceita desculpas.
+						<p className="max-w-md text-lg leading-relaxed text-(--personal-text-muted)">
+							Alunos com frequência mínima de 3 treinos por semana costumam notar melhora de força e
+							composição corporal entre 6 e 10 semanas.
 						</p>
 					</div>
 					<div className="flex items-center gap-3">
 						<div className="flex h-12 items-center justify-center rounded-full border border-white/20 px-6 text-sm font-bold tracking-widest text-white backdrop-blur-md">
-							100+ ALUNOS
+							130+ ALUNOS
 						</div>
 					</div>
 				</div>
 
 				<div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 					{[
-						{ img: "transformation-2.webp", title: "Foco Intenso" },
-						{ img: "transformation-1.webp", title: "Forca Absoluta" },
-						{ img: "transformation-3.webp", title: "Mutacao" },
+						{ img: "transformation-2.webp", title: "Menos gordura" },
+						{ img: "transformation-1.webp", title: "Mais força" },
+						{ img: "transformation-3.webp", title: "Postura e mobilidade" },
 					].map((item, index) => (
 						<motion.div
 							key={item.title}
@@ -466,7 +529,7 @@ function Transformations() {
 								sizes="(max-width: 768px) 100vw, 33vw"
 								className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:opacity-80 grayscale contrast-125"
 							/>
-							<div className="absolute inset-0 bg-gradient-to-t from-[#040404] via-[#040404]/20 to-transparent opacity-80" />
+							<div className="absolute inset-0 bg-gradient-to-t from-(--personal-bg) via-(--personal-bg)/20 to-transparent opacity-80" />
 							<div className="absolute bottom-0 left-0 p-8">
 								<h3 className="font-display text-2xl font-medium text-white">{item.title}</h3>
 							</div>
@@ -480,21 +543,21 @@ function Transformations() {
 
 function Global() {
 	return (
-		<section className="relative bg-[#040404] py-32">
+		<section className="relative bg-(--personal-bg) py-32">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 px-6 lg:grid-cols-2">
 				<div>
 					<h2 className="mb-6 font-display text-4xl font-medium tracking-tight text-white md:text-5xl">
 						Resultados Reais, <br /> Onde Estiver.
 					</h2>
-					<p className="mb-8 max-w-md text-lg leading-relaxed text-[#888888]">
-						Consultoria online premium que transcende fronteiras. Nao importa se voce treina em uma
-						academia de luxo ou no estudio do seu predio, o metodo se adapta ao seu ambiente.
+					<p className="mb-8 max-w-md text-lg leading-relaxed text-(--personal-text-muted)">
+						Consultoria online para quem viaja ou treina com agenda apertada. Você recebe treino
+						adaptado ao equipamento disponível e ajustes no mesmo canal.
 					</p>
 					<a
 						href="#contato"
-						className="inline-flex cursor-pointer items-center gap-2 font-medium text-white transition-colors hover:text-[#E6FF00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#040404]"
+						className="inline-flex cursor-pointer items-center gap-2 font-medium text-white transition-colors hover:text-(--personal-accent) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--personal-bg)"
 					>
-						Ver planos disponiveis <ArrowRight className="h-4 w-4" />
+						Ver planos e entregáveis <ArrowRight className="h-4 w-4" />
 					</a>
 				</div>
 
@@ -515,7 +578,7 @@ function Global() {
 						/>
 						<div className="absolute inset-0 bg-gradient-to-tr from-[#E6FF00]/20 to-transparent mix-blend-overlay" />
 						<div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">
-							<div className="h-2 w-2 animate-pulse rounded-full bg-[#E6FF00]" />
+							<div className="h-2 w-2 animate-pulse rounded-full bg-(--personal-accent)" />
 							<span className="text-xs font-bold uppercase tracking-wider text-white">
 								Treino ativo
 							</span>
@@ -529,22 +592,21 @@ function Global() {
 
 function Philosophy() {
 	return (
-		<section className="relative border-t border-white/5 bg-[#040404] py-32">
+		<section className="relative border-t border-white/5 bg-(--personal-bg) py-32">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 px-6 lg:grid-cols-2">
 				<div>
 					<h2 className="mb-6 font-display text-4xl font-medium tracking-tight text-white md:text-5xl">
-						Comprometimento <br /> <span className="text-[#E6FF00]">Total.</span>
+						Compromisso <br /> <span className="text-(--personal-accent)">Total.</span>
 					</h2>
-					<p className="mb-8 max-w-md text-lg leading-relaxed text-[#888888]">
-						Nos importamos com o seu resultado tanto quanto voce. Nao vendemos planilhas, entregamos
-						transformacao. Se voce esta disposto a fazer o trabalho duro, nos forneceremos o mapa
-						exato.
+					<p className="mb-8 max-w-md text-lg leading-relaxed text-(--personal-text-muted)">
+						Você não recebe planilha solta. Entregamos acompanhamento direto, revisão quinzenal e
+						resposta em até 24h úteis para dúvidas de treino.
 					</p>
 					<button
 						type="button"
-						className="cursor-pointer rounded-full border border-white/20 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#040404]"
+						className="cursor-pointer rounded-full border border-white/20 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--personal-bg)"
 					>
-						Nossa filosofia
+						Como funciona
 					</button>
 				</div>
 
@@ -563,7 +625,7 @@ function Philosophy() {
 							sizes="(max-width: 768px) 100vw, 50vw"
 							className="object-cover grayscale contrast-125 mix-blend-lighten opacity-80"
 						/>
-						<div className="absolute inset-0 bg-gradient-to-t from-[#040404] via-transparent to-[#040404]" />
+						<div className="absolute inset-0 bg-gradient-to-t from-(--personal-bg) via-transparent to-(--personal-bg)" />
 					</motion.div>
 				</div>
 			</div>
@@ -604,7 +666,7 @@ function Pillars() {
 
 function Cta() {
 	return (
-		<section id="contato" className="relative overflow-hidden bg-[#040404] py-32">
+		<section id="contato" className="relative overflow-hidden bg-(--personal-bg) py-32">
 			<div className="relative z-10 mx-auto max-w-7xl px-6">
 				<div className="mb-16 text-center">
 					<div className="mask-image-fade relative flex h-64 flex-col items-center justify-center overflow-hidden">
@@ -616,7 +678,7 @@ function Cta() {
 								viewport={{ once: true }}
 								transition={{ duration: 0.5, delay: index * 0.1 }}
 								className={`font-display text-5xl font-medium tracking-tighter md:text-7xl ${
-									index === 3 ? "my-4 scale-110 text-[#E6FF00]" : "text-white/10"
+									index === 3 ? "my-4 scale-110 text-(--personal-accent)" : "text-white/10"
 								}`}
 							>
 								{name}
@@ -627,13 +689,13 @@ function Cta() {
 
 				<div className="mt-12 flex flex-col items-center justify-center gap-8 md:flex-row">
 					<h2 className="font-display text-4xl font-medium tracking-tight text-white md:text-6xl">
-						Resultados para <span className="text-[#E6FF00]">VOCE.</span>
+						Resultados para <span className="text-(--personal-accent)">VOCÊ.</span>
 					</h2>
 					<button
 						type="button"
-						className="group flex cursor-pointer items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-black transition-colors hover:bg-[#E6FF00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#040404]"
+						className="group flex cursor-pointer items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-black transition-colors hover:bg-(--personal-accent) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--personal-bg)"
 					>
-						Agendar avaliacao
+						Agendar avaliação
 						<ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
 					</button>
 				</div>
@@ -644,28 +706,30 @@ function Cta() {
 
 function Footer() {
 	return (
-		<footer className="border-t border-white/5 bg-[#040404] py-12">
+		<footer className="border-t border-white/5 bg-(--personal-bg) py-12">
 			<div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
-				<div className="text-sm font-medium text-[#888888]">
+				<div className="text-sm font-medium text-(--personal-text-muted)">
 					&copy; {new Date().getFullYear()} Apex Performance.
 				</div>
 
 				<div className="flex gap-6">
 					<a
 						href="#"
-						className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/10 text-[#888888] transition-all hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#040404]"
+						className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/10 text-(--personal-text-muted) transition-all hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--personal-bg)"
 					>
 						IG
 					</a>
 					<a
 						href="#"
-						className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/10 text-[#888888] transition-all hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#040404]"
+						className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/10 text-(--personal-text-muted) transition-all hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--personal-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--personal-bg)"
 					>
 						WA
 					</a>
 				</div>
 
-				<div className="text-sm font-medium text-[#888888]">Consultoria premium</div>
+				<div className="text-sm font-medium text-(--personal-text-muted)">
+					Consultoria online no Brasil
+				</div>
 			</div>
 		</footer>
 	)

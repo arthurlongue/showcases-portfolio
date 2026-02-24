@@ -1,0 +1,9 @@
+.personal-theme {
+	/* Typography */
+	--font-display: var(--font-outfit);
+
+	/* Palette */
+	--personal-bg: #040404;
+	--personal-accent: #e6ff00;
+	--personal-text-muted: #888888;
+}
