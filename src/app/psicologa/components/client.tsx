@@ -21,7 +21,7 @@ import {
 import { motion } from "motion/react"
 import { type CSSProperties, useEffect, useMemo, useState } from "react"
 
-import type { PsicologoPageData } from "../data"
+import type { PsicologaPageData } from "../data"
 
 const iconByName = {
 	brain: Brain,
@@ -56,7 +56,7 @@ const surfaceStyle = {
 	"--psi-border": "rgba(92, 64, 51, 0.1)",
 } as CSSProperties
 
-export function PsicologoPremiumClient({ data }: { data: PsicologoPageData }) {
+export function PsicologaPremiumClient({ data }: { data: PsicologaPageData }) {
 	const [isScrolled, setIsScrolled] = useState(false)
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 	const [openFaqIndex, setOpenFaqIndex] = useState(0)
@@ -235,10 +235,12 @@ export function PsicologoPremiumClient({ data }: { data: PsicologoPageData }) {
 							className="relative mx-auto w-full max-w-[430px]"
 						>
 							<div className="pointer-events-none absolute -top-5 -right-5 h-24 w-24 animate-[spin_20s_linear_infinite] rounded-full border-[3px] border-[var(--psi-accent-yellow)] opacity-60 max-[480px]:hidden" />
-							<div className="aspect-[4/5] overflow-hidden rounded-[2.6rem] bg-[linear-gradient(135deg,var(--psi-warm-bg)_0%,#E8D5C4_100%)]">
-								<div className="flex h-full items-center justify-center">
-									<UserCircle2 className="h-30 w-30 text-[color:rgba(196,112,75,0.35)]" />
-								</div>
+							<div className="aspect-[4/5] overflow-hidden rounded-[2.6rem] bg-[linear-gradient(135deg,var(--psi-warm-bg)_0%,#E8D5C4_100%)] shadow-[0_20px_50px_rgba(61,46,35,0.15)]">
+								<img
+									src={data.hero.image}
+									alt="Helena Martins — Psicóloga"
+									className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+								/>
 							</div>
 							<div className="absolute bottom-5 left-3 z-10 hidden animate-[float_6s_ease-in-out_infinite] items-center gap-3 rounded-[20px] bg-white px-5 py-4 shadow-[0_12px_40px_rgba(61,46,35,0.1)] min-[481px]:flex">
 								<div className="flex h-12 w-12 items-center justify-center rounded-[14px] bg-[var(--psi-accent-yellow-light)]">
@@ -285,10 +287,12 @@ export function PsicologoPremiumClient({ data }: { data: PsicologoPageData }) {
 							transition={{ duration: 0.7 }}
 							className="relative mx-auto w-full max-w-[420px]"
 						>
-							<div className="aspect-[3/4] overflow-hidden rounded-[2rem] bg-[linear-gradient(160deg,#E8D5C4_0%,var(--psi-warm-bg)_100%)]">
-								<div className="flex h-full items-end justify-center pb-14">
-									<UserCircle2 className="h-24 w-24 text-[color:rgba(92,64,51,0.2)]" />
-								</div>
+							<div className="aspect-[3/4] overflow-hidden rounded-[2rem] bg-[linear-gradient(160deg,#E8D5C4_0%,var(--psi-warm-bg)_100%)] shadow-[0_20px_40px_rgba(61,46,35,0.12)]">
+								<img
+									src={data.about.image}
+									alt="Consultório Helena Martins"
+									className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+								/>
 							</div>
 							<div className="-bottom-4 right-0 max-w-[280px] rounded-[20px] bg-white p-6 shadow-[0_12px_40px_rgba(61,46,35,0.1)] min-[481px]:absolute min-[481px]:-right-8">
 								<blockquote className="mb-3 font-serif text-[1.02rem] leading-[1.5] italic">
@@ -396,6 +400,14 @@ export function PsicologoPremiumClient({ data }: { data: PsicologoPageData }) {
 						</div>
 					</div>
 				</section>
+
+				<div className="relative h-16 w-full overflow-hidden md:h-24">
+					<img
+						src="/showcases/psicologa/waves-bg.jpg"
+						alt=""
+						className="absolute inset-0 h-full w-full object-cover"
+					/>
+				</div>
 
 				<section id="como-funciona" className="px-6 py-20 md:py-25">
 					<div className="mx-auto w-full max-w-[1200px]">
@@ -548,32 +560,39 @@ export function PsicologoPremiumClient({ data }: { data: PsicologoPageData }) {
 							transition={{ duration: 0.7 }}
 							className="relative overflow-hidden rounded-[2rem] bg-white px-7 py-14 text-center shadow-[0_20px_60px_rgba(61,46,35,0.06)] md:px-15 md:py-20"
 						>
-							<div className="absolute top-0 right-0 left-0 h-1 bg-[linear-gradient(90deg,var(--psi-terracotta),var(--psi-accent-yellow),var(--psi-sage))]" />
-							<h2 className="mx-auto max-w-[600px] font-serif text-[clamp(2rem,3.5vw,2.8rem)] leading-[1.18]">
-								Pronto para dar o
-								<br />
-								<em className="text-[var(--psi-terracotta)]">{data.cta.emphasis}</em>
-							</h2>
-							<p className="mx-auto mt-5 mb-10 max-w-[500px] text-[1.05rem] leading-[1.7] text-[var(--psi-text-secondary)]">
-								{data.cta.description}
-							</p>
-							<div className="flex flex-wrap items-center justify-center gap-5">
-								<a
-									href={data.cta.whatsappHref}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="inline-flex cursor-pointer items-center gap-2.5 rounded-full bg-[#25D366] px-9 py-4 font-semibold text-white shadow-[0_4px_20px_rgba(37,211,102,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#20BA5A] hover:shadow-[0_8px_30px_rgba(37,211,102,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#20BA5A] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-								>
-									<MessageCircle className="h-5.5 w-5.5 fill-current" />
-									{data.cta.whatsappLabel}
-								</a>
-								<a
-									href="#sobre"
-									className="inline-flex cursor-pointer items-center gap-2 text-[0.95rem] font-medium text-[var(--psi-text-secondary)] transition-colors hover:text-[var(--psi-terracotta)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--psi-terracotta)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-								>
-									{data.cta.secondaryLabel}
-									<ChevronRight className="h-4 w-4" />
-								</a>
+							{data.cta.image && (
+								<div className="pointer-events-none absolute inset-0 z-0 opacity-10">
+									<img src={data.cta.image} alt="" className="h-full w-full object-cover" />
+								</div>
+							)}
+							<div className="relative z-10">
+								<div className="absolute top-[-56px] right-0 left-0 h-1 bg-[linear-gradient(90deg,var(--psi-terracotta),var(--psi-accent-yellow),var(--psi-sage))] md:top-[-80px]" />
+								<h2 className="mx-auto max-w-[600px] font-serif text-[clamp(2rem,3.5vw,2.8rem)] leading-[1.18]">
+									Pronto para dar o
+									<br />
+									<em className="text-[var(--psi-terracotta)]">{data.cta.emphasis}</em>
+								</h2>
+								<p className="mx-auto mt-5 mb-10 max-w-[500px] text-[1.05rem] leading-[1.7] text-[var(--psi-text-secondary)]">
+									{data.cta.description}
+								</p>
+								<div className="flex flex-wrap items-center justify-center gap-5">
+									<a
+										href={data.cta.whatsappHref}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="inline-flex cursor-pointer items-center gap-2.5 rounded-full bg-[#25D366] px-9 py-4 font-semibold text-white shadow-[0_4px_20px_rgba(37,211,102,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#20BA5A] hover:shadow-[0_8px_30px_rgba(37,211,102,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#20BA5A] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+									>
+										<MessageCircle className="h-5.5 w-5.5 fill-current" />
+										{data.cta.whatsappLabel}
+									</a>
+									<a
+										href="#sobre"
+										className="inline-flex cursor-pointer items-center gap-2 text-[0.95rem] font-medium text-[var(--psi-text-secondary)] transition-colors hover:text-[var(--psi-terracotta)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--psi-terracotta)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+									>
+										{data.cta.secondaryLabel}
+										<ChevronRight className="h-4 w-4" />
+									</a>
+								</div>
 							</div>
 						</motion.div>
 					</div>

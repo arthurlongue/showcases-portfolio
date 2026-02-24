@@ -1,9 +1,118 @@
 .personal-theme {
-	/* Typography */
-	--font-display: var(--font-outfit);
+	/* ── Palette: Dark Athletic Fitness ── */
+	--np-bg: #0A0A0A;
+	--np-ink: #F5F5F0;
+	--np-muted: #1E1E1E;
+	--np-accent: #FF6B2B;
 
-	/* Palette */
-	--personal-bg: #000000;
-	--personal-accent: #ffffff;
-	--personal-text-muted: #888888;
+	/* Neutral scale (dark mode) */
+	--np-neutral-100: #141414;
+	--np-neutral-200: #1A1A1A;
+	--np-neutral-400: #A0A0A0;
+	--np-neutral-500: #787878;
+	--np-neutral-600: #B0B0B0;
+	--np-neutral-700: #D0D0D0;
+
+	/* ── Structure ── */
+	--np-border-width: 2px;
+	--np-shadow: 4px 4px 0px 0px #FF6B2B;
+	--np-shadow-hover: 6px 6px 0px 0px #FF6B2B;
+	--np-radius: 0px;
+
+	/* ── Typography ── */
+	--font-headline: var(--font-playfair);
+	--font-body: var(--font-lora);
+	--font-ui: var(--font-inter);
+	--font-data: var(--font-jetbrains);
+}
+
+/* ── Background ── */
+.dot-grid-bg {
+	background-color: var(--np-bg);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.03' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* ── Line Grid Texture Overlay ── */
+.newsprint-texture {
+	position: relative;
+}
+
+.newsprint-texture::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(0deg, transparent 98%, rgba(255, 255, 255, 0.015) 100%),
+		linear-gradient(90deg, transparent 98%, rgba(255, 255, 255, 0.015) 100%);
+	background-size: 3px 3px;
+	pointer-events: none;
+	opacity: 0.5;
+	z-index: 1;
+}
+
+/* ── Hard Shadow Hover (accent-colored) ── */
+.hard-shadow-hover {
+	transition: box-shadow 200ms ease-out, transform 200ms ease-out;
+}
+
+.hard-shadow-hover:hover {
+	box-shadow: var(--np-shadow);
+	transform: translate(-2px, -2px);
+}
+
+/* ── Grayscale Photos ── */
+.grayscale-photo {
+	filter: grayscale(100%) contrast(110%) brightness(0.85);
+	transition: filter 700ms ease-out;
+}
+
+.grayscale-photo:hover {
+	filter: grayscale(0%) contrast(105%) brightness(0.9);
+}
+
+/* ── Drop Cap ── */
+.drop-cap::first-letter {
+	float: left;
+	font-family: var(--font-headline);
+	font-size: 4.5rem;
+	line-height: 0.8;
+	padding-right: 0.5rem;
+	padding-top: 0.25rem;
+	color: var(--np-accent);
+	font-weight: 900;
+}
+
+/* ── Sharp Corners (global override) ── */
+.personal-theme *,
+.personal-theme *::before,
+.personal-theme *::after {
+	border-radius: 0px !important;
+}
+
+/* ── Halftone Dot Pattern (for placeholders) ── */
+.halftone-dots {
+	background: radial-gradient(#fff 1px, transparent 1px);
+	background-size: 16px 16px;
+	opacity: 0.06;
+}
+
+/* ── Hero Headline ── */
+.hero-headline {
+	font-family: var(--font-headline);
+	line-height: 0.9;
+	letter-spacing: -0.02em;
+	font-weight: 900;
+}
+
+/* ── Noise Overlay (cinematic grain) ── */
+.noise-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	z-index: 50;
+	opacity: 0.035;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }

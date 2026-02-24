@@ -1,6 +1,6 @@
 import { DM_Sans, DM_Serif_Display } from "next/font/google"
 
-import { PsicologoPremiumClient } from "./components/client"
+import { PsicologaPremiumClient } from "./components/client"
 import { psiData } from "./data"
 
 const dmSans = DM_Sans({
@@ -15,7 +15,7 @@ const dmSerif = DM_Serif_Display({
 	variable: "--font-psi-display",
 })
 
-export default function PsicologoPage() {
+export default function PsicologaPage() {
 	return (
 		<div
 			className={`${dmSans.variable} ${dmSerif.variable}`}
@@ -32,7 +32,7 @@ export default function PsicologoPage() {
 					50% { transform: translateY(-10px); }
 				}
 			`}</style>
-			<PsicologoPremiumClient data={psiData} />
+			<PsicologaPremiumClient data={psiData} />
 		</div>
 	)
 }

@@ -136,6 +136,43 @@
 	padding: 2.4rem 1.4rem;
 }
 
+.tarot-glow-services {
+	top: 10%;
+	right: -100px;
+	height: 260px;
+	width: 260px;
+	background: rgba(123, 97, 255, 0.28);
+	opacity: 0.3;
+}
+
+.tarot-glow-cta-left {
+	bottom: 20%;
+	left: -80px;
+	height: 220px;
+	width: 220px;
+	background: rgba(73, 211, 204, 0.25);
+	opacity: 0.3;
+}
+
+.tarot-glow-cta-right {
+	top: 30%;
+	right: -60px;
+	height: 200px;
+	width: 200px;
+	background: rgba(243, 197, 103, 0.2);
+	opacity: 0.3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cosmos-bg *,
+	.cosmos-bg *::before,
+	.cosmos-bg *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
 @media (min-width: 768px) {
 	.tarot-panel {
 		padding: 1.8rem;

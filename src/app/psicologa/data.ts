@@ -1,4 +1,4 @@
-export interface PsicologoPageData {
+export interface PsicologaPageData {
 	hero: {
 		badge: string
 		title: string
@@ -6,6 +6,7 @@ export interface PsicologoPageData {
 		description: string
 		primaryAction: string
 		secondaryAction: string
+		image: string
 	}
 	stats: Array<{ value: string; label: string }>
 	about: {
@@ -16,6 +17,7 @@ export interface PsicologoPageData {
 		signature: string
 		credentials: string[]
 		action: string
+		image: string
 	}
 	treatments: Array<{
 		title: string
@@ -42,6 +44,7 @@ export interface PsicologoPageData {
 		whatsappHref: string
 		whatsappLabel: string
 		secondaryLabel: string
+		image?: string
 	}
 	footer: {
 		brand: string
@@ -54,7 +57,7 @@ export interface PsicologoPageData {
 	}
 }
 
-export const psiData: PsicologoPageData = {
+export const psiData: PsicologaPageData = {
 	hero: {
 		badge: "Psicóloga Clínica — CRP 16/00000",
 		title: "Você não está quebrado. Está",
@@ -63,6 +66,7 @@ export const psiData: PsicologoPageData = {
 			"Atendimento psicológico para adultos com foco em ansiedade, relacionamentos e crescimento pessoal. Um espaço seguro, acolhedor e sem julgamentos.",
 		primaryAction: "Agende sua Primeira Consulta",
 		secondaryAction: "Como funciona",
+		image: "/showcases/psicologa/hero.jpg",
 	},
 	stats: [
 		{ value: "10+", label: "Anos de experiência" },
@@ -81,6 +85,7 @@ export const psiData: PsicologoPageData = {
 		signature: "Helena Martins",
 		credentials: ["CRP Ativo", "Pós em TCC", "Atendimento Online", "Supervisão Clínica"],
 		action: "Conheça Minha Abordagem",
+		image: "/showcases/psicologa/about.jpg",
 	},
 	treatments: [
 		{
@@ -191,6 +196,7 @@ export const psiData: PsicologoPageData = {
 			"https://wa.me/5527999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta.",
 		whatsappLabel: "Chamar no WhatsApp",
 		secondaryLabel: "Quero saber mais",
+		image: "/showcases/psicologa/cta.jpg",
 	},
 	footer: {
 		brand: "Helena Martins",
@@ -203,3 +209,4 @@ export const psiData: PsicologoPageData = {
 		crp: "CRP 16/00000 — Psicóloga Clínica",
 	},
 }
+

@@ -6,25 +6,9 @@ You are a senior product designer, motion expert, and frontend engineer speciali
 
 Next.js showcase project with self-contained landing pages for different business niches. Each route is an independent demo LP designed to attract web development clients. This is NOT a production SaaS — it's a portfolio/sales tool.
 
-## Tech Stack
-
-- **Framework:** Next.js (App Router)
-- **Styling:** Tailwind CSS + route-scoped CSS
-- **Components:** Shadcn/ui (shared) + route-specific components
-- **Language:** TypeScript
-
 ## Component Tooling
 
 Use the **Shadcn or Magic MCP** to discover, integrate, and compose advanced components, animated backgrounds, and complex interactive elements.
-
-## Route Structure
-
-Each niche lives in `/app/{niche}/` and is fully self-contained.
-
-### Shared Resources
-
-- `/components/ui/` — Shadcn components (global, reusable)
-- `/public/` — Static assets (images, icons organized per niche)
 
 ## Input
 

@@ -1,22 +1,42 @@
 import type { Metadata } from "next"
-import { Outfit } from "next/font/google"
+import { Inter, JetBrains_Mono, Lora, Playfair_Display } from "next/font/google"
 import "./theme.css"
 
-const outfit = Outfit({
+const playfair = Playfair_Display({
 	subsets: ["latin"],
-	variable: "--font-outfit",
+	variable: "--font-playfair",
+	display: "swap",
+})
+
+const lora = Lora({
+	subsets: ["latin"],
+	variable: "--font-lora",
+	display: "swap",
+})
+
+const inter = Inter({
+	subsets: ["latin"],
+	variable: "--font-inter",
+	display: "swap",
+})
+
+const jetbrains = JetBrains_Mono({
+	subsets: ["latin"],
+	variable: "--font-jetbrains",
 	display: "swap",
 })
 
 export const metadata: Metadata = {
-	title: "Personal | New Design",
-	description: "Remaking the entire design and content.",
+	title: "ATLAS Performance | Treinamento de Elite em São Paulo",
+	description:
+		"Treinamento baseado em ciência, periodização e biomecânica. Resultados mensuráveis para quem leva performance a sério.",
 }
 
 export default function PersonalLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<div
-			className={`personal-theme min-h-screen bg-background text-foreground antialiased ${outfit.variable}`}
+			className={`personal-theme dot-grid-bg min-h-screen antialiased ${playfair.variable} ${lora.variable} ${inter.variable} ${jetbrains.variable}`}
+			style={{ color: "var(--np-ink)" }}
 		>
 			{children}
 		</div>

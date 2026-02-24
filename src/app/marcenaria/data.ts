@@ -2,7 +2,7 @@ export const servicesData = {
 	hero: {
 		headline: "Reforma e manutenção residencial com prazo e contrato.",
 		cta: "Receber orçamento em 24h",
-		image: "/showcases/servicos-residenciais/hero.webp",
+		image: "/showcases/marcenaria/hero.webp",
 	},
 	process: [
 		{
@@ -68,7 +68,7 @@ export const servicesData = {
 		text: "Fechamos elétrica, pintura e marcenaria em uma semana. Recebi cronograma, fotos diárias e o apartamento foi entregue limpo, exatamente como combinado.",
 		author: "Mariana Teixeira",
 		location: "Apartamento em Pinheiros, São Paulo",
-		image: "/showcases/servicos-residenciais/quote-bg.webp",
+		image: "/showcases/marcenaria/quote-bg.webp",
 	},
 	comparison: {
 		headline: "Mercado comum vs. padrão CasaPronta Prime",

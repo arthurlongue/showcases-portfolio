@@ -131,8 +131,8 @@ function Hero() {
 			<motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
 				<div className="absolute inset-0 z-10 bg-gradient-to-l from-black/90 via-black/50 to-black/20" />
 				<video
-					src="/showcases/servicos-residenciais/destaque.mp4"
-					poster="/showcases/servicos-residenciais/movel-madeira.webp"
+					src="/showcases/marcenaria/destaque.mp4"
+					poster="/showcases/marcenaria/movel-madeira.webp"
 					autoPlay
 					muted
 					loop
@@ -398,7 +398,7 @@ function Manifesto() {
 				>
 					{/* eslint-disable-next-line @next/next/no-img-element */}
 					<img
-						src="/showcases/servicos-residenciais/movel-madeira.webp"
+						src="/showcases/marcenaria/movel-madeira.webp"
 						alt="Equipe executando acabamento em reforma residencial"
 						className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
 					/>
@@ -417,25 +417,25 @@ function ProjectsShowcase() {
 			tag: "Reforma Rápida",
 			title: "Apartamento Jardins",
 			desc: "Troca elétrica, pintura completa e marcenaria pontual entregues em 7 dias úteis.",
-			image: "/showcases/servicos-residenciais/team-1.webp",
+			image: "/showcases/marcenaria/team-1.webp",
 		},
 		{
 			tag: "Banho e Cozinha",
 			title: "Residência Villa Lobos",
 			desc: "Correção de infiltração, troca de metais e pintura antiumidade com garantia.",
-			image: "/showcases/servicos-residenciais/team-2.webp",
+			image: "/showcases/marcenaria/team-2.webp",
 		},
 		{
 			tag: "Sala e Iluminação",
 			title: "Painel Ibirapuera",
 			desc: "Novo circuito de iluminação, sanca e acabamento fino sem quebra-quebra excessivo.",
-			image: "/showcases/servicos-residenciais/team-3.webp",
+			image: "/showcases/marcenaria/team-3.webp",
 		},
 		{
 			tag: "Manutenção Programada",
 			title: "Atelier Botânico",
 			desc: "Plano mensal com visitas preventivas para elétrica, hidráulica e pequenos reparos.",
-			image: "/showcases/servicos-residenciais/team-4.webp",
+			image: "/showcases/marcenaria/team-4.webp",
 		},
 	]
 

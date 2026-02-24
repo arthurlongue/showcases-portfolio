@@ -12,6 +12,7 @@ export interface TarologaPageData {
 		primaryCtaHref: string
 		secondaryCtaLabel: string
 		secondaryCtaHref: string
+		floatingBadge: { title: string; description: string }
 	}
 	stats: Array<{ value: string; label: string }>
 	about: {
@@ -98,6 +99,10 @@ export const tarologaData: TarologaPageData = {
 		primaryCtaHref: buildWhatsappLink("Olá, quero agendar minha consulta de tarot."),
 		secondaryCtaLabel: "Ver tipos de leitura",
 		secondaryCtaHref: "#servicos",
+		floatingBadge: {
+			title: "Agenda da semana",
+			description: "3 vagas para consulta de 60 min",
+		},
 	},
 	stats: [
 		{ value: "9+ anos", label: "de experiência" },
