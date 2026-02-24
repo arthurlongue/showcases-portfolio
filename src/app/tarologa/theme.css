@@ -1,0 +1,147 @@
+@layer base {
+	:root {
+		--tarot-bg: #05050b;
+		--tarot-surface: rgba(255, 255, 255, 0.05);
+		--tarot-border: rgba(255, 255, 255, 0.16);
+		--tarot-accent-purple: #7b61ff;
+		--tarot-accent-gold: #f3c567;
+		--tarot-accent-teal: #49d3cc;
+	}
+}
+
+.cosmos-bg {
+	position: relative;
+	overflow-x: hidden;
+	background-color: var(--tarot-bg);
+	background-image:
+		radial-gradient(circle at 12% 16%, rgba(123, 97, 255, 0.2), transparent 34%),
+		radial-gradient(circle at 88% 12%, rgba(73, 211, 204, 0.14), transparent 35%),
+		radial-gradient(circle at 50% 90%, rgba(243, 197, 103, 0.1), transparent 46%),
+		linear-gradient(180deg, #060610 0%, #05050b 35%, #070711 100%);
+}
+
+.tarot-display {
+	font-family: var(--font-tarot-display), Georgia, serif;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+}
+
+.tarot-glow {
+	pointer-events: none;
+	position: absolute;
+	border-radius: 999px;
+	filter: blur(80px);
+	opacity: 0.55;
+}
+
+.tarot-glow-primary {
+	top: 70px;
+	left: -120px;
+	height: 320px;
+	width: 320px;
+	background: rgba(123, 97, 255, 0.44);
+}
+
+.tarot-glow-secondary {
+	right: -70px;
+	bottom: 20px;
+	height: 280px;
+	width: 280px;
+	background: rgba(73, 211, 204, 0.3);
+}
+
+.tarot-surface {
+	border: 1px solid var(--tarot-border);
+	border-radius: 1.15rem;
+	background: var(--tarot-surface);
+	backdrop-filter: blur(18px);
+}
+
+.tarot-panel {
+	border: 1px solid var(--tarot-border);
+	border-radius: 1.3rem;
+	background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+	padding: 1.4rem;
+	backdrop-filter: blur(24px);
+}
+
+.tarot-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 999px;
+	padding: 0.42rem 0.76rem;
+	font-size: 0.78rem;
+	line-height: 1;
+	background: rgba(255, 255, 255, 0.06);
+}
+
+.tarot-btn-primary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	border-radius: 999px;
+	padding: 0.85rem 1.35rem;
+	font-size: 0.92rem;
+	font-weight: 800;
+	color: #041214;
+	background: linear-gradient(90deg, var(--tarot-accent-gold), #ffe5a0);
+	box-shadow: 0 10px 30px rgba(243, 197, 103, 0.24);
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.tarot-btn-primary:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 16px 32px rgba(243, 197, 103, 0.3);
+}
+
+.tarot-btn-secondary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.45rem;
+	border: 1px solid rgba(255, 255, 255, 0.24);
+	border-radius: 999px;
+	padding: 0.82rem 1.35rem;
+	font-size: 0.9rem;
+	font-weight: 700;
+	color: white;
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.tarot-btn-secondary:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.tarot-photo-card {
+	position: relative;
+	border: 1px solid var(--tarot-border);
+	border-radius: 1.8rem;
+	background: rgba(255, 255, 255, 0.04);
+	padding: 1rem;
+	backdrop-filter: blur(24px);
+}
+
+.tarot-cta-wrap {
+	border: 1px solid rgba(243, 197, 103, 0.35);
+	border-radius: 2rem;
+	background:
+		radial-gradient(circle at 10% 20%, rgba(123, 97, 255, 0.3), transparent 55%),
+		radial-gradient(circle at 85% 80%, rgba(73, 211, 204, 0.2), transparent 40%),
+		rgba(255, 255, 255, 0.03);
+	padding: 2.4rem 1.4rem;
+}
+
+@media (min-width: 768px) {
+	.tarot-panel {
+		padding: 1.8rem;
+	}
+
+	.tarot-cta-wrap {
+		padding: 3.2rem 2.2rem;
+	}
+}
