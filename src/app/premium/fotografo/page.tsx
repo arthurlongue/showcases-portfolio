@@ -54,6 +54,7 @@ function Hero() {
 			<div className="absolute inset-0 z-0">
 				<video
 					src="/showcases/fotografo/hero-video.mp4"
+					poster="/showcases/fotografo/hero-poster.webp"
 					autoPlay
 					loop
 					muted
