@@ -33,6 +33,89 @@ const estheticImageUrl = "/showcases/dentista/textura-agua.webp"
 const treatmentsImageUrl = "/showcases/dentista/alinhador-transparente.webp"
 const digitalImageUrl = "/showcases/dentista/scanner-digital.webp"
 
+const STATEMENT_ITEMS = [
+	{
+		title: "Plano Fechado na 1ª Consulta",
+		desc: "Você sai com diagnóstico, etapas do tratamento, investimento e cronograma por fase.",
+	},
+	{
+		title: "Prazos Reais",
+		desc: "Procedimentos estéticos simples podem começar em até 7 dias após a avaliação.",
+	},
+	{
+		title: "Entregáveis Concretos",
+		desc: "Documentação fotográfica, escaneamento 3D e simulação do sorriso antes de iniciar.",
+	},
+	{
+		title: "Acompanhamento Contínuo",
+		desc: "Retornos programados e orientações pós-procedimento com canal direto da equipe.",
+	},
+] as const
+
+const POPULAR_TREATMENTS = [
+	{
+		id: 1,
+		title: "Lentes de Contato Dental",
+		cat: "Estética",
+		image: "/showcases/dentista/lentes-de-contato.webp",
+	},
+	{
+		id: 2,
+		title: "Implante Unitário",
+		cat: "Reabilitação",
+		image: "/showcases/dentista/implantes.webp",
+	},
+	{ id: 3, title: "Alinhadores Transparentes", cat: "Ortodontia", image: treatmentsImageUrl },
+	{
+		id: 4,
+		title: "Clareamento em Consultório",
+		cat: "Estética",
+		image: "/showcases/dentista/clareamento.webp",
+	},
+] as const
+
+const EXPERIENCE_ITEMS = [
+	{
+		icon: Shield,
+		title: "Garantia de Qualidade",
+		desc: "Corpo clínico com inscrição ativa no CRO, protocolos de biossegurança e documentação completa de cada etapa.",
+	},
+	{
+		icon: User,
+		title: "Atendimento Exclusivo",
+		desc: "Agenda estendida, confirmação por WhatsApp e tempo de consulta planejado para explicar opções sem pressa.",
+	},
+	{
+		icon: Microscope,
+		title: "Tecnologia de Ponta",
+		desc: "Scanner 3D, fotografia clínica e planejamento digital para decisões com previsibilidade clínica e estética.",
+	},
+	{
+		icon: Clock,
+		title: "Cuidado Digital",
+		desc: "Você recebe orçamento em PDF, cronograma por fase e orientações pré e pós-procedimento no mesmo dia.",
+	},
+	{
+		icon: Sparkles,
+		title: "Serviços Adicionais",
+		desc: "Inclua manutenção, placas, profilaxia e ajustes estéticos de forma transparente, sem itens surpresa.",
+	},
+	{
+		icon: FileText,
+		title: "Especialista Pessoal",
+		desc: "Um dentista responsável acompanha seu caso do início ao fim, com revisões programadas após cada fase.",
+	},
+] as const
+
+const GALLERY_IMAGES = [
+	{ src: "/showcases/dentista/recepcao-clinica.webp", alt: "Recepção da clínica Lumière" },
+	{ src: "/showcases/dentista/consultorio-premium.webp", alt: "Consultório premium" },
+	{ src: "/showcases/dentista/consultorio-moderno.webp", alt: "Consultório moderno" },
+	{ src: "/showcases/dentista/consultorio-classico.webp", alt: "Consultório clássico" },
+	{ src: "/showcases/dentista/scanner-digital.webp", alt: "Scanner digital 3D" },
+	{ src: "/showcases/dentista/sorriso-perfeito.webp", alt: "Resultado de tratamento estético" },
+] as const
+
 function Hero() {
 	return (
 		<section className="relative flex min-h-screen flex-col px-6 pt-6 pb-6 overflow-hidden">
@@ -137,25 +220,6 @@ function Hero() {
 }
 
 function Statement() {
-	const statementItems = [
-		{
-			title: "Plano Fechado na 1ª Consulta",
-			desc: "Você sai com diagnóstico, etapas do tratamento, investimento e cronograma por fase.",
-		},
-		{
-			title: "Prazos Reais",
-			desc: "Procedimentos estéticos simples podem começar em até 7 dias após a avaliação.",
-		},
-		{
-			title: "Entregáveis Concretos",
-			desc: "Documentação fotográfica, escaneamento 3D e simulação do sorriso antes de iniciar.",
-		},
-		{
-			title: "Acompanhamento Contínuo",
-			desc: "Retornos programados e orientações pós-procedimento com canal direto da equipe.",
-		},
-	] as const
-
 	return (
 		<section className="mx-auto max-w-7xl px-6 py-24">
 			<motion.h2
@@ -170,7 +234,7 @@ function Statement() {
 			</motion.h2>
 
 			<div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-				{statementItems.map((item, i) => (
+				{STATEMENT_ITEMS.map((item, i) => (
 					<motion.div
 						key={item.title}
 						initial={{ opacity: 0, y: 20 }}
@@ -250,30 +314,9 @@ function SplitServices() {
 }
 
 function PopularTreatments() {
-	const items = [
-		{
-			id: 1,
-			title: "Lentes de Contato Dental",
-			cat: "Estética",
-			image: "/showcases/dentista/lentes-de-contato.webp",
-		},
-		{
-			id: 2,
-			title: "Implante Unitário",
-			cat: "Reabilitação",
-			image: "/showcases/dentista/implantes.webp",
-		},
-		{ id: 3, title: "Alinhadores Transparentes", cat: "Ortodontia", image: treatmentsImageUrl },
-		{
-			id: 4,
-			title: "Clareamento em Consultório",
-			cat: "Estética",
-			image: "/showcases/dentista/clareamento.webp",
-		},
-	] as const
-
-	const [activeId, setActiveId] = useState<number>(items[0].id)
-	const activeItem = items.find((item) => item.id === activeId) || items[0]
+	const [activeId, setActiveId] = useState<number>(POPULAR_TREATMENTS[0].id)
+	const activeItem =
+		POPULAR_TREATMENTS.find((item) => item.id === activeId) || POPULAR_TREATMENTS[0]
 
 	return (
 		<section className="mx-auto max-w-7xl px-6 py-24">
@@ -314,7 +357,7 @@ function PopularTreatments() {
 					</AnimatePresence>
 				</motion.div>
 				<div className="flex flex-col justify-center gap-8">
-					{items.map((item, i) => {
+					{POPULAR_TREATMENTS.map((item, i) => {
 						const isActive = item.id === activeId
 						return (
 							<motion.div
@@ -398,39 +441,6 @@ function DigitalCare() {
 }
 
 function Experience() {
-	const items = [
-		{
-			icon: Shield,
-			title: "Garantia de Qualidade",
-			desc: "Corpo clínico com inscrição ativa no CRO, protocolos de biossegurança e documentação completa de cada etapa.",
-		},
-		{
-			icon: User,
-			title: "Atendimento Exclusivo",
-			desc: "Agenda estendida, confirmação por WhatsApp e tempo de consulta planejado para explicar opções sem pressa.",
-		},
-		{
-			icon: Microscope,
-			title: "Tecnologia de Ponta",
-			desc: "Scanner 3D, fotografia clínica e planejamento digital para decisões com previsibilidade clínica e estética.",
-		},
-		{
-			icon: Clock,
-			title: "Cuidado Digital",
-			desc: "Você recebe orçamento em PDF, cronograma por fase e orientações pré e pós-procedimento no mesmo dia.",
-		},
-		{
-			icon: Sparkles,
-			title: "Serviços Adicionais",
-			desc: "Inclua manutenção, placas, profilaxia e ajustes estéticos de forma transparente, sem itens surpresa.",
-		},
-		{
-			icon: FileText,
-			title: "Especialista Pessoal",
-			desc: "Um dentista responsável acompanha seu caso do início ao fim, com revisões programadas após cada fase.",
-		},
-	] as const
-
 	return (
 		<section className="mx-auto max-w-7xl px-6 py-24">
 			<motion.h2
@@ -467,7 +477,7 @@ function Experience() {
 				</motion.div>
 
 				<div className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:col-span-8">
-					{items.map((item, i) => {
+					{EXPERIENCE_ITEMS.map((item, i) => {
 						const Icon = item.icon
 						return (
 							<motion.div
@@ -493,26 +503,14 @@ function Experience() {
 }
 
 function Gallery() {
-	const galleryImages = [
-		{ src: "/showcases/dentista/recepcao-clinica.webp", alt: "Recepção da clínica Lumière" },
-		{ src: "/showcases/dentista/consultorio-premium.webp", alt: "Consultório premium" },
-		{ src: "/showcases/dentista/consultorio-moderno.webp", alt: "Consultório moderno" },
-		{ src: "/showcases/dentista/consultorio-classico.webp", alt: "Consultório clássico" },
-		{ src: "/showcases/dentista/scanner-digital.webp", alt: "Scanner digital 3D" },
-		{ src: "/showcases/dentista/sorriso-perfeito.webp", alt: "Resultado de tratamento estético" },
-	] as const
-
 	const [[currentIndex, direction], setSlide] = useState([0, 0])
 
-	const navigate = useCallback(
-		(newDirection: number) => {
-			setSlide(([prev]) => {
-				const next = (prev + newDirection + galleryImages.length) % galleryImages.length
-				return [next, newDirection]
-			})
-		},
-		[galleryImages.length],
-	)
+	const navigate = useCallback((newDirection: number) => {
+		setSlide(([prev]) => {
+			const next = (prev + newDirection + GALLERY_IMAGES.length) % GALLERY_IMAGES.length
+			return [next, newDirection]
+		})
+	}, [])
 
 	const variants = {
 		enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
@@ -535,8 +533,8 @@ function Gallery() {
 						className="absolute inset-0"
 					>
 						<Image
-							src={galleryImages[currentIndex].src}
-							alt={galleryImages[currentIndex].alt}
+							src={GALLERY_IMAGES[currentIndex].src}
+							alt={GALLERY_IMAGES[currentIndex].alt}
 							fill
 							className="object-cover"
 							sizes="100vw"
@@ -564,7 +562,7 @@ function Gallery() {
 						<ChevronRight className="h-6 w-6" />
 					</button>
 					<span className="ml-2 text-3xl font-bold text-brand-white tabular-nums">
-						{currentIndex + 1}/{galleryImages.length}
+						{currentIndex + 1}/{GALLERY_IMAGES.length}
 					</span>
 				</div>
 			</div>
