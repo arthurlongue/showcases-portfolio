@@ -135,6 +135,7 @@ export default function CafeteriaPremiumPage() {
 				{/* Floating hero video */}
 				<HeroVideo
 					src="/showcases/cafeteria/destaque.mp4"
+					poster="/showcases/cafeteria/preparo.webp"
 					className="absolute right-6 bottom-40 z-10 hidden h-[320px] w-[260px] md:right-12 md:bottom-48 md:block md:h-[400px] md:w-[320px]"
 				/>
 
