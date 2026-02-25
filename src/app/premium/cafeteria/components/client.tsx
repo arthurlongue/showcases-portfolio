@@ -521,7 +521,15 @@ export function BrutalImage({
    HERO VIDEO — Floating autoplay video element
    ───────────────────────────────────────────── */
 
-export function HeroVideo({ src, className }: { src: string; className?: string }) {
+export function HeroVideo({
+	src,
+	className,
+	poster,
+}: {
+	src: string
+	className?: string
+	poster?: string
+}) {
 	const ref = useRef<HTMLDivElement>(null)
 	const { scrollYProgress } = useScroll({
 		target: ref,
@@ -539,7 +547,14 @@ export function HeroVideo({ src, className }: { src: string; className?: string 
 			/>
 			{/* Video with its own border */}
 			<div className="relative h-full w-full overflow-hidden border-[var(--brutal-border-width)] border-[var(--color-brutal-border)]">
-				<video autoPlay loop muted playsInline className="h-full w-full object-cover">
+				<video
+					autoPlay
+					loop
+					muted
+					playsInline
+					className="h-full w-full object-cover"
+					poster={poster}
+				>
 					<source src={src} type="video/mp4" />
 				</video>
 			</div>
