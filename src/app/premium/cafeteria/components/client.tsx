@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useMotionValueEvent, useScroll, useTransform } from "motion/react"
-import { type ReactNode, useEffect, useRef, useState } from "react"
+import { type ComponentProps, type ReactNode, useEffect, useRef, useState } from "react"
 
 /* ─────────────────────────────────────────────
    MARQUEE — Infinite scrolling text strip
@@ -86,11 +86,12 @@ export function BrutalButton({
 	children,
 	variant = "primary",
 	className,
+	...props
 }: {
 	children: ReactNode
 	variant?: "primary" | "outline"
 	className?: string
-}) {
+} & ComponentProps<typeof motion.button>) {
 	const base =
 		"relative cursor-pointer border-[var(--brutal-border-width)] border-[var(--color-brutal-border)] font-[family-name:var(--font-heading)] text-sm uppercase tracking-[0.15em] transition-all duration-150 px-8 py-4"
 	const variants = {
@@ -105,6 +106,7 @@ export function BrutalButton({
 			type="button"
 			whileTap={{ scale: 0.97 }}
 			className={`${base} ${variants[variant]} ${className}`}
+			{...props}
 		>
 			{children}
 		</motion.button>
