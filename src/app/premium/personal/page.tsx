@@ -1,44 +1,10 @@
 "use client"
 
-import {
-	Activity,
-	ArrowRight,
-	CheckCircle2,
-	Play,
-	Shield,
-	Target,
-	TrendingUp,
-	Zap,
-} from "lucide-react"
+import { Activity, ArrowRight, CheckCircle2, Play, TrendingUp } from "lucide-react"
 import { motion, useScroll, useTransform } from "motion/react"
 import Image from "next/image"
 import { useRef } from "react"
-
-interface Pillar {
-	title: string
-	description: string
-	icon: React.ReactNode
-}
-
-const pillarItems: Pillar[] = [
-	{
-		title: "Força",
-		description: "Base sólida para ganhar massa e proteger articulações no longo prazo.",
-		icon: <Shield className="h-6 w-6 text-white" />,
-	},
-	{
-		title: "Resistência",
-		description: "Condicionamento para manter intensidade do início ao fim da sessão.",
-		icon: <Zap className="h-6 w-6 text-white" />,
-	},
-	{
-		title: "Disciplina",
-		description: "Metas semanais, check-ins e ajustes para você evoluir sem estagnar.",
-		icon: <Target className="h-6 w-6 text-white" />,
-	},
-]
-
-const ctaNames = ["João", "Maria", "Pedro", "Lucas", "Ana", "Carlos", "Júlia"] as const
+import { ctaNames, pillarItems } from "./data"
 
 export default function PersonalPremiumPage() {
 	return (
