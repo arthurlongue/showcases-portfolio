@@ -47,6 +47,26 @@ function Navbar() {
 	)
 }
 
+const HERO_H1_INITIAL = { opacity: 0, y: 40 }
+const HERO_H1_ANIMATE = { opacity: 1, y: 0 }
+const HERO_H1_TRANSITION = { duration: 1.2, ease: [0.16, 1, 0.3, 1] as const }
+
+const HERO_P_INITIAL = { opacity: 0, y: 20 }
+const HERO_P_ANIMATE = { opacity: 1, y: 0 }
+const HERO_P_TRANSITION = {
+	duration: 1,
+	delay: 0.2,
+	ease: [0.16, 1, 0.3, 1] as const,
+}
+
+const HERO_BTN_INITIAL = { opacity: 0, y: 20 }
+const HERO_BTN_ANIMATE = { opacity: 1, y: 0 }
+const HERO_BTN_TRANSITION = {
+	duration: 1,
+	delay: 0.4,
+	ease: [0.16, 1, 0.3, 1] as const,
+}
+
 function Hero() {
 	return (
 		<section className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-(--foto-text) px-6 pt-32 pb-20">
@@ -66,9 +86,9 @@ function Hero() {
 			<div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-16 md:flex-row">
 				<div className="max-w-3xl">
 					<motion.h1
-						initial={{ opacity: 0, y: 40 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+						initial={HERO_H1_INITIAL}
+						animate={HERO_H1_ANIMATE}
+						transition={HERO_H1_TRANSITION}
 						className="mb-8 font-serif text-(--foto-text) text-6xl leading-[0.9] tracking-tight md:text-8xl lg:text-[110px]"
 					>
 						Fotografia de <br />
@@ -77,18 +97,18 @@ function Hero() {
 						<span className="text-white/90">marcas, experts e editoriais</span>
 					</motion.h1>
 					<motion.p
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+						initial={HERO_P_INITIAL}
+						animate={HERO_P_ANIMATE}
+						transition={HERO_P_TRANSITION}
 						className="mb-10 max-w-md text-white/70 text-lg font-light leading-relaxed md:text-xl"
 					>
 						Do briefing ao arquivo final em um fluxo só. Você recebe direção criativa, captação e
 						pós-produção com entregáveis claros e prazo fechado de até 7 dias úteis após o shooting.
 					</motion.p>
 					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+						initial={HERO_BTN_INITIAL}
+						animate={HERO_BTN_ANIMATE}
+						transition={HERO_BTN_TRANSITION}
 					>
 						<ActionButton className="px-8 py-4 text-sm" dark={false}>
 							<span className="uppercase tracking-widest text-black">Pedir orçamento</span>
@@ -110,6 +130,13 @@ function Hero() {
 const BRANDS = ["AMARO", "TRACK&FIELD", "LIVO", "DENGO", "GQ BRASIL", "CASA VOGUE", "FFW"]
 const SCROLL_BRANDS = [...BRANDS, ...BRANDS]
 
+const BRANDS_ANIMATE = { x: ["0%", "-50%"] }
+const BRANDS_TRANSITION = {
+	duration: 30,
+	ease: "linear" as const,
+	repeat: Number.POSITIVE_INFINITY,
+}
+
 function Brands() {
 	return (
 		<section className="relative z-10 flex flex-col items-center overflow-hidden border-black/10 border-b bg-(--foto-bg) py-16">
@@ -126,8 +153,8 @@ function Brands() {
 			<div className="w-full overflow-hidden opacity-80">
 				<motion.div
 					className="flex min-w-max"
-					animate={{ x: ["0%", "-50%"] }}
-					transition={{ duration: 30, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
+					animate={BRANDS_ANIMATE}
+					transition={BRANDS_TRANSITION}
 				>
 					{SCROLL_BRANDS.map((brand, index) => (
 						<div key={`${brand}-${index}`} className="flex items-center justify-center px-8 py-2">
@@ -175,6 +202,10 @@ const PROCESS_STEPS: ProcessStep[] = [
 	},
 ]
 
+const PROCESS_ITEM_INITIAL = { opacity: 0, y: 24 }
+const PROCESS_ITEM_WHILE_IN_VIEW = { opacity: 1, y: 0 }
+const PROCESS_ITEM_VIEWPORT = { once: true, margin: "-40px" }
+
 function ProcessDark() {
 	return (
 		<section
@@ -196,9 +227,9 @@ function ProcessDark() {
 					{PROCESS_STEPS.map((step, index) => (
 						<div key={step.title} className="w-full max-w-sm px-4 md:w-[30%]">
 							<motion.div
-								initial={{ opacity: 0, y: 24 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true, margin: "-40px" }}
+								initial={PROCESS_ITEM_INITIAL}
+								whileInView={PROCESS_ITEM_WHILE_IN_VIEW}
+								viewport={PROCESS_ITEM_VIEWPORT}
 								transition={{ duration: 0.6, delay: index * 0.06 }}
 								className="flex flex-col items-center"
 							>
@@ -304,6 +335,10 @@ const PORTFOLIO_IMAGES: PortfolioImage[] = [
 	},
 ]
 
+const PORTFOLIO_ITEM_INITIAL = { opacity: 0, y: 30 }
+const PORTFOLIO_ITEM_WHILE_IN_VIEW = { opacity: 1, y: 0 }
+const PORTFOLIO_ITEM_VIEWPORT = { once: true, margin: "-50px" }
+
 function Portfolio() {
 	return (
 		<section id="portfolio" className="relative z-10 bg-(--foto-bg) py-32">
@@ -326,9 +361,9 @@ function Portfolio() {
 					{PORTFOLIO_IMAGES.map((image, index) => (
 						<motion.div
 							key={image.src}
-							initial={{ opacity: 0, y: 30 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true, margin: "-50px" }}
+							initial={PORTFOLIO_ITEM_INITIAL}
+							whileInView={PORTFOLIO_ITEM_WHILE_IN_VIEW}
+							viewport={PORTFOLIO_ITEM_VIEWPORT}
 							transition={{ duration: 0.8, delay: index * 0.1 }}
 							className={`group relative w-full cursor-pointer overflow-hidden rounded-3xl shadow-sm ${image.col} ${image.aspect}`}
 						>
@@ -453,12 +488,14 @@ function ServiceBlock({ title, description, drawing, reverse }: ServiceBlockProp
 	)
 }
 
+const BUTTON_TAP = { scale: 0.97 }
+
 function FilterButton({ children, active = false }: FilterButtonProps) {
 	if (active) {
 		return (
 			<motion.button
 				type="button"
-				whileTap={{ scale: 0.97 }}
+				whileTap={BUTTON_TAP}
 				className="cursor-pointer rounded-full bg-(--foto-text) px-8 py-2.5 text-sm text-white font-medium tracking-wide transition-colors duration-200 hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--foto-text)"
 			>
 				{children}
@@ -469,7 +506,7 @@ function FilterButton({ children, active = false }: FilterButtonProps) {
 	return (
 		<motion.button
 			type="button"
-			whileTap={{ scale: 0.97 }}
+			whileTap={BUTTON_TAP}
 			className="cursor-pointer rounded-full border border-black/20 px-8 py-2.5 text-(--foto-text) text-sm font-medium tracking-wide transition-colors duration-200 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--foto-text)"
 		>
 			{children}
@@ -493,7 +530,7 @@ function ActionButton({ children, className, dark = false }: ActionButtonProps) 
 		return (
 			<motion.button
 				type="button"
-				whileTap={{ scale: 0.97 }}
+				whileTap={BUTTON_TAP}
 				className={`flex cursor-pointer items-center gap-3 rounded-full bg-(--foto-text) text-white font-medium transition-colors duration-300 hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--foto-text) ${className}`}
 			>
 				{children}
@@ -504,7 +541,7 @@ function ActionButton({ children, className, dark = false }: ActionButtonProps) 
 	return (
 		<motion.button
 			type="button"
-			whileTap={{ scale: 0.97 }}
+			whileTap={BUTTON_TAP}
 			className={`flex cursor-pointer items-center gap-3 rounded-full bg-white text-(--foto-text) font-medium transition-colors duration-300 hover:bg-[#efefef] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--foto-text) ${className}`}
 		>
 			{children}
