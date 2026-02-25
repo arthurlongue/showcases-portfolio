@@ -1,4 +1,5 @@
 import { Activity, Clock, HeartPulse, Instagram, Leaf, Linkedin, ShieldCheck } from "lucide-react"
+import Image from "next/image"
 import { AnimatedCheck, MotionDiv, MotionH1, StatCounter } from "./components/client"
 import { SpecialtiesTabs } from "./components/specialties-tabs"
 import { TestimonialsCarousel } from "./components/testimonials-carousel"
@@ -72,12 +73,15 @@ export default function NutricionistaPremiumPage() {
 							initial={{ opacity: 0, scale: 0.95 }}
 							animate={{ opacity: 1, scale: 1 }}
 							transition={{ duration: 0.8 }}
-							className="relative"
+							className="relative w-full h-150"
 						>
-							<img
+							<Image
 								src="/showcases/nutricionista/nutricionista-na-cozinha.webp"
 								alt="Nutricionista"
-								className="rounded-4xl shadow-[0_20px_40px_rgba(45,106,79,0.12)] object-cover w-full h-150"
+								fill
+								className="rounded-4xl shadow-[0_20px_40px_rgba(45,106,79,0.12)] object-cover"
+								sizes="(max-width: 1024px) 100vw, 50vw"
+								priority
 							/>
 
 							{/* Trust Badge */}
