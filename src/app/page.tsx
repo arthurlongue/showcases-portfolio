@@ -1,7 +1,7 @@
+import { Badge } from "@/components/ui/badge"
 import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { Badge } from "@/components/ui/badge"
 
 const premiumShowcases = [
 	{
@@ -58,14 +58,14 @@ const premiumShowcases = [
 		title: "Psicóloga",
 		description: "Consultório de psicologia com atendimento presencial e online.",
 		tags: ["Saúde Mental", "Consultas"],
-		thumbnail: "/showcases/psicologa/hero.webp",
+		thumbnail: "/showcases/psicologa/hero.jpg",
 	},
 	{
 		href: "/tarologa",
 		title: "Taróloga",
 		description: "Clareza espiritual e direcionamento através do Tarot e Baralho Cigano.",
 		tags: ["Misticismo", "Tarot", "Espiritualidade"],
-		thumbnail: "/showcases/tarologa/hero.webp",
+		thumbnail: "/showcases/tarologa/hero-portrait.jpeg",
 	},
 	{
 		href: "/marcenaria",

@@ -1,8 +1,23 @@
 "use client"
 
-import { ChevronDown, Menu, X } from "lucide-react"
-import { AnimatePresence, motion, useReducedMotion } from "motion/react"
-import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react"
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion"
+import { BlurFade } from "@/components/ui/blur-fade"
+import {
+	Sheet,
+	SheetClose,
+	SheetContent,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "@/components/ui/sheet"
+import { Menu, X } from "lucide-react"
+import { motion, useReducedMotion } from "motion/react"
+import { type CSSProperties, type ReactNode, useCallback, useEffect, useRef, useState } from "react"
 import type { TarologaFaqItem } from "../data"
 
 /* ─────────────────────────────────────────────
@@ -172,6 +187,16 @@ export function TarotReveal({
 	)
 }
 
+export function TarotLens({ children, className }: { children: ReactNode; className?: string }) {
+	return (
+		<div className={`relative ${className ?? ""}`}>
+			<div className="pointer-events-none absolute inset-0 z-10 rounded-[inherit] bg-[radial-gradient(circle_at_55%_28%,rgba(247,231,206,0.16),transparent_52%)]" />
+			<div className="pointer-events-none absolute inset-0 z-10 rounded-[inherit] shadow-[inset_0_0_80px_rgba(10,11,16,0.35)]" />
+			{children}
+		</div>
+	)
+}
+
 /* ─────────────────────────────────────────────
    TAROT HERO CONTENT — Staggered entrance
    ───────────────────────────────────────────── */
@@ -254,7 +279,7 @@ export function TarotButton({
 			whileHover={{ scale: 1.02, y: -1 }}
 			whileTap={{ scale: 0.98 }}
 			transition={{ duration: 0.2 }}
-			className={className}
+			className={`${className} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--tarot-accent-gold)/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0221]`}
 		>
 			{children}
 		</motion.a>
@@ -269,21 +294,38 @@ interface TarotNavProps {
 	brand: ReactNode
 	navItems: ReadonlyArray<{ href: string; label: string }>
 	ctaHref: string
+	ctaLabel: string
 }
 
-export function TarotNav({ brand, navItems, ctaHref }: TarotNavProps) {
+export function TarotNav({ brand, navItems, ctaHref, ctaLabel }: TarotNavProps) {
 	const [mobileOpen, setMobileOpen] = useState(false)
+	const [scrolled, setScrolled] = useState(false)
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setScrolled(window.scrollY > 20)
+		}
+		window.addEventListener("scroll", handleScroll)
+		handleScroll()
+		return () => window.removeEventListener("scroll", handleScroll)
+	}, [])
 
 	return (
-		<nav className="fixed top-0 z-50 w-full border-b border-(--tarot-border) bg-[#0a0b10]/70 backdrop-blur-xl">
-			<div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
+		<div className="fixed top-0 z-50 w-full px-4 pt-4 sm:px-6 sm:pt-6 pointer-events-none">
+			<nav
+				className={`mx-auto flex w-full max-w-5xl items-center justify-between rounded-2xl px-6 py-4 transition-all duration-300 pointer-events-auto ${
+					scrolled
+						? "bg-[#0a0b10]/80 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl border border-white/5"
+						: "bg-transparent"
+				}`}
+			>
 				{brand}
 				<div className="hidden items-center gap-7 text-[0.82rem] font-semibold text-(--tarot-text-body)/75 md:flex">
 					{navItems.map((item) => (
 						<a
 							key={item.href}
 							href={item.href}
-							className="transition-colors hover:text-(--tarot-accent-champagne)"
+							className="rounded-sm transition-colors hover:text-(--tarot-accent-champagne) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--tarot-accent-gold)/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0b10]"
 						>
 							{item.label}
 						</a>
@@ -293,51 +335,55 @@ export function TarotNav({ brand, navItems, ctaHref }: TarotNavProps) {
 					href={ctaHref}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="hidden rounded-full bg-[#25D366] px-5 py-2 text-[0.78rem] font-bold text-white transition-colors hover:bg-[#20ba5a] md:inline-flex"
+					className="tarot-btn-whatsapp hidden md:inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--tarot-accent-gold)/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0b10]"
 				>
-					Agendar no WhatsApp
+					{ctaLabel}
 				</a>
-				<button
-					type="button"
-					className="cursor-pointer text-(--tarot-text-body) focus-visible:outline-none md:hidden"
-					aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-					onClick={() => setMobileOpen((c) => !c)}
-				>
-					{mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-				</button>
-			</div>
-
-			<AnimatePresence>
-				{mobileOpen && (
-					<motion.div
-						initial={{ opacity: 0, height: 0 }}
-						animate={{ opacity: 1, height: "auto" }}
-						exit={{ opacity: 0, height: 0 }}
-						className="flex flex-col gap-5 overflow-hidden border-t border-(--tarot-border) bg-[#0a0b10]/95 px-6 py-6 backdrop-blur-xl md:hidden"
-					>
-						{navItems.map((item) => (
-							<a
-								key={item.href}
-								href={item.href}
-								className="text-[0.92rem] font-semibold text-(--tarot-text-body)/80 transition-colors hover:text-(--tarot-accent-champagne)"
-								onClick={() => setMobileOpen(false)}
-							>
-								{item.label}
-							</a>
-						))}
-						<a
-							href={ctaHref}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="inline-flex w-fit rounded-full bg-[#25D366] px-5 py-2.5 text-[0.82rem] font-bold text-white transition-colors hover:bg-[#20ba5a]"
-							onClick={() => setMobileOpen(false)}
+				<Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+					<SheetTrigger asChild>
+						<button
+							type="button"
+							className="cursor-pointer rounded-sm text-(--tarot-text-body) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--tarot-accent-gold)/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0b10] md:hidden"
+							aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
 						>
-							Agendar no WhatsApp
-						</a>
-					</motion.div>
-				)}
-			</AnimatePresence>
-		</nav>
+							{mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+						</button>
+					</SheetTrigger>
+					<SheetContent
+						side="right"
+						className="border-none bg-[#0a0b10]/95 p-0 text-(--tarot-text-body) shadow-[-10px_0_30px_rgba(0,0,0,0.5)] backdrop-blur-xl"
+					>
+						<SheetHeader className="px-6 py-4 shadow-[0_1px_0_rgba(255,215,0,0.1)]">
+							<SheetTitle className="text-sm tracking-wide text-(--tarot-accent-champagne)">
+								Menu
+							</SheetTitle>
+						</SheetHeader>
+						<div className="flex flex-col gap-5 px-6 py-6">
+							{navItems.map((item) => (
+								<SheetClose asChild key={item.href}>
+									<a
+										href={item.href}
+										className="rounded-sm text-[0.92rem] font-semibold text-(--tarot-text-body)/80 transition-colors hover:text-(--tarot-accent-champagne) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--tarot-accent-gold)/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0b10]"
+									>
+										{item.label}
+									</a>
+								</SheetClose>
+							))}
+							<SheetClose asChild>
+								<a
+									href={ctaHref}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="tarot-btn-whatsapp mt-2 w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--tarot-accent-gold)/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0b10]"
+								>
+									{ctaLabel}
+								</a>
+							</SheetClose>
+						</div>
+					</SheetContent>
+				</Sheet>
+			</nav>
+		</div>
 	)
 }
 
@@ -349,118 +395,98 @@ interface TarologaFaqAccordionProps {
 	items: TarologaFaqItem[]
 }
 
-interface WhatsAppMockMessage {
-	sender: "cliente" | "tarologa"
-	text: string
-	time: string
-}
-
-interface WhatsAppProofCardProps {
-	title: string
-	subtitle: string
-	messages: WhatsAppMockMessage[]
-}
-
 export function TarologaFaqAccordion({ items }: TarologaFaqAccordionProps) {
-	const [openIndex, setOpenIndex] = useState(0)
-
 	return (
-		<div className="flex flex-col gap-3">
-			{items.map((item, index) => {
-				const isOpen = openIndex === index
-				const panelId = `faq-panel-${index}`
-				const buttonId = `faq-button-${index}`
-
-				return (
-					<div
-						key={item.question}
-						className="overflow-hidden rounded-2xl border border-(--tarot-border) bg-[#0a0b10]/40 backdrop-blur-sm"
+		<Accordion type="single" collapsible defaultValue="faq-0" className="flex flex-col gap-3">
+			{items.map((item, index) => (
+				<BlurFade key={item.question} delay={index * 0.05} inView>
+					<AccordionItem
+						value={`faq-${index}`}
+						className="overflow-hidden rounded-2xl bg-[#0a0b10]/40 px-6 shadow-[0_4px_16px_rgba(0,0,0,0.2)] backdrop-blur-sm"
 					>
-						<button
-							type="button"
-							id={buttonId}
-							aria-expanded={isOpen}
-							aria-controls={panelId}
-							onClick={() => setOpenIndex((current) => (current === index ? -1 : index))}
-							className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left"
-						>
-							<span className="text-[0.98rem] font-semibold leading-snug text-(--tarot-accent-champagne)">
-								{item.question}
-							</span>
-							<span
-								className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-(--tarot-border) bg-(--tarot-accent-gold)/5 transition-transform duration-300 ${
-									isOpen ? "rotate-180" : "rotate-0"
-								}`}
-							>
-								<ChevronDown className="h-4 w-4 text-(--tarot-accent-gold)" />
-							</span>
-						</button>
-						<motion.div
-							id={panelId}
-							role="region"
-							aria-labelledby={buttonId}
-							initial={false}
-							animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-							transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-							className="overflow-hidden"
-						>
-							<p className="px-6 pb-5 text-[0.95rem] leading-relaxed text-(--tarot-text-body)/80">
-								{item.answer}
-							</p>
-						</motion.div>
-					</div>
-				)
-			})}
-		</div>
+						<AccordionTrigger className="cursor-pointer rounded-sm py-5 text-left text-[0.98rem] font-semibold leading-snug text-(--tarot-accent-champagne) hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--tarot-accent-gold)/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0b10] [&>svg]:text-(--tarot-accent-gold)">
+							{item.question}
+						</AccordionTrigger>
+						<AccordionContent className="pb-5 text-[0.95rem] leading-relaxed text-(--tarot-text-body)/80">
+							{item.answer}
+						</AccordionContent>
+					</AccordionItem>
+				</BlurFade>
+			))}
+		</Accordion>
 	)
 }
 
 /* ─────────────────────────────────────────────
-   WHATSAPP PROOF CARD — With message hover effects
+   PING-PONG VIDEO — Plays forward then backward
    ───────────────────────────────────────────── */
 
-export function WhatsAppProofCard({ title, subtitle, messages }: WhatsAppProofCardProps) {
-	return (
-		<article className="relative overflow-hidden rounded-3xl border border-(--tarot-border) bg-[#0a0b10] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-			<div className="mb-4 flex items-center justify-between border-b border-(--tarot-border) pb-4">
-				<div>
-					<h4 className="text-sm font-semibold text-(--tarot-accent-champagne)">{title}</h4>
-					<p className="text-xs text-(--tarot-text-body)/60">{subtitle}</p>
-				</div>
-				<span className="rounded-full bg-[#1a1b20] px-3 py-1 text-[0.68rem] font-bold uppercase tracking-wider text-(--tarot-accent-gold)">
-					Online
-				</span>
-			</div>
+export function PingPongVideo({ src, className }: { src: string; className?: string }) {
+	const videoRef = useRef<HTMLVideoElement>(null)
+	const directionRef = useRef<1 | -1>(1)
+	const rafRef = useRef(0)
+	const lastTimeRef = useRef(0)
+	const reduced = useReducedMotion()
 
-			<div className="flex flex-col gap-3">
-				{messages.map((message, i) => {
-					const isClient = message.sender === "cliente"
-					return (
-						<motion.div
-							key={`${message.sender}-${message.time}-${message.text}`}
-							initial={{ opacity: 0, y: 10 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							transition={{ duration: 0.4, delay: i * 0.12, ease: EASE_CUSTOM }}
-							whileHover={{ scale: 1.01 }}
-							className={`flex ${isClient ? "justify-start" : "justify-end"}`}
-						>
-							<div
-								className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
-									isClient
-										? "rounded-bl-sm bg-[#1a1b20] text-(--tarot-text-body)/90 border border-(--tarot-border)"
-										: "rounded-br-sm bg-(--tarot-accent-gold)/15 text-(--tarot-text-body) border border-(--tarot-accent-gold)/20"
-								}`}
-							>
-								<p>{message.text}</p>
-								<p className="mt-1 text-right text-[0.7rem] text-(--tarot-text-body)/60">
-									{message.time}
-								</p>
-							</div>
-						</motion.div>
-					)
-				})}
-			</div>
-		</article>
+	const tick = useCallback((timestamp: number) => {
+		const video = videoRef.current
+		if (!video || !video.duration) {
+			rafRef.current = requestAnimationFrame(tick)
+			return
+		}
+
+		const delta = Math.min((timestamp - lastTimeRef.current) / 1000, 0.05)
+		lastTimeRef.current = timestamp
+
+		const next = video.currentTime + delta * directionRef.current
+		if (next >= video.duration) {
+			video.currentTime = video.duration
+			directionRef.current = -1
+		} else if (next <= 0) {
+			video.currentTime = 0
+			directionRef.current = 1
+		} else {
+			video.currentTime = next
+		}
+
+		rafRef.current = requestAnimationFrame(tick)
+	}, [])
+
+	useEffect(() => {
+		const video = videoRef.current
+		if (!video) return
+
+		if (reduced) return
+
+		const onLoaded = () => {
+			video.pause()
+			directionRef.current = 1
+			lastTimeRef.current = performance.now()
+			rafRef.current = requestAnimationFrame(tick)
+		}
+
+		if (video.readyState >= 2) {
+			onLoaded()
+		} else {
+			video.addEventListener("loadeddata", onLoaded, { once: true })
+		}
+
+		return () => {
+			cancelAnimationFrame(rafRef.current)
+			video.removeEventListener("loadeddata", onLoaded)
+		}
+	}, [tick, reduced])
+
+	return (
+		<video
+			ref={videoRef}
+			src={src}
+			muted
+			playsInline
+			preload="auto"
+			autoPlay={!!reduced}
+			loop={!!reduced}
+			className={className}
+		/>
 	)
 }

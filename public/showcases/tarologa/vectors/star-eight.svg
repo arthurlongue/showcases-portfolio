@@ -1,0 +1,5 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M40 5L45 35L75 40L45 45L40 75L35 45L5 40L35 35Z" fill="#d4af37" fill-opacity="0.8"/>
+  <path d="M40 15L43 37L65 40L43 43L40 65L37 43L15 40L37 37Z" fill="#f7e7ce" fill-opacity="0.6" transform="rotate(45 40 40)"/>
+  <circle cx="40" cy="40" r="4" fill="#f7e7ce"/>
+</svg>

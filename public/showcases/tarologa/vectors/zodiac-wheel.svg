@@ -1,0 +1,20 @@
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="75" cy="75" r="70" stroke="#d4af37" stroke-width="1" opacity="0.3"/>
+  <circle cx="75" cy="75" r="60" stroke="#d4af37" stroke-width="0.5" opacity="0.2"/>
+  <!-- Twelve Divisions -->
+  <g stroke="#d4af37" stroke-width="0.5" opacity="0.3">
+    <line x1="75" y1="5" x2="75" y2="145"/>
+    <line x1="5" y1="75" x2="145" y2="75"/>
+    <line x1="14.4" y1="40" x2="135.6" y2="110"/>
+    <line x1="14.4" y1="110" x2="135.6" y2="40"/>
+    <line x1="40" y1="14.4" x2="110" y2="135.6"/>
+    <line x1="40" y1="135.6" x2="110" y2="14.4"/>
+  </g>
+  <!-- Central Star -->
+  <path d="M75 55L78 72L95 75L78 78L75 95L72 78L55 75L72 72L75 55Z" fill="#f7e7ce" fill-opacity="0.6"/>
+  <!-- Constellation Dots -->
+  <circle cx="75" cy="20" r="1.5" fill="#f7e7ce"/>
+  <circle cx="130" cy="75" r="1.5" fill="#f7e7ce"/>
+  <circle cx="75" cy="130" r="1.5" fill="#f7e7ce"/>
+  <circle cx="20" cy="75" r="1.5" fill="#f7e7ce"/>
+</svg>

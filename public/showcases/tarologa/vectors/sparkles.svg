@@ -1,0 +1,7 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Large Sparkle -->
+  <path d="M30 5L33 27L55 30L33 33L30 55L27 33L5 30L27 27L30 5Z" fill="#f7e7ce" fill-opacity="0.8"/>
+  <!-- Small Sparkles -->
+  <path d="M10 10L12 18L20 20L12 22L10 30L8 22L0 20L8 18L10 10Z" fill="#d4af37" fill-opacity="0.6"/>
+  <path d="M45 40L47 48L55 50L47 52L45 60L43 52L35 50L43 48L45 40Z" fill="#d4af37" fill-opacity="0.6"/>
+</svg>

@@ -8,6 +8,8 @@ export interface TarologaPageData {
 		badge: string
 		title: string
 		description: string
+		imageCardEyebrow: string
+		imageCardTitle: string
 		primaryCtaLabel: string
 		primaryCtaHref: string
 		secondaryCtaLabel: string
@@ -19,12 +21,15 @@ export interface TarologaPageData {
 		overline: string
 		title: string
 		paragraphs: string[]
+		credentialsTitle: string
 		credentials: string[]
+		disclaimer: string
 	}
 	services: {
 		overline: string
 		title: string
 		description: string
+		cardCtaLabel: string
 		items: Array<{
 			name: string
 			duration: string
@@ -39,8 +44,11 @@ export interface TarologaPageData {
 		overline: string
 		title: string
 		steps: Array<{ title: string; description: string }>
+		formatsTitle: string
 		formats: string[]
+		paymentsTitle: string
 		payments: string[]
+		ctaLabel: string
 	}
 	benefits: {
 		overline: string
@@ -69,6 +77,7 @@ export interface TarologaPageData {
 		description: string
 		buttonLabel: string
 		buttonHref: string
+		floatingButtonLabel: string
 	}
 	footer: {
 		brand: string
@@ -95,7 +104,9 @@ export const tarologaData: TarologaPageData = {
 		title: "Clareza espiritual para decisões importantes da sua vida.",
 		description:
 			"Leituras acolhedoras, objetivas e sem julgamento para amor, carreira e ciclos pessoais. Você sai da sessão com direcionamento prático e emocional.",
-		primaryCtaLabel: "Agende sua Consulta",
+		imageCardEyebrow: "Atendimento acolhedor",
+		imageCardTitle: "Sua próxima decisão começa aqui.",
+		primaryCtaLabel: "Agende sua consulta",
 		primaryCtaHref: buildWhatsappLink("Olá, quero agendar minha consulta de tarot."),
 		secondaryCtaLabel: "Ver tipos de leitura",
 		secondaryCtaHref: "#servicos",
@@ -117,18 +128,22 @@ export const tarologaData: TarologaPageData = {
 			"Atuo há mais de 9 anos com Tarot de Marselha e Baralho Cigano, conduzindo atendimentos para quem busca clareza sem sensacionalismo.",
 			"Minha prática une escuta terapêutica, leitura simbólica e fundamentos da Umbanda, respeitando seu livre-arbítrio e seu momento emocional.",
 		],
+		credentialsTitle: "Formação e vertentes",
 		credentials: [
 			"Tarot Terapêutico",
 			"Tarot Psicanalítico",
 			"Médium Umbandista",
 			"Cartomancia Tradicional",
 		],
+		disclaimer:
+			"Meu atendimento é para orientação e autoconhecimento, sempre respeitando limites éticos e livre-arbítrio.",
 	},
 	services: {
 		overline: "Serviços e leituras",
 		title: "Escolha a tiragem ideal para o momento que você está vivendo.",
 		description:
 			"Valores transparentes e envio de orientações antes da consulta. Todas as sessões incluem espaço para perguntas e devolutiva final.",
+		cardCtaLabel: "Agendar esta leitura",
 		items: [
 			{
 				name: "Leitura Expressa",
@@ -179,7 +194,7 @@ export const tarologaData: TarologaPageData = {
 	},
 	howItWorks: {
 		overline: "Como funciona",
-		title: "Do primeiro contato ao fechamento da consulta, tudo é simples e rápido.",
+		title: "Três passos entre você e a sua próxima decisão com clareza.",
 		steps: [
 			{
 				title: "1. Chame no WhatsApp",
@@ -196,12 +211,15 @@ export const tarologaData: TarologaPageData = {
 					"A consulta acontece no formato escolhido e termina com direcionamentos claros para os próximos passos.",
 			},
 		],
+		formatsTitle: "Formato do atendimento",
 		formats: ["Áudio no WhatsApp", "Texto no WhatsApp", "Videochamada no WhatsApp", "Google Meet"],
+		paymentsTitle: "Formas de pagamento",
 		payments: ["Pix", "Cartão de crédito", "Parcelamento em até 3x"],
+		ctaLabel: "Reservar horário agora",
 	},
 	benefits: {
-		overline: "Benefícios",
-		title: "O que você leva da sessão além da leitura.",
+		overline: "Além da leitura",
+		title: "O que muda depois da sessão.",
 		items: [
 			"Alívio da ansiedade em momentos de incerteza",
 			"Direcionamento para decisões amorosas e profissionais",
@@ -213,7 +231,7 @@ export const tarologaData: TarologaPageData = {
 	},
 	testimonials: {
 		overline: "Depoimentos",
-		title: "Prova social de quem já passou pela consulta.",
+		title: "Palavras de quem passou pela leitura.",
 		description:
 			"Os relatos abaixo são anonimizados para preservar privacidade, mantendo a essência da experiência de cada consulente.",
 		items: [
@@ -234,6 +252,36 @@ export const tarologaData: TarologaPageData = {
 					"Senti acolhimento real. Não foi só previsão, foi orientação emocional para um momento difícil.",
 				name: "C. T.",
 				detail: "Mandala Astrológica • Curitiba",
+			},
+			{
+				quote:
+					"Estava num ciclo repetitivo no trabalho e a Clarice me mostrou padrões que eu não enxergava. Mudei minha postura e as coisas começaram a fluir.",
+				name: "R. L.",
+				detail: "Consulta Profunda • Belo Horizonte",
+			},
+			{
+				quote:
+					"Fiz o pacote de perguntas avulsas antes de uma entrevista de emprego. Recebi o áudio em menos de 24h e fui muito mais confiante.",
+				name: "J. P.",
+				detail: "Perguntas Avulsas • Brasília",
+			},
+			{
+				quote:
+					"Minha terceira consulta com ela. Cada vez entendo melhor os ciclos e consigo tomar decisões sem aquela paralisia que eu tinha antes.",
+				name: "L. F.",
+				detail: "Mandala Astrológica • Florianópolis",
+			},
+			{
+				quote:
+					"Não acreditava muito, vim por curiosidade. Saí impressionada com a precisão e principalmente com o respeito ao meu momento.",
+				name: "D. M.",
+				detail: "Leitura Expressa • Salvador",
+			},
+			{
+				quote:
+					"Me separei recentemente e a leitura me deu uma perspectiva que nenhuma amiga ou terapeuta tinha conseguido traduzir daquele jeito.",
+				name: "P. S.",
+				detail: "Consulta Profunda • Porto Alegre",
 			},
 		],
 		whatsappMock: {
@@ -297,6 +345,7 @@ export const tarologaData: TarologaPageData = {
 			"Escolha sua tiragem e receba atendimento humanizado, com direcionamento prático para sua próxima decisão.",
 		buttonLabel: "Falar no WhatsApp agora",
 		buttonHref: buildWhatsappLink("Olá, quero agendar minha consulta com você."),
+		floatingButtonLabel: "Agendar",
 	},
 	footer: {
 		brand: "Clarice Lua",

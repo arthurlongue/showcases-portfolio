@@ -49,14 +49,14 @@ function Header() {
 						/>
 					</svg>
 					<h2 className="font-display text-xl font-bold tracking-tight text-white">
-						CasaPronta
-						<span className="ml-1 font-serif text-2xl font-light italic text-[#a8a29e]">Prime</span>
+						Madeira
+						<span className="ml-1 font-serif text-2xl font-light italic text-[#a8a29e]">Viva</span>
 					</h2>
 				</div>
 
 				<nav className="hidden items-center gap-10 lg:flex">
 					<a href="#colecoes" className={navLink}>
-						Casos
+						Projetos
 					</a>
 					<a href="#sob-medida" className={navLink}>
 						Como Funciona
@@ -94,7 +94,7 @@ function Header() {
 						className="flex flex-col gap-5 border-t border-[#292524] bg-[#1c1917] px-6 py-6 lg:hidden"
 					>
 						<a href="#colecoes" className={navLink} onClick={() => setMobileOpen(false)}>
-							Casos
+							Projetos
 						</a>
 						<a href="#sob-medida" className={navLink} onClick={() => setMobileOpen(false)}>
 							Como Funciona
@@ -148,7 +148,7 @@ function Hero() {
 					transition={{ duration: 0.8, ease: "easeOut" }}
 					className="font-serif text-2xl tracking-wide italic text-[#d41132] md:text-3xl"
 				>
-					Serviços Residenciais Premium • São Paulo e região
+					Marcenaria Sob Medida • São Paulo e região
 				</motion.span>
 
 				<motion.h1
@@ -157,9 +157,9 @@ function Hero() {
 					transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
 					className="font-display text-5xl leading-[0.9] font-black tracking-tighter text-stone-50 md:text-7xl lg:text-8xl"
 				>
-					Sua Casa
-					<span className="block font-serif font-light italic text-[#d6d3d1]">Funcionando.</span>
-					<span className="mt-2 block">No Prazo.</span>
+					Seu Espaço
+					<span className="block font-serif font-light italic text-[#d6d3d1]">Sob Medida.</span>
+					<span className="mt-2 block">Em Madeira.</span>
 				</motion.h1>
 
 				<motion.p
@@ -168,8 +168,8 @@ function Hero() {
 					transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
 					className="mt-4 max-w-lg font-serif text-lg leading-relaxed font-light text-[#d6d3d1] md:text-xl"
 				>
-					Elétrica, hidráulica, pintura e manutenção com escopo fechado, visita técnica em até 24h e
-					garantia por escrito de 12 meses.
+					Cozinhas planejadas, closets, home offices e móveis sob medida com projeto 3D, fabricação
+					própria e garantia de 24 meses.
 				</motion.p>
 
 				<motion.div
@@ -179,10 +179,10 @@ function Hero() {
 					className="mt-8 flex flex-wrap justify-end gap-4"
 				>
 					<button type="button" className={primaryBtn}>
-						Quero orçamento em 24h
+						Solicitar projeto sob medida
 					</button>
 					<button type="button" className={outlineBtn}>
-						Ver escopos e prazos
+						Ver projetos realizados
 					</button>
 				</motion.div>
 			</div>
@@ -251,18 +251,18 @@ function AuthorityGrid() {
 	const cards: Card[] = [
 		{
 			icon: "forest",
-			title: "Escopo Fechado por Ambiente",
-			desc: "Você recebe checklist com materiais, mão de obra, prazo e investimento antes de começar.",
+			title: "Projeto 3D Antes de Fabricar",
+			desc: "Você visualiza cada detalhe em renderização realista e aprova antes de qualquer corte.",
 		},
 		{
 			icon: "verified",
-			title: "Equipe Própria e Responsável Técnico",
-			desc: "Profissionais identificados, supervisão de obra e atualização diária no WhatsApp.",
+			title: "Fabricação em Oficina Própria",
+			desc: "Maquinário CNC, controle de qualidade interno e rastreabilidade completa dos materiais.",
 		},
 		{
 			icon: "eco",
-			title: "Garantia e Pós-Obra",
-			desc: "Entrega com checklist final, nota fiscal e suporte de ajustes por 30 dias após a obra.",
+			title: "Montagem e Garantia de 24 Meses",
+			desc: "Instalação com ajuste milimétrico, limpeza do ambiente e garantia em contrato.",
 		},
 	]
 
@@ -277,9 +277,9 @@ function AuthorityGrid() {
 						transition={{ duration: 0.8, ease: "easeOut" }}
 						className="font-display mb-4 text-3xl font-bold text-stone-100 md:text-5xl"
 					>
-						Compromissos que{" "}
+						Cada peça é{" "}
 						<span className="font-serif font-light italic text-[#a8a29e]">
-							evitam dor de cabeça
+							pensada para o seu espaço
 						</span>
 					</motion.h2>
 					<div className="mx-auto h-1 w-20 rounded-full bg-[#d41132]" />
@@ -327,7 +327,7 @@ function Manifesto() {
 					transition={{ duration: 0.8 }}
 					className="z-10 mb-8 text-sm font-bold uppercase tracking-[0.2em] text-[#78716c]"
 				>
-					Nosso Método
+					Nossa Oficina
 				</motion.span>
 
 				<motion.h2
@@ -337,9 +337,9 @@ function Manifesto() {
 					transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
 					className="z-10 mb-8 font-serif text-4xl leading-tight font-light text-stone-100 lg:text-6xl"
 				>
-					Não vendemos promessa.
+					Não vendemos móvel de catálogo.
 					<br />
-					<span className="text-[#d41132] italic">Entregamos obra com método e contrato.</span>
+					<span className="text-[#d41132] italic">Criamos peças únicas para o seu espaço.</span>
 				</motion.h2>
 
 				<motion.div
@@ -350,12 +350,12 @@ function Manifesto() {
 					className="z-10 max-w-md space-y-6 text-lg leading-relaxed text-[#a8a29e]"
 				>
 					<p>
-						Começamos com visita técnica e diagnóstico. Em seguida, você recebe escopo fechado por
-						ambiente, cronograma e valor final para aprovar com clareza.
+						Começamos com medição no local e briefing detalhado. Você recebe projeto 3D com
+						especificação de materiais, ferragens e acabamentos para aprovar cada detalhe.
 					</p>
 					<p>
-						Durante a execução, protegemos piso e móveis, atualizamos seu grupo no WhatsApp e
-						finalizamos com checklist de entrega, nota fiscal e garantia.
+						A fabricação acontece na nossa oficina com maquinário de precisão. Na montagem,
+						ajustamos cada peça ao milímetro e entregamos o ambiente limpo e pronto para uso.
 					</p>
 				</motion.div>
 
@@ -370,7 +370,7 @@ function Manifesto() {
 						href="#"
 						className="cursor-pointer inline-flex items-center gap-2 border-b border-[#3a3330] pb-1 text-stone-100 transition-colors hover:border-[#d41132] hover:text-[#d41132] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d41132]"
 					>
-						<span>Ver exemplo de cronograma real</span>
+						<span>Ver processo completo de fabricação</span>
 						<svg
 							aria-hidden="true"
 							focusable="false"
@@ -399,12 +399,12 @@ function Manifesto() {
 					{/* eslint-disable-next-line @next/next/no-img-element */}
 					<img
 						src="/showcases/marcenaria/movel-madeira.webp"
-						alt="Equipe executando acabamento em reforma residencial"
+						alt="Marceneiro trabalhando em móvel sob medida na oficina"
 						className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
 					/>
 				</motion.div>
 				<div className="absolute bottom-8 right-8 rounded-lg bg-black/60 px-4 py-2 font-mono text-xs text-white/80 backdrop-blur-md">
-					Entrega residencial em 6 dias
+					Cozinha planejada em 30 dias
 				</div>
 			</div>
 		</section>
@@ -414,27 +414,27 @@ function Manifesto() {
 function ProjectsShowcase() {
 	const projects: Project[] = [
 		{
-			tag: "Reforma Rápida",
+			tag: "Cozinha Planejada",
 			title: "Apartamento Jardins",
-			desc: "Troca elétrica, pintura completa e marcenaria pontual entregues em 7 dias úteis.",
+			desc: "Cozinha completa em MDF lacado branco com ilha central, gavetas com sistema soft-close e bancada em quartzo.",
 			image: "/showcases/marcenaria/team-1.webp",
 		},
 		{
-			tag: "Banho e Cozinha",
-			title: "Residência Villa Lobos",
-			desc: "Correção de infiltração, troca de metais e pintura antiumidade com garantia.",
+			tag: "Closet Sob Medida",
+			title: "Residência Vila Nova",
+			desc: "Closet em L com iluminação LED integrada, gavetas com divisórias e portas de correr em espelho fumê.",
 			image: "/showcases/marcenaria/team-2.webp",
 		},
 		{
-			tag: "Sala e Iluminação",
-			title: "Painel Ibirapuera",
-			desc: "Novo circuito de iluminação, sanca e acabamento fino sem quebra-quebra excessivo.",
+			tag: "Home Office",
+			title: "Studio Pinheiros",
+			desc: "Estação de trabalho com painel ripado, prateleiras flutuantes e passagem embutida de cabos.",
 			image: "/showcases/marcenaria/team-3.webp",
 		},
 		{
-			tag: "Manutenção Programada",
-			title: "Atelier Botânico",
-			desc: "Plano mensal com visitas preventivas para elétrica, hidráulica e pequenos reparos.",
+			tag: "Painel e Estante",
+			title: "Loft Itaim",
+			desc: "Painel de TV em freijó com nicho para adega, estante assimétrica e bar integrado.",
 			image: "/showcases/marcenaria/team-4.webp",
 		},
 	]
@@ -445,7 +445,7 @@ function ProjectsShowcase() {
 				<div className="mb-12 flex flex-col items-end justify-between md:flex-row">
 					<div>
 						<span className="mb-2 block text-xs font-bold uppercase tracking-widest text-[#d41132]">
-							Casos Reais
+							Projetos Entregues
 						</span>
 						<motion.h2
 							initial={{ opacity: 0, y: 20 }}
@@ -454,15 +454,15 @@ function ProjectsShowcase() {
 							transition={{ duration: 0.8 }}
 							className="font-display text-4xl font-bold text-stone-100 lg:text-5xl"
 						>
-							Antes e Depois{" "}
-							<span className="font-serif font-light italic text-[#a8a29e]">Entregues</span>
+							Ambientes{" "}
+							<span className="font-serif font-light italic text-[#a8a29e]">Transformados</span>
 						</motion.h2>
 					</div>
 					<a
 						href="#"
 						className="mt-4 hidden cursor-pointer items-center gap-2 font-medium text-[#d6d3d1] transition-colors hover:text-[#d41132] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d41132] md:flex md:mt-0"
 					>
-						Ver mais casos e escopos
+						Ver mais projetos
 						<svg
 							aria-hidden="true"
 							focusable="false"
@@ -606,7 +606,7 @@ function ProjectsShowcase() {
 						type="button"
 						className="w-full cursor-pointer rounded-xl bg-[#292524] py-4 font-bold text-stone-100 transition-colors hover:bg-[#3a3330] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d41132]"
 					>
-						Ver mais casos e escopos
+						Ver mais projetos
 					</button>
 				</div>
 			</div>
@@ -640,13 +640,13 @@ function CTA() {
 					</svg>
 
 					<h2 className="font-display mb-6 text-4xl font-bold text-white md:text-5xl">
-						Receba seu plano de obra <br />
-						<span className="font-serif italic text-[#a8a29e]">em até 24h.</span>
+						Receba seu projeto 3D <br />
+						<span className="font-serif italic text-[#a8a29e]">personalizado.</span>
 					</h2>
 
 					<p className="mx-auto mb-10 max-w-2xl text-lg text-[#a8a29e]">
-						Enviamos escopo detalhado, cronograma por etapa e investimento final para você decidir
-						com segurança, sem surpresas no meio da execução.
+						Enviamos medição, projeto visual, especificação de materiais e orçamento fechado
+						para você aprovar cada detalhe antes da fabricação.
 					</p>
 
 					<form
@@ -662,7 +662,7 @@ function CTA() {
 							type="submit"
 							className="cursor-pointer rounded-xl bg-[#d41132] px-8 py-4 font-bold text-white shadow-lg shadow-[#d41132]/25 transition-all hover:bg-[#b50e29] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d41132] active:scale-95"
 						>
-							Quero meu orçamento
+							Quero meu projeto
 						</button>
 					</form>
 				</motion.div>
@@ -673,8 +673,8 @@ function CTA() {
 
 function Footer() {
 	const footerLinks = {
-		Empresa: ["Quem Somos", "Avaliações", "CNPJ e Seguros", "Trabalhe Conosco"],
-		Serviços: ["Reforma Rápida", "Elétrica e Hidráulica", "Pintura", "Manutenção Geral"],
+		Empresa: ["Quem Somos", "Nossa Oficina", "Avaliações", "Trabalhe Conosco"],
+		Serviços: ["Cozinhas Planejadas", "Closets e Dormitórios", "Home Office", "Áreas Sociais"],
 		Suporte: ["Contato", "Perguntas Frequentes", "Política de Privacidade", "Termos de Serviço"],
 	} as const
 
@@ -699,15 +699,15 @@ function Footer() {
 								d="M8 21V8l2-2 1 1 4-4 3 3-4 4 1 1-2 2v8"
 							/>
 						</svg>
-						<span className="font-display text-lg font-bold tracking-tight">CasaPronta Prime</span>
+						<span className="font-display text-lg font-bold tracking-tight">Madeira Viva</span>
 					</div>
 
 					<p className="mb-6 leading-relaxed text-[#78716c]">
-						Rua dos Pinheiros, 120
+						Rua Augusta, 2.200
 						<br />
-						Pinheiros, São Paulo - SP
+						Jardins, São Paulo - SP
 						<br />
-						CEP 05422-001
+						CEP 01412-100
 					</p>
 
 					<div className="flex gap-3">
@@ -762,7 +762,7 @@ function Footer() {
 
 			<div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-6 border-t border-[#1c1917] pt-8 md:flex-row">
 				<p className="text-xs text-[#78716c]">
-					© 2026 CasaPronta Prime. Todos os direitos reservados.
+					© 2026 Madeira Viva. Todos os direitos reservados.
 				</p>
 				<div className="flex items-center gap-3 rounded-lg border border-[#1c1917] bg-[#0d0c0b] px-4 py-2">
 					<svg
@@ -779,7 +779,7 @@ function Footer() {
 						/>
 					</svg>
 					<span className="text-xs font-medium uppercase tracking-wider text-stone-300">
-						Atendimento com contrato e nota fiscal
+						Fabricação própria com garantia em contrato
 					</span>
 				</div>
 			</div>
@@ -787,7 +787,7 @@ function Footer() {
 	)
 }
 
-export default function ServicosResidenciaisPage() {
+export default function MarcenariaSobMedidaPage() {
 	return (
 		<div className="atelier-obra overflow-x-hidden bg-[#1c1917] text-stone-100 selection:bg-[#d41132] selection:text-white">
 			<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>

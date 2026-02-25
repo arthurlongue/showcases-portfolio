@@ -1,0 +1,31 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sun Rays -->
+  <g stroke="#d4af37" stroke-width="2" stroke-linecap="round">
+    <!-- Long Rays -->
+    <line x1="60" y1="5" x2="60" y2="25"/>
+    <line x1="60" y1="115" x2="60" y2="95"/>
+    <line x1="5" y1="60" x2="25" y2="60"/>
+    <line x1="115" y1="60" x2="95" y2="60"/>
+    <!-- Short Rays -->
+    <line x1="28.2" y1="28.2" x2="35.3" y2="35.3"/>
+    <line x1="91.8" y1="91.8" x2="84.7" y2="84.7"/>
+    <line x1="28.2" y1="91.8" x2="35.3" y2="84.7"/>
+    <line x1="91.8" y1="28.2" x2="84.7" y2="35.3"/>
+  </g>
+  <!-- Ray Dots -->
+  <circle cx="24.7" cy="24.7" r="2" fill="#d4af37"/>
+  <circle cx="95.3" cy="95.3" r="2" fill="#d4af37"/>
+  <circle cx="24.7" cy="95.3" r="2" fill="#d4af37"/>
+  <circle cx="95.3" cy="24.7" r="2" fill="#d4af37"/>
+  
+  <!-- Outer Dashed Ring -->
+  <circle cx="60" cy="60" r="32" stroke="#d4af37" stroke-width="1" fill="none" stroke-dasharray="2 4"/>
+  
+  <!-- Sun Core -->
+  <circle cx="60" cy="60" r="28" fill="#f7e7ce" fill-opacity="0.9"/>
+  <circle cx="60" cy="60" r="25" stroke="#d4af37" stroke-width="1" fill="none"/>
+  
+  <!-- Inner Geometric Detail -->
+  <circle cx="60" cy="60" r="15" stroke="#d4af37" stroke-width="1" fill="none" opacity="0.5"/>
+  <circle cx="60" cy="60" r="4" fill="#d4af37"/>
+</svg>

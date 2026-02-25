@@ -18,11 +18,11 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-	title: "CasaPronta Prime | Serviços Residenciais Premium",
+	title: "Madeira Viva | Marcenaria Sob Medida Premium",
 	description:
-		"Reforma e manutenção residencial com visita técnica em 24h, escopo fechado e garantia por escrito.",
+		"Móveis planejados sob medida com projeto 3D, fabricação própria e garantia de 24 meses.",
 }
 
-export default function ServicosResidenciaisLayout({ children }: { children: React.ReactNode }) {
+export default function MarcenariaLayout({ children }: { children: React.ReactNode }) {
 	return <div className={`${plusJakarta.variable} ${cormorant.variable}`}>{children}</div>
 }
