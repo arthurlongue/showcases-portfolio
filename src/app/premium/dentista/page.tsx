@@ -492,27 +492,24 @@ function Experience() {
 	)
 }
 
-function Gallery() {
-	const galleryImages = [
-		{ src: "/showcases/dentista/recepcao-clinica.webp", alt: "Recepção da clínica Lumière" },
-		{ src: "/showcases/dentista/consultorio-premium.webp", alt: "Consultório premium" },
-		{ src: "/showcases/dentista/consultorio-moderno.webp", alt: "Consultório moderno" },
-		{ src: "/showcases/dentista/consultorio-classico.webp", alt: "Consultório clássico" },
-		{ src: "/showcases/dentista/scanner-digital.webp", alt: "Scanner digital 3D" },
-		{ src: "/showcases/dentista/sorriso-perfeito.webp", alt: "Resultado de tratamento estético" },
-	] as const
+const GALLERY_IMAGES = [
+	{ src: "/showcases/dentista/recepcao-clinica.webp", alt: "Recepção da clínica Lumière" },
+	{ src: "/showcases/dentista/consultorio-premium.webp", alt: "Consultório premium" },
+	{ src: "/showcases/dentista/consultorio-moderno.webp", alt: "Consultório moderno" },
+	{ src: "/showcases/dentista/consultorio-classico.webp", alt: "Consultório clássico" },
+	{ src: "/showcases/dentista/scanner-digital.webp", alt: "Scanner digital 3D" },
+	{ src: "/showcases/dentista/sorriso-perfeito.webp", alt: "Resultado de tratamento estético" },
+] as const
 
+function Gallery() {
 	const [[currentIndex, direction], setSlide] = useState([0, 0])
 
-	const navigate = useCallback(
-		(newDirection: number) => {
-			setSlide(([prev]) => {
-				const next = (prev + newDirection + galleryImages.length) % galleryImages.length
-				return [next, newDirection]
-			})
-		},
-		[galleryImages.length],
-	)
+	const navigate = useCallback((newDirection: number) => {
+		setSlide(([prev]) => {
+			const next = (prev + newDirection + GALLERY_IMAGES.length) % GALLERY_IMAGES.length
+			return [next, newDirection]
+		})
+	}, [])
 
 	const variants = {
 		enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
@@ -535,8 +532,8 @@ function Gallery() {
 						className="absolute inset-0"
 					>
 						<Image
-							src={galleryImages[currentIndex].src}
-							alt={galleryImages[currentIndex].alt}
+							src={GALLERY_IMAGES[currentIndex].src}
+							alt={GALLERY_IMAGES[currentIndex].alt}
 							fill
 							className="object-cover"
 							sizes="100vw"
@@ -564,7 +561,7 @@ function Gallery() {
 						<ChevronRight className="h-6 w-6" />
 					</button>
 					<span className="ml-2 text-3xl font-bold text-brand-white tabular-nums">
-						{currentIndex + 1}/{galleryImages.length}
+						{currentIndex + 1}/{GALLERY_IMAGES.length}
 					</span>
 				</div>
 			</div>
