@@ -50,6 +50,8 @@ const variants = {
 	}),
 }
 
+const STARS = Array.from({ length: 5 })
+
 export function TestimonialsCarousel() {
 	const [[current, direction], setCurrent] = useState([0, 0])
 
@@ -84,7 +86,7 @@ export function TestimonialsCarousel() {
 					>
 						<div className="bg-(--nutri-warm) p-10 md:p-14 rounded-4xl shadow-[0_12px_30px_rgba(45,106,79,0.05)] max-w-2xl mx-auto">
 							<div className="flex space-x-1 mb-6">
-								{[...Array(5)].map((_, i) => (
+								{STARS.map((_, i) => (
 									<span key={`star-${current}-${i}`} className="text-(--nutri-forest) text-lg">
 										★
 									</span>
