@@ -422,70 +422,14 @@ export function TarologaFaqAccordion({ items }: TarologaFaqAccordionProps) {
    ───────────────────────────────────────────── */
 
 export function PingPongVideo({ src, className }: { src: string; className?: string }) {
-	const videoRef = useRef<HTMLVideoElement>(null)
-	const directionRef = useRef<1 | -1>(1)
-	const rafRef = useRef(0)
-	const lastTimeRef = useRef(0)
-	const reduced = useReducedMotion()
-
-	const tick = useCallback((timestamp: number) => {
-		const video = videoRef.current
-		if (!video || !video.duration) {
-			rafRef.current = requestAnimationFrame(tick)
-			return
-		}
-
-		const delta = Math.min((timestamp - lastTimeRef.current) / 1000, 0.05)
-		lastTimeRef.current = timestamp
-
-		const next = video.currentTime + delta * directionRef.current
-		if (next >= video.duration) {
-			video.currentTime = video.duration
-			directionRef.current = -1
-		} else if (next <= 0) {
-			video.currentTime = 0
-			directionRef.current = 1
-		} else {
-			video.currentTime = next
-		}
-
-		rafRef.current = requestAnimationFrame(tick)
-	}, [])
-
-	useEffect(() => {
-		const video = videoRef.current
-		if (!video) return
-
-		if (reduced) return
-
-		const onLoaded = () => {
-			video.pause()
-			directionRef.current = 1
-			lastTimeRef.current = performance.now()
-			rafRef.current = requestAnimationFrame(tick)
-		}
-
-		if (video.readyState >= 2) {
-			onLoaded()
-		} else {
-			video.addEventListener("loadeddata", onLoaded, { once: true })
-		}
-
-		return () => {
-			cancelAnimationFrame(rafRef.current)
-			video.removeEventListener("loadeddata", onLoaded)
-		}
-	}, [tick, reduced])
-
 	return (
 		<video
-			ref={videoRef}
 			src={src}
 			muted
+			autoPlay
+			loop
 			playsInline
 			preload="auto"
-			autoPlay={!!reduced}
-			loop={!!reduced}
 			className={className}
 		/>
 	)
