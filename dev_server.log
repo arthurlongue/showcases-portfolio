@@ -1,0 +1,13 @@
+
+> showcases-portfolio@0.1.0 dev /app
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+
+✓ Starting...
+✓ Ready in 1186ms
+○ Compiling /premium/personal ...
+ GET /premium/personal 200 in 6.4s (compile: 5.9s, render: 499ms)
+ GET /premium/personal 200 in 155ms (compile: 8ms, render: 147ms)
