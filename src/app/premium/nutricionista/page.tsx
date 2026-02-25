@@ -1,4 +1,5 @@
 import { Activity, Clock, HeartPulse, Instagram, Leaf, Linkedin, ShieldCheck } from "lucide-react"
+import Image from "next/image"
 import { AnimatedCheck, MotionDiv, MotionH1, StatCounter } from "./components/client"
 import { SpecialtiesTabs } from "./components/specialties-tabs"
 import { TestimonialsCarousel } from "./components/testimonials-carousel"
@@ -74,9 +75,12 @@ export default function NutricionistaPremiumPage() {
 							transition={{ duration: 0.8 }}
 							className="relative"
 						>
-							<img
+							<Image
 								src="/showcases/nutricionista/nutricionista-na-cozinha.webp"
 								alt="Nutricionista"
+								width={1408}
+								height={768}
+								sizes="(max-width: 1024px) 100vw, 50vw"
 								className="rounded-4xl shadow-[0_20px_40px_rgba(45,106,79,0.12)] object-cover w-full h-150"
 							/>
 
@@ -180,14 +184,20 @@ export default function NutricionistaPremiumPage() {
 						</a>
 					</div>
 					<div className="grid grid-cols-2 gap-6">
-						<img
+						<Image
 							src="/showcases/nutricionista/espinafre-abacate-sementes.webp"
 							alt="Ingredientes frescos"
+							width={1408}
+							height={768}
+							sizes="(max-width: 1024px) 50vw, 25vw"
 							className="rounded-4xl shadow-[0_20px_40px_rgba(45,106,79,0.08)] w-full h-full object-cover"
 						/>
-						<img
+						<Image
 							src="/showcases/nutricionista/preparando-salada.webp"
 							alt="Preparo de refeição"
+							width={1408}
+							height={768}
+							sizes="(max-width: 1024px) 50vw, 25vw"
 							className="rounded-4xl shadow-[0_20px_40px_rgba(45,106,79,0.08)] w-full h-full object-cover mt-12"
 						/>
 					</div>
@@ -303,9 +313,12 @@ export default function NutricionistaPremiumPage() {
 			{/* CTA */}
 			<section className="flex flex-col lg:flex-row mt-20">
 				<div className="flex-1">
-					<img
+					<Image
 						src="/showcases/nutricionista/nutricionista-na-cozinha.webp"
 						alt="Consulta"
+						width={1408}
+						height={768}
+						sizes="(max-width: 1024px) 100vw, 50vw"
 						className="w-full h-full object-cover min-h-125"
 					/>
 				</div>
