@@ -247,6 +247,7 @@ function Services() {
 						<div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
 							<video
 								src="/showcases/fotografo/galeria-video.mp4"
+								poster="/showcases/fotografo/galeria-video-poster.webp"
 								autoPlay
 								loop
 								muted
