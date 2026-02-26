@@ -373,36 +373,6 @@
 	}
 }
 
-/* --- Sidebar fallback behaviors (global, outside @theme) ---
-   Duplicate of the rules above to ensure they apply even if
-   a bundler or Tailwind scope drops declarations inside @theme. */
-[data-slot="sidebar"][data-state="collapsed"] [data-slot="sidebar-gap"] {
-	width: var(--sidebar-width-icon);
-	transition: width 200ms linear;
-}
-
-[data-slot="sidebar"][data-state="collapsed"]:hover [data-slot="sidebar-gap"] {
-	width: var(--sidebar-width);
-}
-
-[data-slot="sidebar"][data-state="collapsed"] [data-slot="sidebar-container"] {
-	width: var(--sidebar-width-icon);
-	transition:
-		width 200ms linear,
-		left 200ms linear,
-		right 200ms linear;
-	overflow: hidden;
-}
-
-[data-slot="sidebar"][data-state="collapsed"]:hover [data-slot="sidebar-container"] {
-	width: var(--sidebar-width);
-}
-
-/* Ensure no horizontal scroll on body when sidebar is collapsed */
-[data-slot="sidebar"][data-state="collapsed"] {
-	overflow-x: hidden;
-}
-
 @layer utilities {
 	.mask-image-fade {
 		mask-image: linear-gradient(to bottom, transparent, black 40%, black 60%, transparent);
