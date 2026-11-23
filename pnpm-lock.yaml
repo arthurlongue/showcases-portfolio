@@ -2367,8 +2367,8 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  lodash@4.17.23:
-    resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
+  lodash@4.18.1:
+    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   log-symbols@6.0.0:
     resolution: {integrity: sha512-i24m8rpwhmPIS4zscNzK6MSEhk0DUWa/8iYQWxhffV8jkI4Phvs3F+quL5xvS0gdQR0FyTCMMH33Y78dDTzzIw==}
@@ -2770,6 +2770,7 @@ packages:
   recharts@2.15.4:
     resolution: {integrity: sha512-UT/q6fwS3c1dHbXv2uFgYJ9BMFHu3fwnd7AYZaEQhXuYQ4hgsxLvsUXzGdKeZrW5xopzDCvuA2N41WJ88I7zIw==}
     engines: {node: '>=14'}
+    deprecated: 1.x and 2.x branches are no longer active. Bump to Recharts v3 to receive latest features and bugfixes. See https://github.com/recharts/recharts/wiki/3.0-migration-guide
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -5285,7 +5286,7 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  lodash@4.17.23: {}
+  lodash@4.18.1: {}
 
   log-symbols@6.0.0:
     dependencies:
@@ -5726,7 +5727,7 @@ snapshots:
     dependencies:
       clsx: 2.1.1
       eventemitter3: 4.0.7
-      lodash: 4.17.23
+      lodash: 4.18.1
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
       react-is: 18.3.1
